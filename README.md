@@ -4,4 +4,4 @@ Make sure that you already have PROS installed and working properly before runni
 
 This installer will prompt the user for the components to install (ie the user can choose to just install the Convex library and not the New ConVEX Project Plugin or the make utility). This installer can also be used as a means of updating an installation or adding components to it.
 
-[b]To use the installer,[/b] download ConVEX-Setup.exe and run it. The wizard will prompt you for the necessary information and install the selected files. The source is provided for reference and is not needed to use the installer.
+[B]To use the installer,[/B] download ConVEX-Setup.exe and run it. The wizard will prompt you for the necessary information and install the selected files. The source is provided for reference and is not needed to use the installer.
