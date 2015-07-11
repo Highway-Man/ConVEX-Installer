@@ -1,0 +1,715 @@
+
+bin/output.elf:     file format elf32-littlearm
+bin/output.elf
+architecture: arm, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x08001191
+
+Program Header:
+    LOAD off    0x00008000 vaddr 0x08000000 paddr 0x08000000 align 2**15
+         filesz 0x00009e04 memsz 0x00009e08 flags rwx
+    LOAD off    0x00018800 vaddr 0x20000800 paddr 0x08009e08 align 2**15
+         filesz 0x00000770 memsz 0x00002988 flags rw-
+    LOAD off    0x00020000 vaddr 0x20000000 paddr 0x20000000 align 2**15
+         filesz 0x00000000 memsz 0x00000800 flags rw-
+private flags = 5000002: [Version5 EABI] [has entry point]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 startup       00000130  08000000  08000000  00008000  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00009cd4  08000130  08000130  00008130  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .textalign    00000004  08009e04  08009e04  00011e04  2**0
+                  ALLOC
+  3 .stacks       00000800  20000000  20000000  00020000  2**0
+                  ALLOC
+  4 .data         00000770  20000800  08009e08  00018800  2**3
+                  CONTENTS, ALLOC, LOAD, DATA
+  5 .bss          00002218  20000f70  0800a578  00018f70  2**3
+                  ALLOC
+  6 .debug_info   0002d317  00000000  00000000  00018f70  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000097ad  00000000  00000000  00046287  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_aranges 00001740  00000000  00000000  0004fa38  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_ranges 00002648  00000000  00000000  00051178  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_line   0000d01b  00000000  00000000  000537c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    00005ac0  00000000  00000000  000607db  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .comment      00000011  00000000  00000000  0006629b  2**0
+                  CONTENTS, READONLY
+ 13 .ARM.attributes 00000033  00000000  00000000  000662ac  2**0
+                  CONTENTS, READONLY
+ 14 .debug_frame  00003aec  00000000  00000000  000662e0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 15 .debug_loc    0001001f  00000000  00000000  00069dcc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+SYMBOL TABLE:
+08000000 l    d  startup	00000000 startup
+08000130 l    d  .text	00000000 .text
+08009e04 l    d  .textalign	00000000 .textalign
+20000000 l    d  .stacks	00000000 .stacks
+20000800 l    d  .data	00000000 .data
+20000f70 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    df *ABS*	00000000 vectors.c
+00000000 l    df *ABS*	00000000 main.c
+08008ee0 l     F .text	0000001e cmd_apollo
+08008f00 l     F .text	00000004 cmd_sm
+08009d60 l     O .text	00000058 commands
+08009dc0 l     O .text	00000008 shell_cfg1
+00000000 l    df *ABS*	00000000 _arm_addsubdf3.o
+00000000 l    df *ABS*	00000000 _arm_muldivdf3.o
+00000000 l    df *ABS*	00000000 _arm_cmpdf2.o
+00000000 l    df *ABS*	00000000 _arm_fixunsdfsi.o
+00000000 l    df *ABS*	00000000 _arm_fixsfsi.o
+00000000 l    df *ABS*	00000000 atoi.c
+00000000 l    df *ABS*	00000000 memset.c
+00000000 l    df *ABS*	00000000 strcasecmp.c
+00000000 l    df *ABS*	00000000 strchr.c
+00000000 l    df *ABS*	00000000 strncpy.c
+00000000 l    df *ABS*	00000000 strspn.c
+00000000 l    df *ABS*	00000000 strtol.c
+00000000 l    df *ABS*	00000000 _udivsi3.o
+08000ee0 l       .text	00000000 .udivsi3_skip_div0_test
+00000000 l       *ABS*	00000000 shift
+00000000 l    df *ABS*	00000000 _dvmd_tls.o
+00000000 l    df *ABS*	00000000 crt0.c
+00000000 l    df *ABS*	00000000 chcore.c
+00000000 l    df *ABS*	00000000 chcore_v7m.c
+080012d4 l       .text	00000000 _port_exit_from_isr
+00000000 l    df *ABS*	00000000 nvic.c
+00000000 l    df *ABS*	00000000 chsys.c
+20000f70 l     O .bss	00000048 mainthread.4769
+00000000 l    df *ABS*	00000000 chvt.c
+00000000 l    df *ABS*	00000000 chschd.c
+08001630 l     F .text	0000005c wakeup
+00000000 l    df *ABS*	00000000 chthreads.c
+00000000 l    df *ABS*	00000000 chdynamic.c
+00000000 l    df *ABS*	00000000 chregistry.c
+00000000 l    df *ABS*	00000000 chmtx.c
+00000000 l    df *ABS*	00000000 chevents.c
+00000000 l    df *ABS*	00000000 chqueues.c
+08001d60 l     F .text	0000002c qwait
+00000000 l    df *ABS*	00000000 chmemcore.c
+200010a4 l     O .bss	00000004 endmem
+200010a8 l     O .bss	00000004 nextmem
+00000000 l    df *ABS*	00000000 chheap.c
+200010b0 l     O .bss	00000020 default_heap
+00000000 l    df *ABS*	00000000 chmempools.c
+00000000 l    df *ABS*	00000000 hal.c
+00000000 l    df *ABS*	00000000 adc.c
+00000000 l    df *ABS*	00000000 ext.c
+00000000 l    df *ABS*	00000000 gpt.c
+00000000 l    df *ABS*	00000000 i2c.c
+00000000 l    df *ABS*	00000000 serial.c
+080024d0 l     F .text	00000006 readt
+080024e0 l     F .text	0000000a read
+080024f0 l     F .text	00000006 writet
+08002500 l     F .text	0000000a write
+08002510 l     F .text	00000006 gett
+08002520 l     F .text	0000000a get
+08002530 l     F .text	00000006 putt
+08002540 l     F .text	0000000a put
+08009060 l     O .text	00000020 vmt
+00000000 l    df *ABS*	00000000 spi.c
+00000000 l    df *ABS*	00000000 tm.c
+08002650 l     F .text	0000000e tm_start
+08002660 l     F .text	00000030 tm_stop
+200010d0 l     O .bss	00000004 measurement_offset
+00000000 l    df *ABS*	00000000 stm32_dma.c
+200010d4 l     O .bss	00000060 dma_isr_redir
+20001134 l     O .bss	00000004 dma_streams_mask
+00000000 l    df *ABS*	00000000 hal_lld.c
+00000000 l    df *ABS*	00000000 adc_lld.c
+08002b70 l     F .text	00000108 adc_lld_serve_rx_interrupt
+00000000 l    df *ABS*	00000000 ext_lld_isr.c
+00000000 l    df *ABS*	00000000 ext_lld.c
+00000000 l    df *ABS*	00000000 pal_lld.c
+08009110 l     O .text	00000012 cfgtab.6484
+00000000 l    df *ABS*	00000000 i2c_lld.c
+080032e0 l     F .text	00000044 i2c_lld_abort_operation
+08003330 l     F .text	0000002a i2c_lld_safety_timeout
+08003360 l     F .text	00000032 i2c_lld_serve_tx_end_irq
+080033a0 l     F .text	00000068 i2c_lld_serve_rx_end_irq
+00000000 l    df *ABS*	00000000 spi_lld.c
+08003910 l     F .text	0000000a spi_lld_serve_tx_interrupt
+08003920 l     F .text	00000074 spi_lld_serve_rx_interrupt
+200011ac l     O .bss	00000002 dummytx
+00000000 l    df *ABS*	00000000 gpt_lld.c
+08003ad0 l     F .text	00000026 gpt_lld_serve_interrupt
+00000000 l    df *ABS*	00000000 serial_lld.c
+08003ca0 l     F .text	00000014 notify1
+08003cc0 l     F .text	00000014 notify2
+08003ce0 l     F .text	00000014 notify3
+08003d00 l     F .text	0000011a serve_interrupt
+08009130 l     O .text	0000000c default_config
+00000000 l    df *ABS*	00000000 board.c
+00000000 l    df *ABS*	00000000 chprintf.c
+08003ff0 l     F .text	0000004c long_to_string_with_divisor.constprop.0
+00000000 l    df *ABS*	00000000 vexshell.c
+080042b0 l     F .text	000000e8 cmd_flags
+080043a0 l     F .text	00000048 cmd_reboot
+080043f0 l     F .text	00000090 cmd_threads
+08004480 l     F .text	00000078 cmd_mem
+08004500 l     F .text	00000028 cmd_systime
+08004530 l     F .text	000000d4 cmd_info
+08004610 l     F .text	00000040 _strtok.constprop.5
+08004870 l     F .text	00000200 shell_thread
+080091b0 l     O .text	0000003c states.7678
+20000c38 l     O .data	00000001 shell_echo
+20000c39 l     O .data	00000001 shell_bufr
+20000c3c l     O .data	00000038 local_commands
+2000149c l     O .bss	00000040 history.7741
+00000000 l    df *ABS*	00000000 vexcortex.c
+08004a70 l     F .text	00000160 vexCortexMonitorTask
+08004bd0 l     F .text	0000004c vexCortexSystemTask
+200014e0 l     O .bss	000002b0 waVexUserTask
+20000c74 l     O .data	00000004 task_terminate
+080096b0 l     O .text	0000000c lcd_config
+20001790 l     O .bss	00000180 waVexCortexSystemTask
+080096c0 l     O .text	0000000c console_config
+20001910 l     O .bss	000001e0 myThreads
+20001af0 l     O .bss	00000280 waVexCortexMonitorTask
+20001d70 l     O .bss	00000001 vexKillAll
+00000000 l    df *ABS*	00000000 vexdigital.c
+08004e70 l     F .text	00000044 _vi_cb
+00000000 l    df *ABS*	00000000 vexconfig.c
+20000d08 l     O .data	00000048 vexDefConfig
+00000000 l    df *ABS*	00000000 vexext.c
+20000d50 l     O .data	00000098 vexExtCfg
+00000000 l    df *ABS*	00000000 vexencoder.c
+080053a0 l     F .text	00000048 _vqe_4_cb_b
+080053f0 l     F .text	0000004c _vqe_5_cb_a
+08005440 l     F .text	0000004c _vqe_5_cb_b
+08005490 l     F .text	00000048 _vqe_1_cb_a
+080054e0 l     F .text	00000048 _vqe_2_cb_a
+08005530 l     F .text	00000048 _vqe_3_cb_a
+08005580 l     F .text	00000048 _vqe_4_cb_a
+080055d0 l     F .text	00000048 _vqe_1_cb_b
+08005620 l     F .text	00000048 _vqe_2_cb_b
+08005670 l     F .text	00000048 _vqe_3_cb_b
+08009760 l     O .text	00000014 _vqe_cb_a
+08009780 l     O .text	00000014 _vqe_cb_b
+20001d74 l     O .bss	0000008c vexQuadEncoders
+00000000 l    df *ABS*	00000000 vexsonar.c
+080058d0 l     F .text	00000054 _vs_echo_cb
+08005930 l     F .text	00000068 _vs_gpt_cb
+08005b00 l     F .text	00000100 VexSonarTask
+20001e00 l     O .bss	00000004 vexSonarThread
+20001e08 l     O .bss	00000180 waVexSonarTask
+20001f88 l     O .bss	00000001 nextSonar
+20001f8c l     O .bss	000000a0 vexSonars
+080097c0 l     O .text	0000000c vexSonarGpt
+2000202c l     O .bss	00000001 nextState
+00000000 l    df *ABS*	00000000 vexmotor.c
+2000202e l     O .bss	00000002 m0_cur_value
+20002030 l     O .bss	00000002 m9_new_value
+20002032 l     O .bss	00000002 m9_cur_value
+20002034 l     O .bss	000000c8 vexMotors
+200020fc l     O .bss	00000002 m0_new_value
+20002100 l     O .bss	00000004 PwmTimer
+00000000 l    df *ABS*	00000000 vexspi.c
+08006280 l     F .text	0000001e chprintf
+080062a0 l     F .text	00000024 _vspi_gpt_cb
+08009860 l     O .text	00000020 txInitData
+20000de8 l     O .data	0000000c spicfg
+08009880 l     O .text	0000000c vexSpiGpt
+20002104 l     O .bss	00000068 vexSpiData
+20000df4 l     O .data	00000010 spiTeamName
+2000216c l     O .bss	00000004 spiThread
+00000000 l    df *ABS*	00000000 vexlcd.c
+080066c0 l     F .text	00000098 vexLcdSendMessage.part.1
+08006900 l     F .text	000000e4 VexLcdUpdate
+20002170 l     O .bss	00000002 lcd_running
+20000e04 l     O .data	000000c0 vexLcdData
+20002174 l     O .bss	00000020 lcd_buffer
+20002198 l     O .bss	00000180 waVexLcdUpdate
+00000000 l    df *ABS*	00000000 vexanalog.c
+20002318 l     O .bss	00000004 adccfg
+20000ec4 l     O .data	00000028 adccg
+2000231c l     O .bss	00000010 samples_buf
+00000000 l    df *ABS*	00000000 vexctl.c
+2000232c l     O .bss	00000002 vexLocalCompState
+00000000 l    df *ABS*	00000000 vexime.c
+080073d0 l     F .text	00000108 vexImeTask
+20002330 l     O .bss	00000004 errors
+20002338 l     O .bss	00000280 waVexImeTask
+08009a60 l     O .text	0000000c imeI2cConfig
+200025b8 l     O .bss	0000037c vexImes
+00000000 l    df *ABS*	00000000 vexprintf.c
+08007600 l     F .text	000000b4 vex_printc
+080076c0 l     F .text	0000009c vex_prints
+08007760 l     F .text	000000cc vex_printi
+08007830 l     F .text	00000400 vex_print
+20002934 l     O .bss	00000064 pdefs1
+20002998 l     O .bss	00000064 pdefs2
+08009a80 l     O .text	00000040 round_nums
+00000000 l    df *ABS*	00000000 vextest.c
+08007d50 l     F .text	0000001c vexTestThread
+20002a00 l     O .bss	00000180 waVexTestThread
+00000000 l    df *ABS*	00000000 robotc_glue.c
+20002b80 l     O .bss	00000050 rcTasks
+00000000 l    df *ABS*	00000000 smartmotor.c
+20002bd0 l     O .bss	000004d8 sMotors
+200030a8 l     O .bss	0000009c sPorts
+00000000 l    df *ABS*	00000000 apollo.c
+08007f90 l     F .text	00000034 apolloPut
+08007fd0 l     F .text	00000040 vt100_printf
+20003144 l     O .bss	00000040 buffer.7841
+20003184 l     O .bss	00000004 count.7837
+00000000 l    df *ABS*	00000000 vexuser.c
+00000000 l    df *ABS*	00000000 vexdefault.c
+20000eec l     O .data	0000003c mConfig
+20000f28 l     O .data	00000048 dConfig
+00000000 l    df *ABS*	00000000 ctype_.c
+00000000 l    df *ABS*	00000000 impure.c
+20000810 l     O .data	00000428 impure_data
+00000000 l    df *ABS*	00000000 
+08009e08 l       .stacks	00000000 _etext
+00000000 l       *UND*	00000000 msObjectInit
+00010000 l       *ABS*	00000000 __ram_size__
+00000000 l       startup	00000000 _text
+20000000 l       startup	00000000 __ram_start__
+20010000 l       *ABS*	00000000 __ram_end__
+20003188 l       .bss	00000000 _end
+00000400 l       *ABS*	00000000 __main_stack_size__
+00000400 l       *ABS*	00000000 __process_stack_size__
+08009140 g     O .text	00000054 pal_default_config
+20000c78 g     O .data	00000090 vexioDefinition
+08002dd0 g     F .text	00000026 Vector58
+08003010 g     F .text	0000002a VectorE8
+08002ec0 g     F .text	0000006c Vector9C
+08000a04 g     F .text	00000012 __aeabi_dcmple
+080013f0 g     F .text	00000048 nvicEnableVector
+200011f0 g     O .bss	00000010 GPTD2
+080012b0  w    F .text	00000002 VectorAC
+080019c0 g     F .text	0000000a chThdExit
+08001540 g     F .text	00000058 chSysTimerHandlerI
+08001ce0 g     F .text	00000022 chEvtBroadcastFlagsI
+08008a10 g     F .text	00000014 vexAutonomous
+08001700 g     F .text	00000040 chSchGoSleepTimeoutS
+08007ea0 g     F .text	000000f0 SmartMotorDebugStatus
+08000940 g     F .text	0000007a __cmpdf2
+08002400 g     F .text	00000004 i2cInit
+08005200 g     F .text	0000001c vexDigitalChannelGet
+08005e10 g     F .text	0000001c vexMotorPositionSetCallback
+08007da0 g     F .text	00000002 vexTestDebug
+080070c0 g     F .text	0000007c vexIMEUpdateCounts
+08007c30 g     F .text	0000005c vex_printf
+08000940 g     F .text	0000007a __eqdf2
+08001b00 g     F .text	000000c4 chMtxLockS
+08002e00 g     F .text	00000026 Vector5C
+080030b0 g     F .text	000000a6 ext_lld_channel_enable
+08003aa0 g     F .text	00000010 spi_lld_select
+080004a4 g     F .text	0000005a __floatdidf
+080012b0  w    F .text	00000002 NMIVector
+08005f50 g     F .text	00000148 _vexMotorPwmInit
+08002180 g     F .text	00000086 chHeapFree
+08005a70 g     F .text	00000050 vexSonarRun
+080012b0  w    F .text	00000002 Vector11C
+080023a0 g     F .text	0000000a gptObjectInit
+08002910 g     F .text	00000044 dmaInit
+08004f30 g     F .text	00000028 vexDigitalPinGet
+08005d90 g     F .text	0000001c vexMotorDirectionGet
+08008a80 g     F .text	0000045c vexCortexDefaultDriver
+08008780 g     F .text	0000003a apolloDeinit
+08003bb0 g     F .text	000000c4 gpt_lld_start
+080012b0  w    F .text	00000002 Vector8C
+08001c80 g     F .text	00000022 chEvtUnregister
+08004ca0 g     F .text	000000bc vexSleep
+08003e60 g     F .text	00000016 VectorDC
+08000000 g     O startup	00000130 _vectors
+08000a80 g     F .text	0000004c __fixsfsi
+080016d0 g     F .text	00000028 chSchGoSleepS
+080012b0  w    F .text	00000002 Vector110
+08000930 g     F .text	0000008a __gtdf2
+08005cb0 g     F .text	00000028 vexMotorSet
+08002460 g     F .text	00000004 i2cGetErrors
+080024c0 g     F .text	00000004 i2cReleaseBus
+2000116c g     O .bss	00000008 EXTD1
+20001174 g     O .bss	00000038 I2CD1
+20003188 g       .bss	00000000 __heap_base__
+08007350 g     F .text	00000078 vexIMEPrintBuf
+08005d00 g     F .text	0000002c vexMotorStopAll
+08002830 g     F .text	00000028 Vector120
+08001890 g     F .text	0000006c chThdCreateI
+08008240 g     F .text	00000050 apolloAnalogSetup
+08004c90 g     F .text	00000006 vexTaskRegister
+080037d0 g     F .text	00000044 i2c_lld_stop
+080081e0 g     F .text	00000058 apolloDigitalSetup
+080009cc g     F .text	00000010 __aeabi_cdcmple
+080012b0  w    F .text	00000002 VectorC8
+08003ab0 g     F .text	00000010 spi_lld_unselect
+08005c50 g     F .text	00000060 vexSonarDebug
+08006410 g     F .text	00000124 vexSpiSend
+08001740 g     F .text	00000058 chSchWakeupS
+08003040 g     F .text	00000056 ext_lld_exti_irq_enable
+08008290 g     F .text	00000104 apolloJoystickSetup
+080025d0 g     F .text	0000003c sdIncomingDataI
+08001f70 g     F .text	00000046 chOQGetI
+08001690 g     F .text	00000016 _scheduler_init
+08001900 g     F .text	0000002a chThdCreateStatic
+08006d60 g     F .text	00000060 vexImeInit
+080012b0  w    F .text	00000002 Vector94
+080085a0 g     F .text	0000002c apolloUpdateAnalog
+08004ff0 g     F .text	0000001c vexDigitalIntrCountGet
+080012b0  w    F .text	00000002 VectorA8
+08007000 g     F .text	00000058 vexIMEClearCounters
+080009bc g     F .text	00000020 __aeabi_cdrcmple
+08006ad0 g     F .text	00000018 vexAdcGet
+080012b0  w    F .text	00000002 VectorB4
+08005d30 g     F .text	00000018 vexMotorTypeSet
+08000434 g     F .text	00000022 __floatsidf
+08005df0 g     F .text	0000001c vexMotorPositionGetCallback
+08000938 g     F .text	00000082 __ltdf2
+08005010 g     F .text	0000012c vexDigitalConfigure
+08007140 g     F .text	0000005c vexIMEGetDeviceId
+200012e8 g     O .bss	000000d8 SD2
+080016b0 g     F .text	00000020 chSchReadyI
+08000130 g       startup	00000000 __fini_array_end
+080012c0  w    F .text	00000004 port_halt
+08002420 g     F .text	0000001c i2cStart
+20000800 g       .stacks	00000000 __main_thread_stack_end__
+08007e60 g     F .text	0000001c SmartMotorGetControllerCurrent
+080015a0 g     F .text	00000018 _vt_init
+08005db0 g     F .text	00000040 vexMotorPositionGet
+08000ee0 g     F .text	0000025c __udivsi3
+080020d0 g     F .text	00000020 _heap_init
+08002740 g     F .text	00000028 Vector74
+08002270 g     F .text	00000036 halInit
+08006810 g     F .text	0000002c vexLcdSet
+08005c00 g     F .text	00000020 vexSonarGetCm
+080012b0  w    F .text	00000002 VectorEC
+20000f70 g       .bss	00000000 _bss_start
+080017a0 g     F .text	00000040 chSchDoRescheduleBehind
+08000a40 g     F .text	00000040 __fixunsdfsi
+080012b0  w    F .text	00000002 UsageFaultVector
+08008a30 g     F .text	00000016 vexOperator
+20010000 g       *ABS*	00000000 __heap_end__
+080012b0  w    F .text	00000002 DebugMonitorVector
+200011e0 g     O .bss	00000010 GPTD1
+08001a60 g     F .text	0000003e chThdCreateFromHeap
+08000414 g     F .text	0000001e __aeabi_ui2d
+08007e00 g     F .text	00000034 _SmartMotorGetCurrent
+08000190 g     F .text	00000000 __aeabi_drsub
+080012b0  w    F .text	00000002 Vector40
+08005e80 g     F .text	000000c8 vexMotorDebug
+080012b0  w    F .text	00000002 VectorF8
+08003b40 g     F .text	00000016 Vector108
+08001190 g     F .text	00000118 ResetHandler
+08001e80 g     F .text	00000072 chIQReadTimeout
+08003410 g     F .text	0000011c VectorBC
+08002350 g     F .text	0000001c extStart
+08008010 g     F .text	000000a8 vt100_drawbox
+08006d40 g     F .text	00000018 vexImeSetMotor
+08002860 g     F .text	0000002c Vector124
+08002210 g     F .text	00000040 chHeapStatus
+080009f0 g     F .text	00000012 __aeabi_dcmplt
+08001300 g     F .text	00000034 _port_init
+08002a40 g     F .text	0000007a hal_lld_init
+08000458 g     F .text	0000003a __extendsfdf2
+08000754 g     F .text	000001d0 __aeabi_ddiv
+08005a20 g     F .text	00000020 vexSonarStart
+0800019c g     F .text	00000276 __adddf3
+080039a0 g     F .text	00000044 spi_lld_init
+080063d0 g     F .text	00000038 vexSpiTickDelay
+08000500 g     F .text	00000254 __aeabi_dmul
+08001980 g     F .text	00000040 chThdExitS
+08002340 g     F .text	0000000a extObjectInit
+080086a0 g     F .text	00000050 apolloUpdateJoystickButton
+08002300 g     F .text	00000022 adcStartConversion
+20001498 g     O .bss	00000004 shell_terminated
+080056f0 g     F .text	000000b4 vexEncoderAdd
+080024b0 g     F .text	00000006 i2cAcquireBus
+08005240 g     F .text	000000d4 vexMotorConfigure
+080022b0 g     F .text	00000004 adcInit
+08000414 g     F .text	0000001e __floatunsidf
+080087c0 g     F .text	00000230 apolloUpdate
+08002440 g     F .text	0000001a i2cStop
+08004040 g     F .text	00000268 chvprintf
+08003ac0 g     F .text	00000010 spi_lld_polled_exchange
+08004650 g     F .text	0000000c shellInit
+08002d00 g     F .text	00000050 adc_lld_start
+080012b0  w    F .text	00000002 PendSVVector
+08000ec0 g     F .text	0000001a strtol
+080012b0  w    F .text	00000002 Vector118
+080015c0 g     F .text	0000003c chVTSetI
+08002e60 g     F .text	00000026 Vector64
+20003188 g       .bss	00000000 _bss_end
+08007260 g     F .text	000000ec vexIMEFindEncoders
+08006f40 g     F .text	00000058 vexIMEEnableTermination
+08007e40 g     F .text	0000001c SmartMotorGetTemperature
+08005ce0 g     F .text	00000020 vexMotorGet
+08005820 g     F .text	00000020 vexEncoderGet
+08001180  w    F .text	00000002 _default_exit
+08003280 g     F .text	0000005c _pal_lld_setgroupmode
+08002c80 g     F .text	0000007c adc_lld_init
+08008480 g     F .text	00000054 apolloUpdateCortex
+080012b0  w    F .text	00000002 VectorCC
+200013c0 g     O .bss	000000d8 SD3
+08003e80 g     F .text	00000070 sd_lld_init
+08007e80 g     F .text	0000001c SmartMotorGetControllerTemperature
+080012b0  w    F .text	00000002 Vector54
+080012b0  w    F .text	00000002 Vector98
+08005220 g     F .text	0000001c vexDigitalCfgGet
+20001138 g     O .bss	00000034 ADCD1
+080023e0 g     F .text	00000014 gptStartOneShot
+080060e0 g     F .text	00000058 _vexMotorPwmSet_0
+08003e40 g     F .text	00000016 VectorD8
+08006fa0 g     F .text	00000058 vexIMEDisableTermination
+08005e30 g     F .text	0000001c vexMotorEncoderIdCallback
+080057f0 g     F .text	00000024 vexEncoderStartAll
+0800019c g     F .text	00000276 __aeabi_dadd
+08007cf0 g     F .text	00000058 vex_vsnprintf
+080012b0  w    F .text	00000002 Vector24
+08000938 g     F .text	00000082 __ledf2
+08001bd0 g     F .text	00000014 chMtxLock
+080039f0 g     F .text	000000ac spi_lld_start
+08000494 g     F .text	0000006a __aeabi_ul2d
+080020b0 g     F .text	00000018 chCoreStatus
+08001820 g     F .text	00000014 chSchDoReschedule
+080014d0 g     F .text	00000064 chSysInit
+08004ec0 g     F .text	00000040 vexDigitalModeSet
+08001930 g     F .text	00000018 chThdSleep
+08001d90 g     F .text	0000001e chIQInit
+08006ee0 g     F .text	00000060 vexIMESetAddr
+08009080 g     O .text	00000090 _stm32_dma_streams
+08002800 g     F .text	00000028 Vector84
+08000ad8 g     F .text	00000008 _atoi_r
+08002330 g     F .text	00000004 extInit
+080063a0 g     F .text	0000002c vexSpiSetMotor
+080013b0 g     F .text	0000001a SysTickVector
+08002620 g     F .text	00000010 spiObjectInit
+200011b0 g     O .bss	00000030 SPID1
+08000a2c g     F .text	00000012 __aeabi_dcmpgt
+08005890 g     F .text	00000038 vexEncoderDebug
+08005860 g     F .text	00000024 vexEncoderGetId
+08006540 g     F .text	0000017c vexSpiDebug
+08002ac0 g     F .text	000000a2 stm32_clock_init
+080031d0 g     F .text	000000a6 _pal_lld_init
+080060a0 g     F .text	00000040 vexMotorInit
+08006140 g     F .text	00000064 _vexMotorPwmSet_9
+08000a18 g     F .text	00000012 __aeabi_dcmpge
+08002550 g     F .text	00000004 sdInit
+080012b0  w    F .text	00000002 BusFaultVector
+08006330 g     F .text	00000014 vexSpiGetJoystickDataPtr
+08000198 g     F .text	0000027a __aeabi_dsub
+080012b0  w    F .text	00000002 VectorD0
+08002040 g     F .text	0000002c _core_init
+08007200 g     F .text	0000005c vexIMEGetVersion
+08000494 g     F .text	0000006a __floatundidf
+080025b0 g     F .text	0000001a sdStart
+080089f0  w    F .text	00000004 vexUserSetup
+080030a0 g     F .text	0000000c ext_lld_init
+08002fe0 g     F .text	0000002a VectorE4
+08003530 g     F .text	000000ec VectorC0
+08006880 g     F .text	00000076 vexLcdCheckReceiveMessage
+08003c80 g     F .text	0000001c gpt_lld_start_timer
+08005380 g     F .text	00000014 vexExtIrqInit
+080013d0 g     F .text	00000010 _port_switch
+08005c20 g     F .text	00000024 vexSonarGetInch
+08004c20 g     F .text	00000068 vexTaskRegisterPersistant
+08000a80 g     F .text	0000004c __aeabi_f2iz
+08000cd0 g     F .text	00000064 strncpy
+080012e0 g     F .text	00000012 SVCallVector
+08000b80 g     F .text	00000044 strcasecmp
+08001170  w    F .text	00000002 __late_init
+08002390 g     F .text	00000004 gptInit
+20001078 g     O .bss	00000010 vtlist
+080012b0  w    F .text	00000002 HardFaultVector
+08001340 g     F .text	00000070 _port_irq_epilogue
+08006e60 g     F .text	00000078 vexIMEHandleErrors
+08002070 g     F .text	00000034 chCoreAlloc
+08004660 g     F .text	00000018 shellCreate
+08000434 g     F .text	00000022 __aeabi_i2d
+080020f0 g     F .text	00000084 chHeapAlloc
+080074e0 g     F .text	0000011c vexIMEDebug
+080012b0  w    F .text	00000002 VectorF0
+08004e50 g     F .text	00000014 vexConsoleInit
+080028c0 g     F .text	0000004c Vector12C
+08006dc0 g     F .text	0000004a vexIMEDataInit
+08003b60 g     F .text	0000004a gpt_lld_init
+08001160  w    F .text	00000002 __aeabi_ldiv0
+08000754 g     F .text	000001d0 __divdf3
+20001200 g     O .bss	00000010 GPTD5
+080080c0 g     F .text	0000009e apolloScreenSetup
+08005e50 g     F .text	0000002c vexMotorEncoderIdGet
+080012b0  w    F .text	00000002 Vector100
+08000500 g     F .text	00000254 __muldf3
+08009e08 g       .stacks	00000000 _textdata
+08002f30 g     F .text	0000007c VectorE0
+080059a0 g     F .text	0000007c vexSonarAdd
+080012b0  w    F .text	00000002 VectorF4
+080012b0  w    F .text	00000002 MemManageVector
+08006e10 g     F .text	0000004e vexIMEResetAll
+08006cc0 g     F .text	00000020 vexImeSetCount
+08000130 g       startup	00000000 __fini_array_start
+08005140 g     F .text	0000001c vexDigitalTypeGet
+080062d0 g     F .text	00000048 vexSpiInit
+08001950 g     F .text	00000024 chThdSleepUntil
+08000ae0 g     F .text	00000098 memset
+08000130 g     F .text	00000060 main
+080026e0 g     F .text	00000028 Vector6C
+080023b0 g     F .text	0000001c gptStart
+080022e0 g     F .text	0000001c adcStart
+20001088 g     O .bss	0000001c rlist
+08005d50 g     F .text	0000001c vexMotorTypeGet
+08001aa0 g     F .text	0000001e chRegFirstThread
+080012b0  w    F .text	00000002 VectorA0
+08003190 g     F .text	00000038 ext_lld_start
+08002610 g     F .text	00000004 spiInit
+080022c0 g     F .text	00000016 adcObjectInit
+08000ee0 g     F .text	00000000 __aeabi_uidiv
+08006d00 g     F .text	00000034 vexImeSetType
+08003820 g     F .text	000000f0 i2c_lld_master_transmit_timeout
+08000d80 g     F .text	00000140 _strtol_r
+08000130 g       startup	00000000 __init_array_end
+080004a4 g     F .text	0000005a __aeabi_l2d
+080012b0  w    F .text	00000002 VectorC4
+080027a0 g     F .text	00000028 Vector7C
+08006b20 g     F .text	00000024 vexControllerCompetitonState
+080029f0 g     F .text	00000050 dmaStreamRelease
+08002370 g     F .text	00000014 extChannelEnable
+08001af0 g     F .text	0000000a chMtxInit
+080014b0 g     F .text	00000014 _idle_thread
+08001fc0 g     F .text	00000074 chOQWriteTimeout
+08003b20 g     F .text	00000016 VectorB0
+08009040 g     O .text	00000016 ch_debug
+08006840 g     F .text	00000038 vexLcdPrintf
+080012b0  w    F .text	00000002 Vector90
+08001cb0 g     F .text	0000002e chEvtSignalI
+08007060 g     F .text	0000005c vexIMEGetData
+08003160 g     F .text	0000002c ext_lld_channel_disable
+08006b50 g     F .text	00000132 vexControllerGet
+080012b0  w    F .text	00000002 Vector114
+080013e0 g     F .text	00000010 _port_thread_start
+08002e30 g     F .text	00000026 Vector60
+080012b0  w    F .text	00000002 Vector1C
+08004fc0 g     F .text	00000030 vexDigitalIntrRun
+08000940 g     F .text	0000007a __nedf2
+080017e0 g     F .text	0000003c chSchDoRescheduleAhead
+08007c90 g     F .text	0000005c vex_chprintf
+08002470 g     F .text	00000040 i2cMasterTransmitTimeout
+080012b0  w    F .text	00000002 Vector48
+08003620 g     F .text	00000030 i2c_lld_init
+20000400 g       .stacks	00000000 __process_stack_base__
+08005840 g     F .text	0000001c vexEncoderSet
+08006760 g     F .text	000000a8 vexLcdInit
+08002d50 g     F .text	00000074 adc_lld_start_conversion
+080057b0 g     F .text	00000038 vexEncoderStart
+08005160 g     F .text	000000a0 vexDigitalTypeGetName
+20000808 g     O .data	00000004 _impure_ptr
+08002710 g     F .text	00000028 Vector70
+08003e20 g     F .text	00000016 VectorD4
+08001480 g     F .text	00000030 nvicSetSystemHandlerPriority
+08002410 g     F .text	0000000e i2cObjectInit
+080023d0 g     F .text	00000008 gptStartOneShotI
+08006c90 g     F .text	00000024 vexImeGetCount
+08004680 g     F .text	000001ec shellGetLine
+08008160 g     F .text	00000078 apolloMotorSetup
+08001a10 g     F .text	0000004c chThdRelease
+20000fb8 g     O .bss	000000c0 _idle_thread_wa
+08001f00 g     F .text	0000001c chOQInit
+08001e30 g     F .text	00000048 chIQGetTimeout
+20000800 g       .data	00000000 _data
+080071a0 g     F .text	00000060 vexIMEGetVendor
+08002250 g     F .text	00000014 chPoolFree
+08007de0 g     F .text	0000001c SmartMotorGetSpeed
+080012b0  w    F .text	00000002 Vector4C
+08004f60 g     F .text	00000054 vexDigitalIntrSet
+080027d0 g     F .text	00000028 Vector80
+08001de0 g     F .text	0000004e chIQPutI
+080083a0 g     F .text	000000d8 apolloUpdateMotor
+080012d0 g     F .text	00000006 _port_switch_from_isr
+08000a40 g     F .text	00000040 __aeabi_d2uiz
+08008a50 g     F .text	00000022 vexCortexDefaultSetup
+08002690 g     F .text	00000046 tmInit
+08002e90 g     F .text	00000026 Vector68
+08001bf0 g     F .text	0000005c chMtxUnlock
+08006350 g     F .text	0000000e vexSpiGetControl
+08001d10 g     F .text	00000048 chEvtWaitAnyTimeout
+08007db0 g     F .text	00000024 CleanupTask
+20000400 g       .stacks	00000000 __main_stack_end__
+0800113c g     F .text	0000001a __aeabi_uidivmod
+08002770 g     F .text	00000028 Vector78
+080009dc g     F .text	00000012 __aeabi_dcmpeq
+20000f70 g       .data	00000000 _edata
+08003650 g     F .text	0000017c i2c_lld_start
+080069f0 g     F .text	0000009c vexLcdDebug
+080084e0 g     F .text	000000bc apolloUpdateDigital
+08001600 g     F .text	00000024 chVTResetI
+080012b0 g     F .text	00000002 _unhandled_exception
+08005320 g     F .text	00000058 vexExtSet
+08002560 g     F .text	00000044 sdObjectInit
+080012b0  w    F .text	00000002 Vector88
+08001c50 g     F .text	0000002a chEvtRegisterMask
+08005a40 g     F .text	00000024 vexSonarStartAll
+08006320 g     F .text	0000000e vexSpiGetOnlineStatus
+20000400 g       .stacks	00000000 __main_thread_stack_base__
+08008a00  w    F .text	00000002 vexUserInit
+080012b0  w    F .text	00000002 Vector104
+20000800 g     O .data	00000004 __ctype_ptr__
+08006360 g     F .text	00000018 vexSpiGetMainBattery
+08004f00 g     F .text	00000030 vexDigitalPinSet
+080012b0  w    F .text	00000002 Vector10C
+08000ad0 g     F .text	00000008 atoi
+08006af0 g     F .text	00000028 vexAdcDebug
+08008f20 g     O .text	00000101 _ctype_
+08001160  w    F .text	00000002 __aeabi_idiv0
+08000130 g       startup	00000000 __init_array_start
+080019d0 g     F .text	00000038 chThdWait
+08005ac0 g     F .text	0000003c vexSonarPing
+08002630 g     F .text	0000001c spiStart
+080056c0 g     F .text	00000028 vexEncoderInit
+20001210 g     O .bss	000000d8 SD1
+08000d40 g     F .text	0000003e strspn
+08001840 g     F .text	00000046 _thread_init
+080012b0  w    F .text	00000002 Vector50
+08007d70 g     F .text	00000026 vexTest
+08002960 g     F .text	00000090 dmaStreamAllocate
+08004d60 g     F .text	000000ec vexCortexInit
+080009cc g     F .text	00000010 __aeabi_cdcmpeq
+08000930 g     F .text	0000008a __gedf2
+08001ac0 g     F .text	0000002c chRegNextThread
+08000bd0 g     F .text	000000fe strchr
+08001440 g     F .text	0000003c nvicDisableVector
+08001f20 g     F .text	0000004e chOQPutTimeout
+20000000 g       .stacks	00000000 __main_stack_base__
+08002fb0 g     F .text	0000002a Vector44
+08000458 g     F .text	0000003a __aeabi_f2d
+080012b0  w    F .text	00000002 Vector28
+08003fe0 g     F .text	00000010 boardInit
+080061b0 g     F .text	000000c8 VectorB8
+08003ef0 g     F .text	000000d8 sd_lld_start
+080086f0 g     F .text	00000030 apolloUpdateJoystickAnalog
+08005d70 g     F .text	00000018 vexMotorDirectionSet
+080012b0  w    F .text	00000002 VectorFC
+08006ce0 g     F .text	00000020 vexImeGetId
+08000198 g     F .text	0000027a __subdf3
+20000800 g       .stacks	00000000 __process_stack_end__
+08006a90 g     F .text	00000038 vexAdcInit
+08008720 g     F .text	00000058 apolloInit
+080012b0  w    F .text	00000002 Vector34
+08001db0 g     F .text	0000002c chIQResetI
+08003fd0 g     F .text	00000004 __early_init
+080085d0 g     F .text	000000ca apolloUpdateSystem
+08002890 g     F .text	0000002c Vector128
+08006380 g     F .text	00000018 vexSpiGetBackupBattery
+08003b00 g     F .text	00000016 VectorA4
+080012b0  w    F .text	00000002 Vector20
+
+

@@ -1,0 +1,958 @@
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"vexuser.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.vexUserSetup,"ax",%progbits
+  19              		.align	2
+  20              		.p2align 4,,15
+  21              		.weak	vexUserSetup
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	vexUserSetup, %function
+  25              	vexUserSetup:
+  26              	.LFB63:
+  27              		.file 1 "vexuser.c"
+  28              		.loc 1 56 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              		.loc 1 58 0
+  34              		.loc 1 57 0
+  35 0000 FFF7FEBF 		b	vexCortexDefaultSetup
+  36              	.LVL0:
+  37              		.cfi_endproc
+  38              	.LFE63:
+  39              		.size	vexUserSetup, .-vexUserSetup
+  40 0004 AFF30080 		.section	.text.vexUserInit,"ax",%progbits
+  40      AFF30080 
+  40      AFF30080 
+  41              		.align	2
+  42              		.p2align 4,,15
+  43              		.weak	vexUserInit
+  44              		.thumb
+  45              		.thumb_func
+  46              		.type	vexUserInit, %function
+  47              	vexUserInit:
+  48              	.LFB64:
+  49              		.loc 1 63 0
+  50              		.cfi_startproc
+  51              		@ args = 0, pretend = 0, frame = 0
+  52              		@ frame_needed = 0, uses_anonymous_args = 0
+  53              		@ link register save eliminated.
+  54 0000 7047     		bx	lr
+  55              		.cfi_endproc
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 2
+
+
+  56              	.LFE64:
+  57              		.size	vexUserInit, .-vexUserInit
+  58 0002 00BFAFF3 		.section	.text.vexAutonomous,"ax",%progbits
+  58      0080AFF3 
+  58      0080AFF3 
+  58      0080
+  59              		.align	2
+  60              		.p2align 4,,15
+  61              		.global	vexAutonomous
+  62              		.thumb
+  63              		.thumb_func
+  64              		.type	vexAutonomous, %function
+  65              	vexAutonomous:
+  66              	.LFB65:
+  67              		.loc 1 69 0
+  68              		.cfi_startproc
+  69              		@ Volatile: function does not return.
+  70              		@ args = 0, pretend = 0, frame = 0
+  71              		@ frame_needed = 0, uses_anonymous_args = 0
+  72              	.LVL1:
+  73              		.loc 1 69 0
+  74 0000 08B5     		push	{r3, lr}
+  75              	.LCFI0:
+  76              		.cfi_def_cfa_offset 8
+  77              		.cfi_offset 3, -8
+  78              		.cfi_offset 14, -4
+  79              		.loc 1 73 0
+  80 0002 0348     		ldr	r0, .L6
+  81              	.LVL2:
+  82 0004 FFF7FEFF 		bl	vexTaskRegister
+  83              	.LVL3:
+  84              	.L4:
+  85              		.loc 1 78 0 discriminator 1
+  86 0008 1920     		movs	r0, #25
+  87 000a FFF7FEFF 		bl	vexSleep
+  88              	.LVL4:
+  89 000e FBE7     		b	.L4
+  90              	.L7:
+  91              		.align	2
+  92              	.L6:
+  93 0010 00000000 		.word	.LC0
+  94              		.cfi_endproc
+  95              	.LFE65:
+  96              		.size	vexAutonomous, .-vexAutonomous
+  97 0014 AFF30080 		.section	.text.vexOperator,"ax",%progbits
+  97      AFF30080 
+  97      AFF30080 
+  98              		.align	2
+  99              		.p2align 4,,15
+ 100              		.global	vexOperator
+ 101              		.thumb
+ 102              		.thumb_func
+ 103              		.type	vexOperator, %function
+ 104              	vexOperator:
+ 105              	.LFB66:
+ 106              		.loc 1 88 0
+ 107              		.cfi_startproc
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 3
+
+
+ 108              		@ args = 0, pretend = 0, frame = 0
+ 109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 110              	.LVL5:
+ 111              		.loc 1 92 0
+ 112 0000 40F20000 		movw	r0, #:lower16:.LC1
+ 113              	.LVL6:
+ 114              		.loc 1 88 0
+ 115 0004 08B5     		push	{r3, lr}
+ 116              	.LCFI1:
+ 117              		.cfi_def_cfa_offset 8
+ 118              		.cfi_offset 3, -8
+ 119              		.cfi_offset 14, -4
+ 120              		.loc 1 92 0
+ 121 0006 C0F20000 		movt	r0, #:upper16:.LC1
+ 122 000a FFF7FEFF 		bl	vexTaskRegister
+ 123              	.LVL7:
+ 124              		.loc 1 95 0
+ 125 000e FFF7FEFF 		bl	vexCortexDefaultDriver
+ 126              	.LVL8:
+ 127              		.loc 1 98 0
+ 128 0012 0020     		movs	r0, #0
+ 129 0014 08BD     		pop	{r3, pc}
+ 130              		.cfi_endproc
+ 131              	.LFE66:
+ 132              		.size	vexOperator, .-vexOperator
+ 133 0016 00BFAFF3 		.section	.rodata.str1.4,"aMS",%progbits,1
+ 133      0080AFF3 
+ 133      0080
+ 134              		.align	2
+ 135              	.LC0:
+ 136 0000 6175746F 		.ascii	"auton\000"
+ 136      6E00
+ 137 0006 0000     		.space	2
+ 138              	.LC1:
+ 139 0008 6F706572 		.ascii	"operator\000"
+ 139      61746F72 
+ 139      00
+ 140 0011 000000   		.text
+ 141              	.Letext0:
+ 142              		.file 2 "c:/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/stdint.h"
+ 143              		.file 3 "../../../../ChibiOS_2.6.2/os/ports/GCC/ARMCMx/chtypes.h"
+ 144              		.file 4 "../../fw/vex.h"
+ 145              		.file 5 "../../../../ChibiOS_2.6.2/os/ports/common/ARMCMx/CMSIS/include/core_cm3.h"
+ 146              		.section	.debug_info,"",%progbits
+ 147              	.Ldebug_info0:
+ 148 0000 C9010000 		.4byte	0x1c9
+ 149 0004 0200     		.2byte	0x2
+ 150 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 151 000a 04       		.byte	0x4
+ 152 000b 01       		.uleb128 0x1
+ 153 000c 4D000000 		.4byte	.LASF20
+ 154 0010 01       		.byte	0x1
+ 155 0011 0E000000 		.4byte	.LASF21
+ 156 0015 CD000000 		.4byte	.LASF22
+ 157 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 158 001d 00000000 		.4byte	0
+ 159 0021 00000000 		.4byte	0
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 4
+
+
+ 160 0025 00000000 		.4byte	.Ldebug_line0
+ 161 0029 02       		.uleb128 0x2
+ 162 002a 04       		.byte	0x4
+ 163 002b 07       		.byte	0x7
+ 164 002c 18000000 		.4byte	.LASF0
+ 165 0030 02       		.uleb128 0x2
+ 166 0031 01       		.byte	0x1
+ 167 0032 06       		.byte	0x6
+ 168 0033 34010000 		.4byte	.LASF1
+ 169 0037 02       		.uleb128 0x2
+ 170 0038 01       		.byte	0x1
+ 171 0039 08       		.byte	0x8
+ 172 003a A8000000 		.4byte	.LASF2
+ 173 003e 02       		.uleb128 0x2
+ 174 003f 02       		.byte	0x2
+ 175 0040 05       		.byte	0x5
+ 176 0041 4E010000 		.4byte	.LASF3
+ 177 0045 02       		.uleb128 0x2
+ 178 0046 02       		.byte	0x2
+ 179 0047 07       		.byte	0x7
+ 180 0048 82000000 		.4byte	.LASF4
+ 181 004c 03       		.uleb128 0x3
+ 182 004d 04       		.byte	0x4
+ 183 004e 05       		.byte	0x5
+ 184 004f 696E7400 		.ascii	"int\000"
+ 185 0053 02       		.uleb128 0x2
+ 186 0054 08       		.byte	0x8
+ 187 0055 05       		.byte	0x5
+ 188 0056 00000000 		.4byte	.LASF5
+ 189 005a 02       		.uleb128 0x2
+ 190 005b 08       		.byte	0x8
+ 191 005c 07       		.byte	0x7
+ 192 005d 6B000000 		.4byte	.LASF6
+ 193 0061 02       		.uleb128 0x2
+ 194 0062 04       		.byte	0x4
+ 195 0063 05       		.byte	0x5
+ 196 0064 C4000000 		.4byte	.LASF7
+ 197 0068 02       		.uleb128 0x2
+ 198 0069 04       		.byte	0x4
+ 199 006a 07       		.byte	0x7
+ 200 006b 60010000 		.4byte	.LASF8
+ 201 006f 04       		.uleb128 0x4
+ 202 0070 04       		.byte	0x4
+ 203 0071 02       		.uleb128 0x2
+ 204 0072 04       		.byte	0x4
+ 205 0073 07       		.byte	0x7
+ 206 0074 59000000 		.4byte	.LASF9
+ 207 0078 05       		.uleb128 0x5
+ 208 0079 04       		.byte	0x4
+ 209 007a 7E000000 		.4byte	0x7e
+ 210 007e 02       		.uleb128 0x2
+ 211 007f 01       		.byte	0x1
+ 212 0080 08       		.byte	0x8
+ 213 0081 BF000000 		.4byte	.LASF10
+ 214 0085 06       		.uleb128 0x6
+ 215 0086 58010000 		.4byte	.LASF12
+ 216 008a 02       		.byte	0x2
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 5
+
+
+ 217 008b 4F       		.byte	0x4f
+ 218 008c 61000000 		.4byte	0x61
+ 219 0090 02       		.uleb128 0x2
+ 220 0091 01       		.byte	0x1
+ 221 0092 02       		.byte	0x2
+ 222 0093 0B010000 		.4byte	.LASF11
+ 223 0097 06       		.uleb128 0x6
+ 224 0098 95000000 		.4byte	.LASF13
+ 225 009c 03       		.byte	0x3
+ 226 009d 31       		.byte	0x31
+ 227 009e 85000000 		.4byte	0x85
+ 228 00a2 07       		.uleb128 0x7
+ 229 00a3 85000000 		.4byte	0x85
+ 230 00a7 08       		.uleb128 0x8
+ 231 00a8 01       		.byte	0x1
+ 232 00a9 9B000000 		.4byte	.LASF23
+ 233 00ad 01       		.byte	0x1
+ 234 00ae 37       		.byte	0x37
+ 235 00af 01       		.byte	0x1
+ 236 00b0 00000000 		.4byte	.LFB63
+ 237 00b4 04000000 		.4byte	.LFE63
+ 238 00b8 02       		.byte	0x2
+ 239 00b9 7D       		.byte	0x7d
+ 240 00ba 00       		.sleb128 0
+ 241 00bb 01       		.byte	0x1
+ 242 00bc CB000000 		.4byte	0xcb
+ 243 00c0 09       		.uleb128 0x9
+ 244 00c1 04000000 		.4byte	.LVL0
+ 245 00c5 01       		.byte	0x1
+ 246 00c6 90010000 		.4byte	0x190
+ 247 00ca 00       		.byte	0
+ 248 00cb 0A       		.uleb128 0xa
+ 249 00cc 01       		.byte	0x1
+ 250 00cd 35000000 		.4byte	.LASF24
+ 251 00d1 01       		.byte	0x1
+ 252 00d2 3E       		.byte	0x3e
+ 253 00d3 01       		.byte	0x1
+ 254 00d4 00000000 		.4byte	.LFB64
+ 255 00d8 02000000 		.4byte	.LFE64
+ 256 00dc 02       		.byte	0x2
+ 257 00dd 7D       		.byte	0x7d
+ 258 00de 00       		.sleb128 0
+ 259 00df 01       		.byte	0x1
+ 260 00e0 0B       		.uleb128 0xb
+ 261 00e1 01       		.byte	0x1
+ 262 00e2 40010000 		.4byte	.LASF14
+ 263 00e6 01       		.byte	0x1
+ 264 00e7 44       		.byte	0x44
+ 265 00e8 01       		.byte	0x1
+ 266 00e9 97000000 		.4byte	0x97
+ 267 00ed 00000000 		.4byte	.LFB65
+ 268 00f1 14000000 		.4byte	.LFE65
+ 269 00f5 00000000 		.4byte	.LLST0
+ 270 00f9 01       		.byte	0x1
+ 271 00fa 34010000 		.4byte	0x134
+ 272 00fe 0C       		.uleb128 0xc
+ 273 00ff 61726700 		.ascii	"arg\000"
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 6
+
+
+ 274 0103 01       		.byte	0x1
+ 275 0104 44       		.byte	0x44
+ 276 0105 6F000000 		.4byte	0x6f
+ 277 0109 20000000 		.4byte	.LLST1
+ 278 010d 0D       		.uleb128 0xd
+ 279 010e 08000000 		.4byte	.LVL3
+ 280 0112 9A010000 		.4byte	0x19a
+ 281 0116 24010000 		.4byte	0x124
+ 282 011a 0E       		.uleb128 0xe
+ 283 011b 01       		.byte	0x1
+ 284 011c 50       		.byte	0x50
+ 285 011d 05       		.byte	0x5
+ 286 011e 03       		.byte	0x3
+ 287 011f 00000000 		.4byte	.LC0
+ 288 0123 00       		.byte	0
+ 289 0124 0F       		.uleb128 0xf
+ 290 0125 0E000000 		.4byte	.LVL4
+ 291 0129 AE010000 		.4byte	0x1ae
+ 292 012d 0E       		.uleb128 0xe
+ 293 012e 01       		.byte	0x1
+ 294 012f 50       		.byte	0x50
+ 295 0130 01       		.byte	0x1
+ 296 0131 49       		.byte	0x49
+ 297 0132 00       		.byte	0
+ 298 0133 00       		.byte	0
+ 299 0134 0B       		.uleb128 0xb
+ 300 0135 01       		.byte	0x1
+ 301 0136 41000000 		.4byte	.LASF15
+ 302 013a 01       		.byte	0x1
+ 303 013b 57       		.byte	0x57
+ 304 013c 01       		.byte	0x1
+ 305 013d 97000000 		.4byte	0x97
+ 306 0141 00000000 		.4byte	.LFB66
+ 307 0145 16000000 		.4byte	.LFE66
+ 308 0149 41000000 		.4byte	.LLST2
+ 309 014d 01       		.byte	0x1
+ 310 014e 82010000 		.4byte	0x182
+ 311 0152 0C       		.uleb128 0xc
+ 312 0153 61726700 		.ascii	"arg\000"
+ 313 0157 01       		.byte	0x1
+ 314 0158 57       		.byte	0x57
+ 315 0159 6F000000 		.4byte	0x6f
+ 316 015d 61000000 		.4byte	.LLST3
+ 317 0161 0D       		.uleb128 0xd
+ 318 0162 0E000000 		.4byte	.LVL7
+ 319 0166 9A010000 		.4byte	0x19a
+ 320 016a 78010000 		.4byte	0x178
+ 321 016e 0E       		.uleb128 0xe
+ 322 016f 01       		.byte	0x1
+ 323 0170 50       		.byte	0x50
+ 324 0171 05       		.byte	0x5
+ 325 0172 03       		.byte	0x3
+ 326 0173 08000000 		.4byte	.LC1
+ 327 0177 00       		.byte	0
+ 328 0178 10       		.uleb128 0x10
+ 329 0179 12000000 		.4byte	.LVL8
+ 330 017d C2010000 		.4byte	0x1c2
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 7
+
+
+ 331 0181 00       		.byte	0
+ 332 0182 11       		.uleb128 0x11
+ 333 0183 27010000 		.4byte	.LASF25
+ 334 0187 05       		.byte	0x5
+ 335 0188 0706     		.2byte	0x607
+ 336 018a A2000000 		.4byte	0xa2
+ 337 018e 01       		.byte	0x1
+ 338 018f 01       		.byte	0x1
+ 339 0190 12       		.uleb128 0x12
+ 340 0191 01       		.byte	0x1
+ 341 0192 11010000 		.4byte	.LASF18
+ 342 0196 01       		.byte	0x1
+ 343 0197 32       		.byte	0x32
+ 344 0198 01       		.byte	0x1
+ 345 0199 01       		.byte	0x1
+ 346 019a 13       		.uleb128 0x13
+ 347 019b 01       		.byte	0x1
+ 348 019c 25000000 		.4byte	.LASF16
+ 349 01a0 04       		.byte	0x4
+ 350 01a1 9E       		.byte	0x9e
+ 351 01a2 01       		.byte	0x1
+ 352 01a3 01       		.byte	0x1
+ 353 01a4 AE010000 		.4byte	0x1ae
+ 354 01a8 14       		.uleb128 0x14
+ 355 01a9 78000000 		.4byte	0x78
+ 356 01ad 00       		.byte	0
+ 357 01ae 13       		.uleb128 0x13
+ 358 01af 01       		.byte	0x1
+ 359 01b0 B6000000 		.4byte	.LASF17
+ 360 01b4 04       		.byte	0x4
+ 361 01b5 A5       		.byte	0xa5
+ 362 01b6 01       		.byte	0x1
+ 363 01b7 01       		.byte	0x1
+ 364 01b8 C2010000 		.4byte	0x1c2
+ 365 01bc 14       		.uleb128 0x14
+ 366 01bd 85000000 		.4byte	0x85
+ 367 01c1 00       		.byte	0
+ 368 01c2 12       		.uleb128 0x12
+ 369 01c3 01       		.byte	0x1
+ 370 01c4 69010000 		.4byte	.LASF19
+ 371 01c8 01       		.byte	0x1
+ 372 01c9 33       		.byte	0x33
+ 373 01ca 01       		.byte	0x1
+ 374 01cb 01       		.byte	0x1
+ 375 01cc 00       		.byte	0
+ 376              		.section	.debug_abbrev,"",%progbits
+ 377              	.Ldebug_abbrev0:
+ 378 0000 01       		.uleb128 0x1
+ 379 0001 11       		.uleb128 0x11
+ 380 0002 01       		.byte	0x1
+ 381 0003 25       		.uleb128 0x25
+ 382 0004 0E       		.uleb128 0xe
+ 383 0005 13       		.uleb128 0x13
+ 384 0006 0B       		.uleb128 0xb
+ 385 0007 03       		.uleb128 0x3
+ 386 0008 0E       		.uleb128 0xe
+ 387 0009 1B       		.uleb128 0x1b
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 8
+
+
+ 388 000a 0E       		.uleb128 0xe
+ 389 000b 55       		.uleb128 0x55
+ 390 000c 06       		.uleb128 0x6
+ 391 000d 11       		.uleb128 0x11
+ 392 000e 01       		.uleb128 0x1
+ 393 000f 52       		.uleb128 0x52
+ 394 0010 01       		.uleb128 0x1
+ 395 0011 10       		.uleb128 0x10
+ 396 0012 06       		.uleb128 0x6
+ 397 0013 00       		.byte	0
+ 398 0014 00       		.byte	0
+ 399 0015 02       		.uleb128 0x2
+ 400 0016 24       		.uleb128 0x24
+ 401 0017 00       		.byte	0
+ 402 0018 0B       		.uleb128 0xb
+ 403 0019 0B       		.uleb128 0xb
+ 404 001a 3E       		.uleb128 0x3e
+ 405 001b 0B       		.uleb128 0xb
+ 406 001c 03       		.uleb128 0x3
+ 407 001d 0E       		.uleb128 0xe
+ 408 001e 00       		.byte	0
+ 409 001f 00       		.byte	0
+ 410 0020 03       		.uleb128 0x3
+ 411 0021 24       		.uleb128 0x24
+ 412 0022 00       		.byte	0
+ 413 0023 0B       		.uleb128 0xb
+ 414 0024 0B       		.uleb128 0xb
+ 415 0025 3E       		.uleb128 0x3e
+ 416 0026 0B       		.uleb128 0xb
+ 417 0027 03       		.uleb128 0x3
+ 418 0028 08       		.uleb128 0x8
+ 419 0029 00       		.byte	0
+ 420 002a 00       		.byte	0
+ 421 002b 04       		.uleb128 0x4
+ 422 002c 0F       		.uleb128 0xf
+ 423 002d 00       		.byte	0
+ 424 002e 0B       		.uleb128 0xb
+ 425 002f 0B       		.uleb128 0xb
+ 426 0030 00       		.byte	0
+ 427 0031 00       		.byte	0
+ 428 0032 05       		.uleb128 0x5
+ 429 0033 0F       		.uleb128 0xf
+ 430 0034 00       		.byte	0
+ 431 0035 0B       		.uleb128 0xb
+ 432 0036 0B       		.uleb128 0xb
+ 433 0037 49       		.uleb128 0x49
+ 434 0038 13       		.uleb128 0x13
+ 435 0039 00       		.byte	0
+ 436 003a 00       		.byte	0
+ 437 003b 06       		.uleb128 0x6
+ 438 003c 16       		.uleb128 0x16
+ 439 003d 00       		.byte	0
+ 440 003e 03       		.uleb128 0x3
+ 441 003f 0E       		.uleb128 0xe
+ 442 0040 3A       		.uleb128 0x3a
+ 443 0041 0B       		.uleb128 0xb
+ 444 0042 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 9
+
+
+ 445 0043 0B       		.uleb128 0xb
+ 446 0044 49       		.uleb128 0x49
+ 447 0045 13       		.uleb128 0x13
+ 448 0046 00       		.byte	0
+ 449 0047 00       		.byte	0
+ 450 0048 07       		.uleb128 0x7
+ 451 0049 35       		.uleb128 0x35
+ 452 004a 00       		.byte	0
+ 453 004b 49       		.uleb128 0x49
+ 454 004c 13       		.uleb128 0x13
+ 455 004d 00       		.byte	0
+ 456 004e 00       		.byte	0
+ 457 004f 08       		.uleb128 0x8
+ 458 0050 2E       		.uleb128 0x2e
+ 459 0051 01       		.byte	0x1
+ 460 0052 3F       		.uleb128 0x3f
+ 461 0053 0C       		.uleb128 0xc
+ 462 0054 03       		.uleb128 0x3
+ 463 0055 0E       		.uleb128 0xe
+ 464 0056 3A       		.uleb128 0x3a
+ 465 0057 0B       		.uleb128 0xb
+ 466 0058 3B       		.uleb128 0x3b
+ 467 0059 0B       		.uleb128 0xb
+ 468 005a 27       		.uleb128 0x27
+ 469 005b 0C       		.uleb128 0xc
+ 470 005c 11       		.uleb128 0x11
+ 471 005d 01       		.uleb128 0x1
+ 472 005e 12       		.uleb128 0x12
+ 473 005f 01       		.uleb128 0x1
+ 474 0060 40       		.uleb128 0x40
+ 475 0061 0A       		.uleb128 0xa
+ 476 0062 9742     		.uleb128 0x2117
+ 477 0064 0C       		.uleb128 0xc
+ 478 0065 01       		.uleb128 0x1
+ 479 0066 13       		.uleb128 0x13
+ 480 0067 00       		.byte	0
+ 481 0068 00       		.byte	0
+ 482 0069 09       		.uleb128 0x9
+ 483 006a 898201   		.uleb128 0x4109
+ 484 006d 00       		.byte	0
+ 485 006e 11       		.uleb128 0x11
+ 486 006f 01       		.uleb128 0x1
+ 487 0070 9542     		.uleb128 0x2115
+ 488 0072 0C       		.uleb128 0xc
+ 489 0073 31       		.uleb128 0x31
+ 490 0074 13       		.uleb128 0x13
+ 491 0075 00       		.byte	0
+ 492 0076 00       		.byte	0
+ 493 0077 0A       		.uleb128 0xa
+ 494 0078 2E       		.uleb128 0x2e
+ 495 0079 00       		.byte	0
+ 496 007a 3F       		.uleb128 0x3f
+ 497 007b 0C       		.uleb128 0xc
+ 498 007c 03       		.uleb128 0x3
+ 499 007d 0E       		.uleb128 0xe
+ 500 007e 3A       		.uleb128 0x3a
+ 501 007f 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 10
+
+
+ 502 0080 3B       		.uleb128 0x3b
+ 503 0081 0B       		.uleb128 0xb
+ 504 0082 27       		.uleb128 0x27
+ 505 0083 0C       		.uleb128 0xc
+ 506 0084 11       		.uleb128 0x11
+ 507 0085 01       		.uleb128 0x1
+ 508 0086 12       		.uleb128 0x12
+ 509 0087 01       		.uleb128 0x1
+ 510 0088 40       		.uleb128 0x40
+ 511 0089 0A       		.uleb128 0xa
+ 512 008a 9742     		.uleb128 0x2117
+ 513 008c 0C       		.uleb128 0xc
+ 514 008d 00       		.byte	0
+ 515 008e 00       		.byte	0
+ 516 008f 0B       		.uleb128 0xb
+ 517 0090 2E       		.uleb128 0x2e
+ 518 0091 01       		.byte	0x1
+ 519 0092 3F       		.uleb128 0x3f
+ 520 0093 0C       		.uleb128 0xc
+ 521 0094 03       		.uleb128 0x3
+ 522 0095 0E       		.uleb128 0xe
+ 523 0096 3A       		.uleb128 0x3a
+ 524 0097 0B       		.uleb128 0xb
+ 525 0098 3B       		.uleb128 0x3b
+ 526 0099 0B       		.uleb128 0xb
+ 527 009a 27       		.uleb128 0x27
+ 528 009b 0C       		.uleb128 0xc
+ 529 009c 49       		.uleb128 0x49
+ 530 009d 13       		.uleb128 0x13
+ 531 009e 11       		.uleb128 0x11
+ 532 009f 01       		.uleb128 0x1
+ 533 00a0 12       		.uleb128 0x12
+ 534 00a1 01       		.uleb128 0x1
+ 535 00a2 40       		.uleb128 0x40
+ 536 00a3 06       		.uleb128 0x6
+ 537 00a4 9742     		.uleb128 0x2117
+ 538 00a6 0C       		.uleb128 0xc
+ 539 00a7 01       		.uleb128 0x1
+ 540 00a8 13       		.uleb128 0x13
+ 541 00a9 00       		.byte	0
+ 542 00aa 00       		.byte	0
+ 543 00ab 0C       		.uleb128 0xc
+ 544 00ac 05       		.uleb128 0x5
+ 545 00ad 00       		.byte	0
+ 546 00ae 03       		.uleb128 0x3
+ 547 00af 08       		.uleb128 0x8
+ 548 00b0 3A       		.uleb128 0x3a
+ 549 00b1 0B       		.uleb128 0xb
+ 550 00b2 3B       		.uleb128 0x3b
+ 551 00b3 0B       		.uleb128 0xb
+ 552 00b4 49       		.uleb128 0x49
+ 553 00b5 13       		.uleb128 0x13
+ 554 00b6 02       		.uleb128 0x2
+ 555 00b7 06       		.uleb128 0x6
+ 556 00b8 00       		.byte	0
+ 557 00b9 00       		.byte	0
+ 558 00ba 0D       		.uleb128 0xd
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 11
+
+
+ 559 00bb 898201   		.uleb128 0x4109
+ 560 00be 01       		.byte	0x1
+ 561 00bf 11       		.uleb128 0x11
+ 562 00c0 01       		.uleb128 0x1
+ 563 00c1 31       		.uleb128 0x31
+ 564 00c2 13       		.uleb128 0x13
+ 565 00c3 01       		.uleb128 0x1
+ 566 00c4 13       		.uleb128 0x13
+ 567 00c5 00       		.byte	0
+ 568 00c6 00       		.byte	0
+ 569 00c7 0E       		.uleb128 0xe
+ 570 00c8 8A8201   		.uleb128 0x410a
+ 571 00cb 00       		.byte	0
+ 572 00cc 02       		.uleb128 0x2
+ 573 00cd 0A       		.uleb128 0xa
+ 574 00ce 9142     		.uleb128 0x2111
+ 575 00d0 0A       		.uleb128 0xa
+ 576 00d1 00       		.byte	0
+ 577 00d2 00       		.byte	0
+ 578 00d3 0F       		.uleb128 0xf
+ 579 00d4 898201   		.uleb128 0x4109
+ 580 00d7 01       		.byte	0x1
+ 581 00d8 11       		.uleb128 0x11
+ 582 00d9 01       		.uleb128 0x1
+ 583 00da 31       		.uleb128 0x31
+ 584 00db 13       		.uleb128 0x13
+ 585 00dc 00       		.byte	0
+ 586 00dd 00       		.byte	0
+ 587 00de 10       		.uleb128 0x10
+ 588 00df 898201   		.uleb128 0x4109
+ 589 00e2 00       		.byte	0
+ 590 00e3 11       		.uleb128 0x11
+ 591 00e4 01       		.uleb128 0x1
+ 592 00e5 31       		.uleb128 0x31
+ 593 00e6 13       		.uleb128 0x13
+ 594 00e7 00       		.byte	0
+ 595 00e8 00       		.byte	0
+ 596 00e9 11       		.uleb128 0x11
+ 597 00ea 34       		.uleb128 0x34
+ 598 00eb 00       		.byte	0
+ 599 00ec 03       		.uleb128 0x3
+ 600 00ed 0E       		.uleb128 0xe
+ 601 00ee 3A       		.uleb128 0x3a
+ 602 00ef 0B       		.uleb128 0xb
+ 603 00f0 3B       		.uleb128 0x3b
+ 604 00f1 05       		.uleb128 0x5
+ 605 00f2 49       		.uleb128 0x49
+ 606 00f3 13       		.uleb128 0x13
+ 607 00f4 3F       		.uleb128 0x3f
+ 608 00f5 0C       		.uleb128 0xc
+ 609 00f6 3C       		.uleb128 0x3c
+ 610 00f7 0C       		.uleb128 0xc
+ 611 00f8 00       		.byte	0
+ 612 00f9 00       		.byte	0
+ 613 00fa 12       		.uleb128 0x12
+ 614 00fb 2E       		.uleb128 0x2e
+ 615 00fc 00       		.byte	0
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 12
+
+
+ 616 00fd 3F       		.uleb128 0x3f
+ 617 00fe 0C       		.uleb128 0xc
+ 618 00ff 03       		.uleb128 0x3
+ 619 0100 0E       		.uleb128 0xe
+ 620 0101 3A       		.uleb128 0x3a
+ 621 0102 0B       		.uleb128 0xb
+ 622 0103 3B       		.uleb128 0x3b
+ 623 0104 0B       		.uleb128 0xb
+ 624 0105 27       		.uleb128 0x27
+ 625 0106 0C       		.uleb128 0xc
+ 626 0107 3C       		.uleb128 0x3c
+ 627 0108 0C       		.uleb128 0xc
+ 628 0109 00       		.byte	0
+ 629 010a 00       		.byte	0
+ 630 010b 13       		.uleb128 0x13
+ 631 010c 2E       		.uleb128 0x2e
+ 632 010d 01       		.byte	0x1
+ 633 010e 3F       		.uleb128 0x3f
+ 634 010f 0C       		.uleb128 0xc
+ 635 0110 03       		.uleb128 0x3
+ 636 0111 0E       		.uleb128 0xe
+ 637 0112 3A       		.uleb128 0x3a
+ 638 0113 0B       		.uleb128 0xb
+ 639 0114 3B       		.uleb128 0x3b
+ 640 0115 0B       		.uleb128 0xb
+ 641 0116 27       		.uleb128 0x27
+ 642 0117 0C       		.uleb128 0xc
+ 643 0118 3C       		.uleb128 0x3c
+ 644 0119 0C       		.uleb128 0xc
+ 645 011a 01       		.uleb128 0x1
+ 646 011b 13       		.uleb128 0x13
+ 647 011c 00       		.byte	0
+ 648 011d 00       		.byte	0
+ 649 011e 14       		.uleb128 0x14
+ 650 011f 05       		.uleb128 0x5
+ 651 0120 00       		.byte	0
+ 652 0121 49       		.uleb128 0x49
+ 653 0122 13       		.uleb128 0x13
+ 654 0123 00       		.byte	0
+ 655 0124 00       		.byte	0
+ 656 0125 00       		.byte	0
+ 657              		.section	.debug_loc,"",%progbits
+ 658              	.Ldebug_loc0:
+ 659              	.LLST0:
+ 660 0000 00000000 		.4byte	.LFB65
+ 661 0004 02000000 		.4byte	.LCFI0
+ 662 0008 0200     		.2byte	0x2
+ 663 000a 7D       		.byte	0x7d
+ 664 000b 00       		.sleb128 0
+ 665 000c 02000000 		.4byte	.LCFI0
+ 666 0010 14000000 		.4byte	.LFE65
+ 667 0014 0200     		.2byte	0x2
+ 668 0016 7D       		.byte	0x7d
+ 669 0017 08       		.sleb128 8
+ 670 0018 00000000 		.4byte	0
+ 671 001c 00000000 		.4byte	0
+ 672              	.LLST1:
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 13
+
+
+ 673 0020 00000000 		.4byte	.LVL1
+ 674 0024 04000000 		.4byte	.LVL2
+ 675 0028 0100     		.2byte	0x1
+ 676 002a 50       		.byte	0x50
+ 677 002b 04000000 		.4byte	.LVL2
+ 678 002f 14000000 		.4byte	.LFE65
+ 679 0033 0400     		.2byte	0x4
+ 680 0035 F3       		.byte	0xf3
+ 681 0036 01       		.uleb128 0x1
+ 682 0037 50       		.byte	0x50
+ 683 0038 9F       		.byte	0x9f
+ 684 0039 00000000 		.4byte	0
+ 685 003d 00000000 		.4byte	0
+ 686              	.LLST2:
+ 687 0041 00000000 		.4byte	.LFB66
+ 688 0045 06000000 		.4byte	.LCFI1
+ 689 0049 0200     		.2byte	0x2
+ 690 004b 7D       		.byte	0x7d
+ 691 004c 00       		.sleb128 0
+ 692 004d 06000000 		.4byte	.LCFI1
+ 693 0051 16000000 		.4byte	.LFE66
+ 694 0055 0200     		.2byte	0x2
+ 695 0057 7D       		.byte	0x7d
+ 696 0058 08       		.sleb128 8
+ 697 0059 00000000 		.4byte	0
+ 698 005d 00000000 		.4byte	0
+ 699              	.LLST3:
+ 700 0061 00000000 		.4byte	.LVL5
+ 701 0065 04000000 		.4byte	.LVL6
+ 702 0069 0100     		.2byte	0x1
+ 703 006b 50       		.byte	0x50
+ 704 006c 04000000 		.4byte	.LVL6
+ 705 0070 16000000 		.4byte	.LFE66
+ 706 0074 0400     		.2byte	0x4
+ 707 0076 F3       		.byte	0xf3
+ 708 0077 01       		.uleb128 0x1
+ 709 0078 50       		.byte	0x50
+ 710 0079 9F       		.byte	0x9f
+ 711 007a 00000000 		.4byte	0
+ 712 007e 00000000 		.4byte	0
+ 713              		.section	.debug_aranges,"",%progbits
+ 714 0000 34000000 		.4byte	0x34
+ 715 0004 0200     		.2byte	0x2
+ 716 0006 00000000 		.4byte	.Ldebug_info0
+ 717 000a 04       		.byte	0x4
+ 718 000b 00       		.byte	0
+ 719 000c 0000     		.2byte	0
+ 720 000e 0000     		.2byte	0
+ 721 0010 00000000 		.4byte	.LFB63
+ 722 0014 04000000 		.4byte	.LFE63-.LFB63
+ 723 0018 00000000 		.4byte	.LFB64
+ 724 001c 02000000 		.4byte	.LFE64-.LFB64
+ 725 0020 00000000 		.4byte	.LFB65
+ 726 0024 14000000 		.4byte	.LFE65-.LFB65
+ 727 0028 00000000 		.4byte	.LFB66
+ 728 002c 16000000 		.4byte	.LFE66-.LFB66
+ 729 0030 00000000 		.4byte	0
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 14
+
+
+ 730 0034 00000000 		.4byte	0
+ 731              		.section	.debug_ranges,"",%progbits
+ 732              	.Ldebug_ranges0:
+ 733 0000 00000000 		.4byte	.LFB63
+ 734 0004 04000000 		.4byte	.LFE63
+ 735 0008 00000000 		.4byte	.LFB64
+ 736 000c 02000000 		.4byte	.LFE64
+ 737 0010 00000000 		.4byte	.LFB65
+ 738 0014 14000000 		.4byte	.LFE65
+ 739 0018 00000000 		.4byte	.LFB66
+ 740 001c 16000000 		.4byte	.LFE66
+ 741 0020 00000000 		.4byte	0
+ 742 0024 00000000 		.4byte	0
+ 743              		.section	.debug_line,"",%progbits
+ 744              	.Ldebug_line0:
+ 745 0000 54010000 		.section	.debug_str,"MS",%progbits,1
+ 745      02000201 
+ 745      00000201 
+ 745      FB0E0D00 
+ 745      01010101 
+ 746              	.LASF5:
+ 747 0000 6C6F6E67 		.ascii	"long long int\000"
+ 747      206C6F6E 
+ 747      6720696E 
+ 747      7400
+ 748              	.LASF21:
+ 749 000e 76657875 		.ascii	"vexuser.c\000"
+ 749      7365722E 
+ 749      6300
+ 750              	.LASF0:
+ 751 0018 756E7369 		.ascii	"unsigned int\000"
+ 751      676E6564 
+ 751      20696E74 
+ 751      00
+ 752              	.LASF16:
+ 753 0025 76657854 		.ascii	"vexTaskRegister\000"
+ 753      61736B52 
+ 753      65676973 
+ 753      74657200 
+ 754              	.LASF24:
+ 755 0035 76657855 		.ascii	"vexUserInit\000"
+ 755      73657249 
+ 755      6E697400 
+ 756              	.LASF15:
+ 757 0041 7665784F 		.ascii	"vexOperator\000"
+ 757      70657261 
+ 757      746F7200 
+ 758              	.LASF20:
+ 759 004d 474E5520 		.ascii	"GNU C 4.7.2\000"
+ 759      4320342E 
+ 759      372E3200 
+ 760              	.LASF9:
+ 761 0059 6C6F6E67 		.ascii	"long unsigned int\000"
+ 761      20756E73 
+ 761      69676E65 
+ 761      6420696E 
+ 761      7400
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 15
+
+
+ 762              	.LASF6:
+ 763 006b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 763      206C6F6E 
+ 763      6720756E 
+ 763      7369676E 
+ 763      65642069 
+ 764              	.LASF4:
+ 765 0082 73686F72 		.ascii	"short unsigned int\000"
+ 765      7420756E 
+ 765      7369676E 
+ 765      65642069 
+ 765      6E7400
+ 766              	.LASF13:
+ 767 0095 6D73675F 		.ascii	"msg_t\000"
+ 767      7400
+ 768              	.LASF23:
+ 769 009b 76657855 		.ascii	"vexUserSetup\000"
+ 769      73657253 
+ 769      65747570 
+ 769      00
+ 770              	.LASF2:
+ 771 00a8 756E7369 		.ascii	"unsigned char\000"
+ 771      676E6564 
+ 771      20636861 
+ 771      7200
+ 772              	.LASF17:
+ 773 00b6 76657853 		.ascii	"vexSleep\000"
+ 773      6C656570 
+ 773      00
+ 774              	.LASF10:
+ 775 00bf 63686172 		.ascii	"char\000"
+ 775      00
+ 776              	.LASF7:
+ 777 00c4 6C6F6E67 		.ascii	"long int\000"
+ 777      20696E74 
+ 777      00
+ 778              	.LASF22:
+ 779 00cd 433A5C55 		.ascii	"C:\\Users\\Jeff\\pros\\convex\\cortex\\projects\\Te"
+ 779      73657273 
+ 779      5C4A6566 
+ 779      665C7072 
+ 779      6F735C63 
+ 780 00f9 73745072 		.ascii	"stProject-Default\000"
+ 780      6F6A6563 
+ 780      742D4465 
+ 780      6661756C 
+ 780      7400
+ 781              	.LASF11:
+ 782 010b 5F426F6F 		.ascii	"_Bool\000"
+ 782      6C00
+ 783              	.LASF18:
+ 784 0111 76657843 		.ascii	"vexCortexDefaultSetup\000"
+ 784      6F727465 
+ 784      78446566 
+ 784      61756C74 
+ 784      53657475 
+ 785              	.LASF25:
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 16
+
+
+ 786 0127 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 786      52784275 
+ 786      66666572 
+ 786      00
+ 787              	.LASF1:
+ 788 0134 7369676E 		.ascii	"signed char\000"
+ 788      65642063 
+ 788      68617200 
+ 789              	.LASF14:
+ 790 0140 76657841 		.ascii	"vexAutonomous\000"
+ 790      75746F6E 
+ 790      6F6D6F75 
+ 790      7300
+ 791              	.LASF3:
+ 792 014e 73686F72 		.ascii	"short int\000"
+ 792      7420696E 
+ 792      7400
+ 793              	.LASF12:
+ 794 0158 696E7433 		.ascii	"int32_t\000"
+ 794      325F7400 
+ 795              	.LASF8:
+ 796 0160 73697A65 		.ascii	"sizetype\000"
+ 796      74797065 
+ 796      00
+ 797              	.LASF19:
+ 798 0169 76657843 		.ascii	"vexCortexDefaultDriver\000"
+ 798      6F727465 
+ 798      78446566 
+ 798      61756C74 
+ 798      44726976 
+ 799              		.ident	"GCC: (GNU) 4.7.2"
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s 			page 17
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 vexuser.c
+C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s:19     .text.vexUserSetup:00000000 $t
+C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s:25     .text.vexUserSetup:00000000 vexUserSetup
+C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s:41     .text.vexUserInit:00000000 $t
+C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s:47     .text.vexUserInit:00000000 vexUserInit
+C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s:59     .text.vexAutonomous:00000000 $t
+C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s:65     .text.vexAutonomous:00000000 vexAutonomous
+C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s:93     .text.vexAutonomous:00000010 $d
+C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s:98     .text.vexOperator:00000000 $t
+C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s:104    .text.vexOperator:00000000 vexOperator
+C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s:138    .rodata.str1.4:00000008 .LC1
+C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s:134    .rodata.str1.4:00000000 $d
+                     .debug_frame:00000010 $d
+C:\Users\Jeff\AppData\Local\Temp\ccgnYnPd.s:97     .text.vexAutonomous:00000014 $t
+
+UNDEFINED SYMBOLS
+vexCortexDefaultSetup
+vexTaskRegister
+vexSleep
+vexCortexDefaultDriver

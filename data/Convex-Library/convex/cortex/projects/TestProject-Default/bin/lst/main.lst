@@ -1,0 +1,3701 @@
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.cmd_apollo,"ax",%progbits
+  19              		.align	2
+  20              		.p2align 4,,15
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	cmd_apollo, %function
+  24              	cmd_apollo:
+  25              	.LFB64:
+  26              		.file 1 "main.c"
+  27              		.loc 1 60 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 10B5     		push	{r4, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  37              		.loc 1 60 0
+  38 0002 0446     		mov	r4, r0
+  39              		.loc 1 64 0
+  40 0004 FFF7FEFF 		bl	apolloInit
+  41              	.LVL1:
+  42              		.loc 1 67 0
+  43 0008 6369     		ldr	r3, [r4, #20]
+  44 000a 23B9     		cbnz	r3, .L3
+  45              	.L8:
+  46              		.loc 1 69 0
+  47 000c FFF7FEFF 		bl	apolloUpdate
+  48              	.LVL2:
+  49              		.loc 1 67 0
+  50 0010 6369     		ldr	r3, [r4, #20]
+  51 0012 002B     		cmp	r3, #0
+  52 0014 FAD0     		beq	.L8
+  53              	.L3:
+  54              		.loc 1 73 0
+  55 0016 BDE81040 		pop	{r4, lr}
+  56              		.loc 1 72 0
+  57 001a FFF7FEBF 		b	apolloDeinit
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 2
+
+
+  58              	.LVL3:
+  59              		.cfi_endproc
+  60              	.LFE64:
+  61              		.size	cmd_apollo, .-cmd_apollo
+  62 001e 00BF     		.section	.text.cmd_sm,"ax",%progbits
+  63              		.align	2
+  64              		.p2align 4,,15
+  65              		.thumb
+  66              		.thumb_func
+  67              		.type	cmd_sm, %function
+  68              	cmd_sm:
+  69              	.LFB65:
+  70              		.loc 1 78 0
+  71              		.cfi_startproc
+  72              		@ args = 0, pretend = 0, frame = 0
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74              		@ link register save eliminated.
+  75              	.LVL4:
+  76              		.loc 1 84 0
+  77              		.loc 1 83 0
+  78 0000 FFF7FEBF 		b	SmartMotorDebugStatus
+  79              	.LVL5:
+  80              		.cfi_endproc
+  81              	.LFE65:
+  82              		.size	cmd_sm, .-cmd_sm
+  83 0004 AFF30080 		.section	.text.startup.main,"ax",%progbits
+  83      AFF30080 
+  83      AFF30080 
+  84              		.align	2
+  85              		.p2align 4,,15
+  86              		.global	main
+  87              		.thumb
+  88              		.thumb_func
+  89              		.type	main, %function
+  90              	main:
+  91              	.LFB66:
+  92              		.loc 1 114 0
+  93              		.cfi_startproc
+  94              		@ args = 0, pretend = 0, frame = 0
+  95              		@ frame_needed = 0, uses_anonymous_args = 0
+  96              	.LVL6:
+  97 0000 10B5     		push	{r4, lr}
+  98              	.LCFI1:
+  99              		.cfi_def_cfa_offset 8
+ 100              		.cfi_offset 4, -8
+ 101              		.cfi_offset 14, -4
+ 102              		.loc 1 123 0
+ 103 0002 FFF7FEFF 		bl	halInit
+ 104              	.LVL7:
+ 105              		.loc 1 133 0
+ 106 0006 3324     		movs	r4, #51
+ 107              		.loc 1 124 0
+ 108 0008 FFF7FEFF 		bl	chSysInit
+ 109              	.LVL8:
+ 110              		.loc 1 127 0
+ 111 000c FFF7FEFF 		bl	vexConsoleInit
+ 112              	.LVL9:
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 3
+
+
+ 113              		.loc 1 130 0
+ 114 0010 FFF7FEFF 		bl	vexCortexInit
+ 115              	.LVL10:
+ 116              		.loc 1 133 0
+ 117 0014 05E0     		b	.L15
+ 118              	.LVL11:
+ 119              	.L17:
+ 120 0016 013C     		subs	r4, r4, #1
+ 121              		.loc 1 136 0
+ 122 0018 6420     		movs	r0, #100
+ 123 001a A4B2     		uxth	r4, r4
+ 124 001c FFF7FEFF 		bl	chThdSleep
+ 125              	.LVL12:
+ 126              		.loc 1 138 0
+ 127 0020 1CB1     		cbz	r4, .L18
+ 128              	.L15:
+ 129              		.loc 1 133 0 discriminator 1
+ 130 0022 FFF7FEFF 		bl	vexSpiGetOnlineStatus
+ 131              	.LVL13:
+ 132 0026 0028     		cmp	r0, #0
+ 133 0028 F5D0     		beq	.L17
+ 134              	.L18:
+ 135              		.loc 1 115 0
+ 136 002a 0024     		movs	r4, #0
+ 137              		.loc 1 143 0
+ 138 002c FFF7FEFF 		bl	shellInit
+ 139              	.LVL14:
+ 140              		.loc 1 148 0
+ 141 0030 3CB1     		cbz	r4, .L22
+ 142              	.L19:
+ 143              		.loc 1 151 0
+ 144 0032 237F     		ldrb	r3, [r4, #28]	@ zero_extendqisi2
+ 145 0034 0E2B     		cmp	r3, #14
+ 146 0036 0CD0     		beq	.L23
+ 147              	.LVL15:
+ 148              	.L20:
+ 149              		.loc 1 157 0
+ 150 0038 3220     		movs	r0, #50
+ 151 003a FFF7FEFF 		bl	chThdSleep
+ 152              	.LVL16:
+ 153              		.loc 1 148 0
+ 154 003e 002C     		cmp	r4, #0
+ 155 0040 F7D1     		bne	.L19
+ 156              	.L22:
+ 157              		.loc 1 149 0
+ 158 0042 0648     		ldr	r0, .L24
+ 159 0044 4FF40B61 		mov	r1, #2224
+ 160 0048 4022     		movs	r2, #64
+ 161 004a FFF7FEFF 		bl	shellCreate
+ 162              	.LVL17:
+ 163 004e 0446     		mov	r4, r0
+ 164              	.LVL18:
+ 165 0050 F2E7     		b	.L20
+ 166              	.LVL19:
+ 167              	.L23:
+ 168              		.loc 1 153 0
+ 169 0052 2046     		mov	r0, r4
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 4
+
+
+ 170 0054 FFF7FEFF 		bl	chThdRelease
+ 171              	.LVL20:
+ 172              		.loc 1 154 0
+ 173 0058 0024     		movs	r4, #0
+ 174 005a EDE7     		b	.L20
+ 175              	.L25:
+ 176              		.align	2
+ 177              	.L24:
+ 178 005c 00000000 		.word	.LANCHOR0
+ 179              		.cfi_endproc
+ 180              	.LFE66:
+ 181              		.size	main, .-main
+ 182              		.section	.rodata.commands,"a",%progbits
+ 183              		.align	2
+ 184              		.type	commands, %object
+ 185              		.size	commands, 88
+ 186              	commands:
+ 187 0000 00000000 		.word	.LC0
+ 188 0004 00000000 		.word	vexAdcDebug
+ 189 0008 04000000 		.word	.LC1
+ 190 000c 00000000 		.word	vexSpiDebug
+ 191 0010 08000000 		.word	.LC2
+ 192 0014 00000000 		.word	vexMotorDebug
+ 193 0018 10000000 		.word	.LC3
+ 194 001c 00000000 		.word	vexLcdDebug
+ 195 0020 14000000 		.word	.LC4
+ 196 0024 00000000 		.word	vexEncoderDebug
+ 197 0028 18000000 		.word	.LC5
+ 198 002c 00000000 		.word	vexSonarDebug
+ 199 0030 1C000000 		.word	.LC6
+ 200 0034 00000000 		.word	vexIMEDebug
+ 201 0038 20000000 		.word	.LC7
+ 202 003c 00000000 		.word	vexTestDebug
+ 203 0040 28000000 		.word	.LC8
+ 204 0044 00000000 		.word	cmd_sm
+ 205 0048 2C000000 		.word	.LC9
+ 206 004c 00000000 		.word	cmd_apollo
+ 207 0050 00000000 		.word	0
+ 208 0054 00000000 		.word	0
+ 209              		.section	.rodata.shell_cfg1,"a",%progbits
+ 210              		.align	2
+ 211              		.set	.LANCHOR0,. + 0
+ 212              		.type	shell_cfg1, %object
+ 213              		.size	shell_cfg1, 8
+ 214              	shell_cfg1:
+ 215 0000 00000000 		.word	SD1
+ 216 0004 00000000 		.word	commands
+ 217              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 218              		.align	2
+ 219              	.LC0:
+ 220 0000 61646300 		.ascii	"adc\000"
+ 221              	.LC1:
+ 222 0004 73706900 		.ascii	"spi\000"
+ 223              	.LC2:
+ 224 0008 6D6F746F 		.ascii	"motor\000"
+ 224      7200
+ 225 000e 0000     		.space	2
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 5
+
+
+ 226              	.LC3:
+ 227 0010 6C636400 		.ascii	"lcd\000"
+ 228              	.LC4:
+ 229 0014 656E6300 		.ascii	"enc\000"
+ 230              	.LC5:
+ 231 0018 736F6E00 		.ascii	"son\000"
+ 232              	.LC6:
+ 233 001c 696D6500 		.ascii	"ime\000"
+ 234              	.LC7:
+ 235 0020 74657374 		.ascii	"test\000"
+ 235      00
+ 236 0025 000000   		.space	3
+ 237              	.LC8:
+ 238 0028 736D00   		.ascii	"sm\000"
+ 239 002b 00       		.space	1
+ 240              	.LC9:
+ 241 002c 61706F6C 		.ascii	"apollo\000"
+ 241      6C6F00
+ 242 0033 00       		.text
+ 243              	.Letext0:
+ 244              		.file 2 "c:\\yagarto-20121222\\bin\\../lib/gcc/arm-none-eabi/4.7.2/include/stddef.h"
+ 245              		.file 3 "c:/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/stdint.h"
+ 246              		.file 4 "../../../../ChibiOS_2.6.2/os/ports/GCC/ARMCMx/chtypes.h"
+ 247              		.file 5 "../../../../ChibiOS_2.6.2/os/kernel/include/chlists.h"
+ 248              		.file 6 "../../../../ChibiOS_2.6.2/os/kernel/include/chthreads.h"
+ 249              		.file 7 "../../../../ChibiOS_2.6.2/os/ports/GCC/ARMCMx/chcore_v7m.h"
+ 250              		.file 8 "../../../../ChibiOS_2.6.2/os/kernel/include/chmtx.h"
+ 251              		.file 9 "../../../../ChibiOS_2.6.2/os/kernel/include/chevents.h"
+ 252              		.file 10 "../../../../ChibiOS_2.6.2/os/kernel/include/chqueues.h"
+ 253              		.file 11 "../../../../ChibiOS_2.6.2/os/kernel/include/chstreams.h"
+ 254              		.file 12 "../../../../ChibiOS_2.6.2/os/hal/platforms/STM32F1xx/stm32f10x.h"
+ 255              		.file 13 "../../../../ChibiOS_2.6.2/os/hal/include/serial.h"
+ 256              		.file 14 "../../fw/vexcompat.h"
+ 257              		.file 15 "../../fw/vexdigital.h"
+ 258              		.file 16 "../../fw/vexime.h"
+ 259              		.file 17 "../../fw/vexshell.h"
+ 260              		.file 18 "../../opt/apollo.h"
+ 261              		.file 19 "../../opt/smartmotor.h"
+ 262              		.file 20 "../../../../ChibiOS_2.6.2/os/hal/include/hal.h"
+ 263              		.file 21 "../../../../ChibiOS_2.6.2/os/kernel/include/chsys.h"
+ 264              		.file 22 "../../fw/vex.h"
+ 265              		.file 23 "../../../../ChibiOS_2.6.2/os/ports/common/ARMCMx/CMSIS/include/core_cm3.h"
+ 266              		.file 24 "../../../../ChibiOS_2.6.2/os/hal/platforms/STM32/USARTv1/serial_lld.h"
+ 267              		.file 25 "../../fw/vexspi.h"
+ 268              		.file 26 "../../../../ChibiOS_2.6.2/os/kernel/include/chdynamic.h"
+ 269              		.section	.debug_info,"",%progbits
+ 270              	.Ldebug_info0:
+ 271 0000 EF0C0000 		.4byte	0xcef
+ 272 0004 0200     		.2byte	0x2
+ 273 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 274 000a 04       		.byte	0x4
+ 275 000b 01       		.uleb128 0x1
+ 276 000c 98030000 		.4byte	.LASF160
+ 277 0010 01       		.byte	0x1
+ 278 0011 A4030000 		.4byte	.LASF161
+ 279 0015 17020000 		.4byte	.LASF162
+ 280 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 6
+
+
+ 281 001d 00000000 		.4byte	0
+ 282 0021 00000000 		.4byte	0
+ 283 0025 00000000 		.4byte	.Ldebug_line0
+ 284 0029 02       		.uleb128 0x2
+ 285 002a 01       		.byte	0x1
+ 286 002b 06       		.byte	0x6
+ 287 002c 83000000 		.4byte	.LASF0
+ 288 0030 02       		.uleb128 0x2
+ 289 0031 01       		.byte	0x1
+ 290 0032 08       		.byte	0x8
+ 291 0033 4D040000 		.4byte	.LASF1
+ 292 0037 02       		.uleb128 0x2
+ 293 0038 02       		.byte	0x2
+ 294 0039 05       		.byte	0x5
+ 295 003a 8E040000 		.4byte	.LASF2
+ 296 003e 02       		.uleb128 0x2
+ 297 003f 02       		.byte	0x2
+ 298 0040 07       		.byte	0x7
+ 299 0041 55020000 		.4byte	.LASF3
+ 300 0045 03       		.uleb128 0x3
+ 301 0046 04       		.byte	0x4
+ 302 0047 05       		.byte	0x5
+ 303 0048 696E7400 		.ascii	"int\000"
+ 304 004c 02       		.uleb128 0x2
+ 305 004d 04       		.byte	0x4
+ 306 004e 07       		.byte	0x7
+ 307 004f AD010000 		.4byte	.LASF4
+ 308 0053 02       		.uleb128 0x2
+ 309 0054 08       		.byte	0x8
+ 310 0055 05       		.byte	0x5
+ 311 0056 75000000 		.4byte	.LASF5
+ 312 005a 02       		.uleb128 0x2
+ 313 005b 08       		.byte	0x8
+ 314 005c 07       		.byte	0x7
+ 315 005d 21010000 		.4byte	.LASF6
+ 316 0061 02       		.uleb128 0x2
+ 317 0062 04       		.byte	0x4
+ 318 0063 05       		.byte	0x5
+ 319 0064 DA000000 		.4byte	.LASF7
+ 320 0068 02       		.uleb128 0x2
+ 321 0069 04       		.byte	0x4
+ 322 006a 07       		.byte	0x7
+ 323 006b 62030000 		.4byte	.LASF8
+ 324 006f 04       		.uleb128 0x4
+ 325 0070 04       		.byte	0x4
+ 326 0071 02       		.uleb128 0x2
+ 327 0072 04       		.byte	0x4
+ 328 0073 07       		.byte	0x7
+ 329 0074 4C050000 		.4byte	.LASF9
+ 330 0078 05       		.uleb128 0x5
+ 331 0079 04       		.byte	0x4
+ 332 007a 7E000000 		.4byte	0x7e
+ 333 007e 02       		.uleb128 0x2
+ 334 007f 01       		.byte	0x1
+ 335 0080 08       		.byte	0x8
+ 336 0081 5E050000 		.4byte	.LASF10
+ 337 0085 05       		.uleb128 0x5
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 7
+
+
+ 338 0086 04       		.byte	0x4
+ 339 0087 8B000000 		.4byte	0x8b
+ 340 008b 06       		.uleb128 0x6
+ 341 008c 7E000000 		.4byte	0x7e
+ 342 0090 07       		.uleb128 0x7
+ 343 0091 00000000 		.4byte	.LASF11
+ 344 0095 02       		.byte	0x2
+ 345 0096 D5       		.byte	0xd5
+ 346 0097 4C000000 		.4byte	0x4c
+ 347 009b 07       		.uleb128 0x7
+ 348 009c 6E060000 		.4byte	.LASF12
+ 349 00a0 03       		.byte	0x3
+ 350 00a1 2A       		.byte	0x2a
+ 351 00a2 30000000 		.4byte	0x30
+ 352 00a6 07       		.uleb128 0x7
+ 353 00a7 11010000 		.4byte	.LASF13
+ 354 00ab 03       		.byte	0x3
+ 355 00ac 36       		.byte	0x36
+ 356 00ad 3E000000 		.4byte	0x3e
+ 357 00b1 07       		.uleb128 0x7
+ 358 00b2 45040000 		.4byte	.LASF14
+ 359 00b6 03       		.byte	0x3
+ 360 00b7 4F       		.byte	0x4f
+ 361 00b8 61000000 		.4byte	0x61
+ 362 00bc 07       		.uleb128 0x7
+ 363 00bd 1D050000 		.4byte	.LASF15
+ 364 00c1 03       		.byte	0x3
+ 365 00c2 50       		.byte	0x50
+ 366 00c3 71000000 		.4byte	0x71
+ 367 00c7 07       		.uleb128 0x7
+ 368 00c8 A9000000 		.4byte	.LASF16
+ 369 00cc 04       		.byte	0x4
+ 370 00cd 2B       		.byte	0x2b
+ 371 00ce D2000000 		.4byte	0xd2
+ 372 00d2 02       		.uleb128 0x2
+ 373 00d3 01       		.byte	0x1
+ 374 00d4 02       		.byte	0x2
+ 375 00d5 3F040000 		.4byte	.LASF17
+ 376 00d9 07       		.uleb128 0x7
+ 377 00da D2060000 		.4byte	.LASF18
+ 378 00de 04       		.byte	0x4
+ 379 00df 2C       		.byte	0x2c
+ 380 00e0 9B000000 		.4byte	0x9b
+ 381 00e4 07       		.uleb128 0x7
+ 382 00e5 38010000 		.4byte	.LASF19
+ 383 00e9 04       		.byte	0x4
+ 384 00ea 2D       		.byte	0x2d
+ 385 00eb 9B000000 		.4byte	0x9b
+ 386 00ef 07       		.uleb128 0x7
+ 387 00f0 CD030000 		.4byte	.LASF20
+ 388 00f4 04       		.byte	0x4
+ 389 00f5 2E       		.byte	0x2e
+ 390 00f6 9B000000 		.4byte	0x9b
+ 391 00fa 07       		.uleb128 0x7
+ 392 00fb CA000000 		.4byte	.LASF21
+ 393 00ff 04       		.byte	0x4
+ 394 0100 2F       		.byte	0x2f
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 8
+
+
+ 395 0101 9B000000 		.4byte	0x9b
+ 396 0105 07       		.uleb128 0x7
+ 397 0106 19040000 		.4byte	.LASF22
+ 398 010a 04       		.byte	0x4
+ 399 010b 30       		.byte	0x30
+ 400 010c BC000000 		.4byte	0xbc
+ 401 0110 07       		.uleb128 0x7
+ 402 0111 76020000 		.4byte	.LASF23
+ 403 0115 04       		.byte	0x4
+ 404 0116 31       		.byte	0x31
+ 405 0117 B1000000 		.4byte	0xb1
+ 406 011b 07       		.uleb128 0x7
+ 407 011c 1F030000 		.4byte	.LASF24
+ 408 0120 04       		.byte	0x4
+ 409 0121 33       		.byte	0x33
+ 410 0122 BC000000 		.4byte	0xbc
+ 411 0126 07       		.uleb128 0x7
+ 412 0127 40060000 		.4byte	.LASF25
+ 413 012b 04       		.byte	0x4
+ 414 012c 34       		.byte	0x34
+ 415 012d BC000000 		.4byte	0xbc
+ 416 0131 07       		.uleb128 0x7
+ 417 0132 FE050000 		.4byte	.LASF26
+ 418 0136 04       		.byte	0x4
+ 419 0137 35       		.byte	0x35
+ 420 0138 BC000000 		.4byte	0xbc
+ 421 013c 07       		.uleb128 0x7
+ 422 013d ED040000 		.4byte	.LASF27
+ 423 0141 05       		.byte	0x5
+ 424 0142 2A       		.byte	0x2a
+ 425 0143 47010000 		.4byte	0x147
+ 426 0147 08       		.uleb128 0x8
+ 427 0148 ED040000 		.4byte	.LASF27
+ 428 014c 48       		.byte	0x48
+ 429 014d 06       		.byte	0x6
+ 430 014e 5E       		.byte	0x5e
+ 431 014f 6C020000 		.4byte	0x26c
+ 432 0153 09       		.uleb128 0x9
+ 433 0154 B1040000 		.4byte	.LASF28
+ 434 0158 06       		.byte	0x6
+ 435 0159 5F       		.byte	0x5f
+ 436 015a 91020000 		.4byte	0x291
+ 437 015e 02       		.byte	0x2
+ 438 015f 23       		.byte	0x23
+ 439 0160 00       		.uleb128 0
+ 440 0161 09       		.uleb128 0x9
+ 441 0162 5B030000 		.4byte	.LASF29
+ 442 0166 06       		.byte	0x6
+ 443 0167 61       		.byte	0x61
+ 444 0168 91020000 		.4byte	0x291
+ 445 016c 02       		.byte	0x2
+ 446 016d 23       		.byte	0x23
+ 447 016e 04       		.uleb128 0x4
+ 448 016f 09       		.uleb128 0x9
+ 449 0170 5E000000 		.4byte	.LASF30
+ 450 0174 06       		.byte	0x6
+ 451 0175 63       		.byte	0x63
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 9
+
+
+ 452 0176 05010000 		.4byte	0x105
+ 453 017a 02       		.byte	0x2
+ 454 017b 23       		.byte	0x23
+ 455 017c 08       		.uleb128 0x8
+ 456 017d 09       		.uleb128 0x9
+ 457 017e F5060000 		.4byte	.LASF31
+ 458 0182 06       		.byte	0x6
+ 459 0183 64       		.byte	0x64
+ 460 0184 5D030000 		.4byte	0x35d
+ 461 0188 02       		.byte	0x2
+ 462 0189 23       		.byte	0x23
+ 463 018a 0C       		.uleb128 0xc
+ 464 018b 09       		.uleb128 0x9
+ 465 018c 41010000 		.4byte	.LASF32
+ 466 0190 06       		.byte	0x6
+ 467 0191 66       		.byte	0x66
+ 468 0192 91020000 		.4byte	0x291
+ 469 0196 02       		.byte	0x2
+ 470 0197 23       		.byte	0x23
+ 471 0198 10       		.uleb128 0x10
+ 472 0199 09       		.uleb128 0x9
+ 473 019a 85030000 		.4byte	.LASF33
+ 474 019e 06       		.byte	0x6
+ 475 019f 67       		.byte	0x67
+ 476 01a0 91020000 		.4byte	0x291
+ 477 01a4 02       		.byte	0x2
+ 478 01a5 23       		.byte	0x23
+ 479 01a6 14       		.uleb128 0x14
+ 480 01a7 09       		.uleb128 0x9
+ 481 01a8 57060000 		.4byte	.LASF34
+ 482 01ac 06       		.byte	0x6
+ 483 01ad 6E       		.byte	0x6e
+ 484 01ae 85000000 		.4byte	0x85
+ 485 01b2 02       		.byte	0x2
+ 486 01b3 23       		.byte	0x23
+ 487 01b4 18       		.uleb128 0x18
+ 488 01b5 09       		.uleb128 0x9
+ 489 01b6 98040000 		.4byte	.LASF35
+ 490 01ba 06       		.byte	0x6
+ 491 01bb 79       		.byte	0x79
+ 492 01bc E4000000 		.4byte	0xe4
+ 493 01c0 02       		.byte	0x2
+ 494 01c1 23       		.byte	0x23
+ 495 01c2 1C       		.uleb128 0x1c
+ 496 01c3 09       		.uleb128 0x9
+ 497 01c4 D0040000 		.4byte	.LASF36
+ 498 01c8 06       		.byte	0x6
+ 499 01c9 7D       		.byte	0x7d
+ 500 01ca D9000000 		.4byte	0xd9
+ 501 01ce 02       		.byte	0x2
+ 502 01cf 23       		.byte	0x23
+ 503 01d0 1D       		.uleb128 0x1d
+ 504 01d1 09       		.uleb128 0x9
+ 505 01d2 5E060000 		.4byte	.LASF37
+ 506 01d6 06       		.byte	0x6
+ 507 01d7 82       		.byte	0x82
+ 508 01d8 EF000000 		.4byte	0xef
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 10
+
+
+ 509 01dc 02       		.byte	0x2
+ 510 01dd 23       		.byte	0x23
+ 511 01de 1E       		.uleb128 0x1e
+ 512 01df 09       		.uleb128 0x9
+ 513 01e0 A0040000 		.4byte	.LASF38
+ 514 01e4 06       		.byte	0x6
+ 515 01e5 88       		.byte	0x88
+ 516 01e6 FA000000 		.4byte	0xfa
+ 517 01ea 02       		.byte	0x2
+ 518 01eb 23       		.byte	0x23
+ 519 01ec 1F       		.uleb128 0x1f
+ 520 01ed 09       		.uleb128 0x9
+ 521 01ee 1F060000 		.4byte	.LASF39
+ 522 01f2 06       		.byte	0x6
+ 523 01f3 8F       		.byte	0x8f
+ 524 01f4 80030000 		.4byte	0x380
+ 525 01f8 02       		.byte	0x2
+ 526 01f9 23       		.byte	0x23
+ 527 01fa 20       		.uleb128 0x20
+ 528 01fb 0A       		.uleb128 0xa
+ 529 01fc 705F7500 		.ascii	"p_u\000"
+ 530 0200 06       		.byte	0x6
+ 531 0201 B4       		.byte	0xb4
+ 532 0202 49040000 		.4byte	0x449
+ 533 0206 02       		.byte	0x2
+ 534 0207 23       		.byte	0x23
+ 535 0208 24       		.uleb128 0x24
+ 536 0209 09       		.uleb128 0x9
+ 537 020a FB060000 		.4byte	.LASF40
+ 538 020e 06       		.byte	0x6
+ 539 020f B9       		.byte	0xb9
+ 540 0210 B9020000 		.4byte	0x2b9
+ 541 0214 02       		.byte	0x2
+ 542 0215 23       		.byte	0x23
+ 543 0216 28       		.uleb128 0x28
+ 544 0217 09       		.uleb128 0x9
+ 545 0218 E5010000 		.4byte	.LASF41
+ 546 021c 06       		.byte	0x6
+ 547 021d BF       		.byte	0xbf
+ 548 021e 97020000 		.4byte	0x297
+ 549 0222 02       		.byte	0x2
+ 550 0223 23       		.byte	0x23
+ 551 0224 2C       		.uleb128 0x2c
+ 552 0225 09       		.uleb128 0x9
+ 553 0226 DA060000 		.4byte	.LASF42
+ 554 022a 06       		.byte	0x6
+ 555 022b C3       		.byte	0xc3
+ 556 022c 10010000 		.4byte	0x110
+ 557 0230 02       		.byte	0x2
+ 558 0231 23       		.byte	0x23
+ 559 0232 34       		.uleb128 0x34
+ 560 0233 09       		.uleb128 0x9
+ 561 0234 FE040000 		.4byte	.LASF43
+ 562 0238 06       		.byte	0x6
+ 563 0239 C9       		.byte	0xc9
+ 564 023a 1B010000 		.4byte	0x11b
+ 565 023e 02       		.byte	0x2
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 11
+
+
+ 566 023f 23       		.byte	0x23
+ 567 0240 38       		.uleb128 0x38
+ 568 0241 09       		.uleb128 0x9
+ 569 0242 15030000 		.4byte	.LASF44
+ 570 0246 06       		.byte	0x6
+ 571 0247 D0       		.byte	0xd0
+ 572 0248 7E040000 		.4byte	0x47e
+ 573 024c 02       		.byte	0x2
+ 574 024d 23       		.byte	0x23
+ 575 024e 3C       		.uleb128 0x3c
+ 576 024f 09       		.uleb128 0x9
+ 577 0250 08060000 		.4byte	.LASF45
+ 578 0254 06       		.byte	0x6
+ 579 0255 D4       		.byte	0xd4
+ 580 0256 05010000 		.4byte	0x105
+ 581 025a 02       		.byte	0x2
+ 582 025b 23       		.byte	0x23
+ 583 025c 40       		.uleb128 0x40
+ 584 025d 09       		.uleb128 0x9
+ 585 025e A1000000 		.4byte	.LASF46
+ 586 0262 06       		.byte	0x6
+ 587 0263 DA       		.byte	0xda
+ 588 0264 6F000000 		.4byte	0x6f
+ 589 0268 02       		.byte	0x2
+ 590 0269 23       		.byte	0x23
+ 591 026a 44       		.uleb128 0x44
+ 592 026b 00       		.byte	0
+ 593 026c 0B       		.uleb128 0xb
+ 594 026d 08       		.byte	0x8
+ 595 026e 05       		.byte	0x5
+ 596 026f 61       		.byte	0x61
+ 597 0270 91020000 		.4byte	0x291
+ 598 0274 09       		.uleb128 0x9
+ 599 0275 B1040000 		.4byte	.LASF28
+ 600 0279 05       		.byte	0x5
+ 601 027a 62       		.byte	0x62
+ 602 027b 91020000 		.4byte	0x291
+ 603 027f 02       		.byte	0x2
+ 604 0280 23       		.byte	0x23
+ 605 0281 00       		.uleb128 0
+ 606 0282 09       		.uleb128 0x9
+ 607 0283 5B030000 		.4byte	.LASF29
+ 608 0287 05       		.byte	0x5
+ 609 0288 64       		.byte	0x64
+ 610 0289 91020000 		.4byte	0x291
+ 611 028d 02       		.byte	0x2
+ 612 028e 23       		.byte	0x23
+ 613 028f 04       		.uleb128 0x4
+ 614 0290 00       		.byte	0
+ 615 0291 05       		.uleb128 0x5
+ 616 0292 04       		.byte	0x4
+ 617 0293 3C010000 		.4byte	0x13c
+ 618 0297 07       		.uleb128 0x7
+ 619 0298 34000000 		.4byte	.LASF47
+ 620 029c 05       		.byte	0x5
+ 621 029d 66       		.byte	0x66
+ 622 029e 6C020000 		.4byte	0x26c
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 12
+
+
+ 623 02a2 0B       		.uleb128 0xb
+ 624 02a3 04       		.byte	0x4
+ 625 02a4 05       		.byte	0x5
+ 626 02a5 6B       		.byte	0x6b
+ 627 02a6 B9020000 		.4byte	0x2b9
+ 628 02aa 09       		.uleb128 0x9
+ 629 02ab B1040000 		.4byte	.LASF28
+ 630 02af 05       		.byte	0x5
+ 631 02b0 6D       		.byte	0x6d
+ 632 02b1 91020000 		.4byte	0x291
+ 633 02b5 02       		.byte	0x2
+ 634 02b6 23       		.byte	0x23
+ 635 02b7 00       		.uleb128 0
+ 636 02b8 00       		.byte	0
+ 637 02b9 07       		.uleb128 0x7
+ 638 02ba 09030000 		.4byte	.LASF48
+ 639 02be 05       		.byte	0x5
+ 640 02bf 70       		.byte	0x70
+ 641 02c0 A2020000 		.4byte	0x2a2
+ 642 02c4 07       		.uleb128 0x7
+ 643 02c5 61010000 		.4byte	.LASF49
+ 644 02c9 07       		.byte	0x7
+ 645 02ca E5       		.byte	0xe5
+ 646 02cb 6F000000 		.4byte	0x6f
+ 647 02cf 0C       		.uleb128 0xc
+ 648 02d0 30060000 		.4byte	.LASF50
+ 649 02d4 24       		.byte	0x24
+ 650 02d5 07       		.byte	0x7
+ 651 02d6 0C01     		.2byte	0x10c
+ 652 02d8 5D030000 		.4byte	0x35d
+ 653 02dc 0D       		.uleb128 0xd
+ 654 02dd 723400   		.ascii	"r4\000"
+ 655 02e0 07       		.byte	0x7
+ 656 02e1 1F01     		.2byte	0x11f
+ 657 02e3 C4020000 		.4byte	0x2c4
+ 658 02e7 02       		.byte	0x2
+ 659 02e8 23       		.byte	0x23
+ 660 02e9 00       		.uleb128 0
+ 661 02ea 0D       		.uleb128 0xd
+ 662 02eb 723500   		.ascii	"r5\000"
+ 663 02ee 07       		.byte	0x7
+ 664 02ef 2001     		.2byte	0x120
+ 665 02f1 C4020000 		.4byte	0x2c4
+ 666 02f5 02       		.byte	0x2
+ 667 02f6 23       		.byte	0x23
+ 668 02f7 04       		.uleb128 0x4
+ 669 02f8 0D       		.uleb128 0xd
+ 670 02f9 723600   		.ascii	"r6\000"
+ 671 02fc 07       		.byte	0x7
+ 672 02fd 2101     		.2byte	0x121
+ 673 02ff C4020000 		.4byte	0x2c4
+ 674 0303 02       		.byte	0x2
+ 675 0304 23       		.byte	0x23
+ 676 0305 08       		.uleb128 0x8
+ 677 0306 0D       		.uleb128 0xd
+ 678 0307 723700   		.ascii	"r7\000"
+ 679 030a 07       		.byte	0x7
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 13
+
+
+ 680 030b 2201     		.2byte	0x122
+ 681 030d C4020000 		.4byte	0x2c4
+ 682 0311 02       		.byte	0x2
+ 683 0312 23       		.byte	0x23
+ 684 0313 0C       		.uleb128 0xc
+ 685 0314 0D       		.uleb128 0xd
+ 686 0315 723800   		.ascii	"r8\000"
+ 687 0318 07       		.byte	0x7
+ 688 0319 2301     		.2byte	0x123
+ 689 031b C4020000 		.4byte	0x2c4
+ 690 031f 02       		.byte	0x2
+ 691 0320 23       		.byte	0x23
+ 692 0321 10       		.uleb128 0x10
+ 693 0322 0D       		.uleb128 0xd
+ 694 0323 723900   		.ascii	"r9\000"
+ 695 0326 07       		.byte	0x7
+ 696 0327 2401     		.2byte	0x124
+ 697 0329 C4020000 		.4byte	0x2c4
+ 698 032d 02       		.byte	0x2
+ 699 032e 23       		.byte	0x23
+ 700 032f 14       		.uleb128 0x14
+ 701 0330 0D       		.uleb128 0xd
+ 702 0331 72313000 		.ascii	"r10\000"
+ 703 0335 07       		.byte	0x7
+ 704 0336 2501     		.2byte	0x125
+ 705 0338 C4020000 		.4byte	0x2c4
+ 706 033c 02       		.byte	0x2
+ 707 033d 23       		.byte	0x23
+ 708 033e 18       		.uleb128 0x18
+ 709 033f 0D       		.uleb128 0xd
+ 710 0340 72313100 		.ascii	"r11\000"
+ 711 0344 07       		.byte	0x7
+ 712 0345 2601     		.2byte	0x126
+ 713 0347 C4020000 		.4byte	0x2c4
+ 714 034b 02       		.byte	0x2
+ 715 034c 23       		.byte	0x23
+ 716 034d 1C       		.uleb128 0x1c
+ 717 034e 0D       		.uleb128 0xd
+ 718 034f 6C7200   		.ascii	"lr\000"
+ 719 0352 07       		.byte	0x7
+ 720 0353 2701     		.2byte	0x127
+ 721 0355 C4020000 		.4byte	0x2c4
+ 722 0359 02       		.byte	0x2
+ 723 035a 23       		.byte	0x23
+ 724 035b 20       		.uleb128 0x20
+ 725 035c 00       		.byte	0
+ 726 035d 0C       		.uleb128 0xc
+ 727 035e 1A000000 		.4byte	.LASF51
+ 728 0362 04       		.byte	0x4
+ 729 0363 07       		.byte	0x7
+ 730 0364 3101     		.2byte	0x131
+ 731 0366 7A030000 		.4byte	0x37a
+ 732 036a 0D       		.uleb128 0xd
+ 733 036b 72313300 		.ascii	"r13\000"
+ 734 036f 07       		.byte	0x7
+ 735 0370 3201     		.2byte	0x132
+ 736 0372 7A030000 		.4byte	0x37a
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 14
+
+
+ 737 0376 02       		.byte	0x2
+ 738 0377 23       		.byte	0x23
+ 739 0378 00       		.uleb128 0
+ 740 0379 00       		.byte	0
+ 741 037a 05       		.uleb128 0x5
+ 742 037b 04       		.byte	0x4
+ 743 037c CF020000 		.4byte	0x2cf
+ 744 0380 0E       		.uleb128 0xe
+ 745 0381 31010000 		.4byte	0x131
+ 746 0385 08       		.uleb128 0x8
+ 747 0386 36030000 		.4byte	.LASF52
+ 748 038a 10       		.byte	0x10
+ 749 038b 08       		.byte	0x8
+ 750 038c 2C       		.byte	0x2c
+ 751 038d BC030000 		.4byte	0x3bc
+ 752 0391 09       		.uleb128 0x9
+ 753 0392 B0000000 		.4byte	.LASF53
+ 754 0396 08       		.byte	0x8
+ 755 0397 2D       		.byte	0x2d
+ 756 0398 97020000 		.4byte	0x297
+ 757 039c 02       		.byte	0x2
+ 758 039d 23       		.byte	0x23
+ 759 039e 00       		.uleb128 0
+ 760 039f 09       		.uleb128 0x9
+ 761 03a0 ED060000 		.4byte	.LASF54
+ 762 03a4 08       		.byte	0x8
+ 763 03a5 2F       		.byte	0x2f
+ 764 03a6 91020000 		.4byte	0x291
+ 765 03aa 02       		.byte	0x2
+ 766 03ab 23       		.byte	0x23
+ 767 03ac 08       		.uleb128 0x8
+ 768 03ad 09       		.uleb128 0x9
+ 769 03ae F7050000 		.4byte	.LASF55
+ 770 03b2 08       		.byte	0x8
+ 771 03b3 31       		.byte	0x31
+ 772 03b4 BC030000 		.4byte	0x3bc
+ 773 03b8 02       		.byte	0x2
+ 774 03b9 23       		.byte	0x23
+ 775 03ba 0C       		.uleb128 0xc
+ 776 03bb 00       		.byte	0
+ 777 03bc 05       		.uleb128 0x5
+ 778 03bd 04       		.byte	0x4
+ 779 03be 85030000 		.4byte	0x385
+ 780 03c2 07       		.uleb128 0x7
+ 781 03c3 36030000 		.4byte	.LASF52
+ 782 03c7 08       		.byte	0x8
+ 783 03c8 33       		.byte	0x33
+ 784 03c9 85030000 		.4byte	0x385
+ 785 03cd 07       		.uleb128 0x7
+ 786 03ce 9C060000 		.4byte	.LASF56
+ 787 03d2 09       		.byte	0x9
+ 788 03d3 2C       		.byte	0x2c
+ 789 03d4 D8030000 		.4byte	0x3d8
+ 790 03d8 08       		.uleb128 0x8
+ 791 03d9 9C060000 		.4byte	.LASF56
+ 792 03dd 10       		.byte	0x10
+ 793 03de 09       		.byte	0x9
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 15
+
+
+ 794 03df 31       		.byte	0x31
+ 795 03e0 1D040000 		.4byte	0x41d
+ 796 03e4 09       		.uleb128 0x9
+ 797 03e5 83020000 		.4byte	.LASF57
+ 798 03e9 09       		.byte	0x9
+ 799 03ea 32       		.byte	0x32
+ 800 03eb 1D040000 		.4byte	0x41d
+ 801 03ef 02       		.byte	0x2
+ 802 03f0 23       		.byte	0x23
+ 803 03f1 00       		.uleb128 0
+ 804 03f2 09       		.uleb128 0x9
+ 805 03f3 69040000 		.4byte	.LASF58
+ 806 03f7 09       		.byte	0x9
+ 807 03f8 35       		.byte	0x35
+ 808 03f9 91020000 		.4byte	0x291
+ 809 03fd 02       		.byte	0x2
+ 810 03fe 23       		.byte	0x23
+ 811 03ff 04       		.uleb128 0x4
+ 812 0400 09       		.uleb128 0x9
+ 813 0401 AB030000 		.4byte	.LASF59
+ 814 0405 09       		.byte	0x9
+ 815 0406 37       		.byte	0x37
+ 816 0407 1B010000 		.4byte	0x11b
+ 817 040b 02       		.byte	0x2
+ 818 040c 23       		.byte	0x23
+ 819 040d 08       		.uleb128 0x8
+ 820 040e 09       		.uleb128 0x9
+ 821 040f 75040000 		.4byte	.LASF60
+ 822 0413 09       		.byte	0x9
+ 823 0414 3A       		.byte	0x3a
+ 824 0415 26010000 		.4byte	0x126
+ 825 0419 02       		.byte	0x2
+ 826 041a 23       		.byte	0x23
+ 827 041b 0C       		.uleb128 0xc
+ 828 041c 00       		.byte	0
+ 829 041d 05       		.uleb128 0x5
+ 830 041e 04       		.byte	0x4
+ 831 041f CD030000 		.4byte	0x3cd
+ 832 0423 08       		.uleb128 0x8
+ 833 0424 86010000 		.4byte	.LASF61
+ 834 0428 04       		.byte	0x4
+ 835 0429 09       		.byte	0x9
+ 836 042a 41       		.byte	0x41
+ 837 042b 3E040000 		.4byte	0x43e
+ 838 042f 09       		.uleb128 0x9
+ 839 0430 CA060000 		.4byte	.LASF62
+ 840 0434 09       		.byte	0x9
+ 841 0435 42       		.byte	0x42
+ 842 0436 1D040000 		.4byte	0x41d
+ 843 043a 02       		.byte	0x2
+ 844 043b 23       		.byte	0x23
+ 845 043c 00       		.uleb128 0
+ 846 043d 00       		.byte	0
+ 847 043e 07       		.uleb128 0x7
+ 848 043f 86010000 		.4byte	.LASF61
+ 849 0443 09       		.byte	0x9
+ 850 0444 45       		.byte	0x45
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 16
+
+
+ 851 0445 23040000 		.4byte	0x423
+ 852 0449 0F       		.uleb128 0xf
+ 853 044a 04       		.byte	0x4
+ 854 044b 06       		.byte	0x6
+ 855 044c 96       		.byte	0x96
+ 856 044d 7E040000 		.4byte	0x47e
+ 857 0451 10       		.uleb128 0x10
+ 858 0452 07000000 		.4byte	.LASF63
+ 859 0456 06       		.byte	0x6
+ 860 0457 9D       		.byte	0x9d
+ 861 0458 10010000 		.4byte	0x110
+ 862 045c 10       		.uleb128 0x10
+ 863 045d 58010000 		.4byte	.LASF64
+ 864 0461 06       		.byte	0x6
+ 865 0462 A4       		.byte	0xa4
+ 866 0463 10010000 		.4byte	0x110
+ 867 0467 10       		.uleb128 0x10
+ 868 0468 C3000000 		.4byte	.LASF65
+ 869 046c 06       		.byte	0x6
+ 870 046d AB       		.byte	0xab
+ 871 046e 6F000000 		.4byte	0x6f
+ 872 0472 10       		.uleb128 0x10
+ 873 0473 AA040000 		.4byte	.LASF66
+ 874 0477 06       		.byte	0x6
+ 875 0478 B2       		.byte	0xb2
+ 876 0479 1B010000 		.4byte	0x11b
+ 877 047d 00       		.byte	0
+ 878 047e 05       		.uleb128 0x5
+ 879 047f 04       		.byte	0x4
+ 880 0480 C2030000 		.4byte	0x3c2
+ 881 0484 05       		.uleb128 0x5
+ 882 0485 04       		.byte	0x4
+ 883 0486 8A040000 		.4byte	0x48a
+ 884 048a 11       		.uleb128 0x11
+ 885 048b 01       		.byte	0x1
+ 886 048c 10010000 		.4byte	0x110
+ 887 0490 9A040000 		.4byte	0x49a
+ 888 0494 12       		.uleb128 0x12
+ 889 0495 6F000000 		.4byte	0x6f
+ 890 0499 00       		.byte	0
+ 891 049a 07       		.uleb128 0x7
+ 892 049b 3C030000 		.4byte	.LASF67
+ 893 049f 0A       		.byte	0xa
+ 894 04a0 37       		.byte	0x37
+ 895 04a1 A5040000 		.4byte	0x4a5
+ 896 04a5 08       		.uleb128 0x8
+ 897 04a6 3C030000 		.4byte	.LASF67
+ 898 04aa 24       		.byte	0x24
+ 899 04ab 0A       		.byte	0xa
+ 900 04ac 45       		.byte	0x45
+ 901 04ad 22050000 		.4byte	0x522
+ 902 04b1 09       		.uleb128 0x9
+ 903 04b2 6B000000 		.4byte	.LASF68
+ 904 04b6 0A       		.byte	0xa
+ 905 04b7 46       		.byte	0x46
+ 906 04b8 97020000 		.4byte	0x297
+ 907 04bc 02       		.byte	0x2
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 17
+
+
+ 908 04bd 23       		.byte	0x23
+ 909 04be 00       		.uleb128 0
+ 910 04bf 09       		.uleb128 0x9
+ 911 04c0 6B030000 		.4byte	.LASF69
+ 912 04c4 0A       		.byte	0xa
+ 913 04c5 47       		.byte	0x47
+ 914 04c6 90000000 		.4byte	0x90
+ 915 04ca 02       		.byte	0x2
+ 916 04cb 23       		.byte	0x23
+ 917 04cc 08       		.uleb128 0x8
+ 918 04cd 09       		.uleb128 0x9
+ 919 04ce 08010000 		.4byte	.LASF70
+ 920 04d2 0A       		.byte	0xa
+ 921 04d3 48       		.byte	0x48
+ 922 04d4 45050000 		.4byte	0x545
+ 923 04d8 02       		.byte	0x2
+ 924 04d9 23       		.byte	0x23
+ 925 04da 0C       		.uleb128 0xc
+ 926 04db 09       		.uleb128 0x9
+ 927 04dc 51060000 		.4byte	.LASF71
+ 928 04e0 0A       		.byte	0xa
+ 929 04e1 49       		.byte	0x49
+ 930 04e2 45050000 		.4byte	0x545
+ 931 04e6 02       		.byte	0x2
+ 932 04e7 23       		.byte	0x23
+ 933 04e8 10       		.uleb128 0x10
+ 934 04e9 09       		.uleb128 0x9
+ 935 04ea D8040000 		.4byte	.LASF72
+ 936 04ee 0A       		.byte	0xa
+ 937 04ef 4B       		.byte	0x4b
+ 938 04f0 45050000 		.4byte	0x545
+ 939 04f4 02       		.byte	0x2
+ 940 04f5 23       		.byte	0x23
+ 941 04f6 14       		.uleb128 0x14
+ 942 04f7 09       		.uleb128 0x9
+ 943 04f8 21040000 		.4byte	.LASF73
+ 944 04fc 0A       		.byte	0xa
+ 945 04fd 4C       		.byte	0x4c
+ 946 04fe 45050000 		.4byte	0x545
+ 947 0502 02       		.byte	0x2
+ 948 0503 23       		.byte	0x23
+ 949 0504 18       		.uleb128 0x18
+ 950 0505 09       		.uleb128 0x9
+ 951 0506 65060000 		.4byte	.LASF74
+ 952 050a 0A       		.byte	0xa
+ 953 050b 4D       		.byte	0x4d
+ 954 050c 22050000 		.4byte	0x522
+ 955 0510 02       		.byte	0x2
+ 956 0511 23       		.byte	0x23
+ 957 0512 1C       		.uleb128 0x1c
+ 958 0513 09       		.uleb128 0x9
+ 959 0514 1A010000 		.4byte	.LASF75
+ 960 0518 0A       		.byte	0xa
+ 961 0519 4E       		.byte	0x4e
+ 962 051a 6F000000 		.4byte	0x6f
+ 963 051e 02       		.byte	0x2
+ 964 051f 23       		.byte	0x23
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 18
+
+
+ 965 0520 20       		.uleb128 0x20
+ 966 0521 00       		.byte	0
+ 967 0522 07       		.uleb128 0x7
+ 968 0523 F3030000 		.4byte	.LASF76
+ 969 0527 0A       		.byte	0xa
+ 970 0528 3A       		.byte	0x3a
+ 971 0529 2D050000 		.4byte	0x52d
+ 972 052d 05       		.uleb128 0x5
+ 973 052e 04       		.byte	0x4
+ 974 052f 33050000 		.4byte	0x533
+ 975 0533 13       		.uleb128 0x13
+ 976 0534 01       		.byte	0x1
+ 977 0535 3F050000 		.4byte	0x53f
+ 978 0539 12       		.uleb128 0x12
+ 979 053a 3F050000 		.4byte	0x53f
+ 980 053e 00       		.byte	0
+ 981 053f 05       		.uleb128 0x5
+ 982 0540 04       		.byte	0x4
+ 983 0541 9A040000 		.4byte	0x49a
+ 984 0545 05       		.uleb128 0x5
+ 985 0546 04       		.byte	0x4
+ 986 0547 9B000000 		.4byte	0x9b
+ 987 054b 07       		.uleb128 0x7
+ 988 054c 2B030000 		.4byte	.LASF77
+ 989 0550 0A       		.byte	0xa
+ 990 0551 82       		.byte	0x82
+ 991 0552 9A040000 		.4byte	0x49a
+ 992 0556 07       		.uleb128 0x7
+ 993 0557 0E000000 		.4byte	.LASF78
+ 994 055b 0A       		.byte	0xa
+ 995 055c F5       		.byte	0xf5
+ 996 055d 9A040000 		.4byte	0x49a
+ 997 0561 08       		.uleb128 0x8
+ 998 0562 B8040000 		.4byte	.LASF79
+ 999 0566 10       		.byte	0x10
+ 1000 0567 0B       		.byte	0xb
+ 1001 0568 48       		.byte	0x48
+ 1002 0569 A6050000 		.4byte	0x5a6
+ 1003 056d 09       		.uleb128 0x9
+ 1004 056e 50030000 		.4byte	.LASF80
+ 1005 0572 0B       		.byte	0xb
+ 1006 0573 49       		.byte	0x49
+ 1007 0574 CB050000 		.4byte	0x5cb
+ 1008 0578 02       		.byte	0x2
+ 1009 0579 23       		.byte	0x23
+ 1010 057a 00       		.uleb128 0
+ 1011 057b 09       		.uleb128 0x9
+ 1012 057c AA060000 		.4byte	.LASF81
+ 1013 0580 0B       		.byte	0xb
+ 1014 0581 49       		.byte	0x49
+ 1015 0582 EB050000 		.4byte	0x5eb
+ 1016 0586 02       		.byte	0x2
+ 1017 0587 23       		.byte	0x23
+ 1018 0588 04       		.uleb128 0x4
+ 1019 0589 0A       		.uleb128 0xa
+ 1020 058a 70757400 		.ascii	"put\000"
+ 1021 058e 0B       		.byte	0xb
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 19
+
+
+ 1022 058f 49       		.byte	0x49
+ 1023 0590 06060000 		.4byte	0x606
+ 1024 0594 02       		.byte	0x2
+ 1025 0595 23       		.byte	0x23
+ 1026 0596 08       		.uleb128 0x8
+ 1027 0597 0A       		.uleb128 0xa
+ 1028 0598 67657400 		.ascii	"get\000"
+ 1029 059c 0B       		.byte	0xb
+ 1030 059d 49       		.byte	0x49
+ 1031 059e 84040000 		.4byte	0x484
+ 1032 05a2 02       		.byte	0x2
+ 1033 05a3 23       		.byte	0x23
+ 1034 05a4 0C       		.uleb128 0xc
+ 1035 05a5 00       		.byte	0
+ 1036 05a6 11       		.uleb128 0x11
+ 1037 05a7 01       		.byte	0x1
+ 1038 05a8 90000000 		.4byte	0x90
+ 1039 05ac C0050000 		.4byte	0x5c0
+ 1040 05b0 12       		.uleb128 0x12
+ 1041 05b1 6F000000 		.4byte	0x6f
+ 1042 05b5 12       		.uleb128 0x12
+ 1043 05b6 C0050000 		.4byte	0x5c0
+ 1044 05ba 12       		.uleb128 0x12
+ 1045 05bb 90000000 		.4byte	0x90
+ 1046 05bf 00       		.byte	0
+ 1047 05c0 05       		.uleb128 0x5
+ 1048 05c1 04       		.byte	0x4
+ 1049 05c2 C6050000 		.4byte	0x5c6
+ 1050 05c6 06       		.uleb128 0x6
+ 1051 05c7 9B000000 		.4byte	0x9b
+ 1052 05cb 05       		.uleb128 0x5
+ 1053 05cc 04       		.byte	0x4
+ 1054 05cd A6050000 		.4byte	0x5a6
+ 1055 05d1 11       		.uleb128 0x11
+ 1056 05d2 01       		.byte	0x1
+ 1057 05d3 90000000 		.4byte	0x90
+ 1058 05d7 EB050000 		.4byte	0x5eb
+ 1059 05db 12       		.uleb128 0x12
+ 1060 05dc 6F000000 		.4byte	0x6f
+ 1061 05e0 12       		.uleb128 0x12
+ 1062 05e1 45050000 		.4byte	0x545
+ 1063 05e5 12       		.uleb128 0x12
+ 1064 05e6 90000000 		.4byte	0x90
+ 1065 05ea 00       		.byte	0
+ 1066 05eb 05       		.uleb128 0x5
+ 1067 05ec 04       		.byte	0x4
+ 1068 05ed D1050000 		.4byte	0x5d1
+ 1069 05f1 11       		.uleb128 0x11
+ 1070 05f2 01       		.byte	0x1
+ 1071 05f3 10010000 		.4byte	0x110
+ 1072 05f7 06060000 		.4byte	0x606
+ 1073 05fb 12       		.uleb128 0x12
+ 1074 05fc 6F000000 		.4byte	0x6f
+ 1075 0600 12       		.uleb128 0x12
+ 1076 0601 9B000000 		.4byte	0x9b
+ 1077 0605 00       		.byte	0
+ 1078 0606 05       		.uleb128 0x5
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 20
+
+
+ 1079 0607 04       		.byte	0x4
+ 1080 0608 F1050000 		.4byte	0x5f1
+ 1081 060c 0B       		.uleb128 0xb
+ 1082 060d 04       		.byte	0x4
+ 1083 060e 0B       		.byte	0xb
+ 1084 060f 51       		.byte	0x51
+ 1085 0610 23060000 		.4byte	0x623
+ 1086 0614 0A       		.uleb128 0xa
+ 1087 0615 766D7400 		.ascii	"vmt\000"
+ 1088 0619 0B       		.byte	0xb
+ 1089 061a 53       		.byte	0x53
+ 1090 061b 23060000 		.4byte	0x623
+ 1091 061f 02       		.byte	0x2
+ 1092 0620 23       		.byte	0x23
+ 1093 0621 00       		.uleb128 0
+ 1094 0622 00       		.byte	0
+ 1095 0623 05       		.uleb128 0x5
+ 1096 0624 04       		.byte	0x4
+ 1097 0625 29060000 		.4byte	0x629
+ 1098 0629 06       		.uleb128 0x6
+ 1099 062a 61050000 		.4byte	0x561
+ 1100 062e 07       		.uleb128 0x7
+ 1101 062f 92010000 		.4byte	.LASF82
+ 1102 0633 0B       		.byte	0xb
+ 1103 0634 55       		.byte	0x55
+ 1104 0635 0C060000 		.4byte	0x60c
+ 1105 0639 0E       		.uleb128 0xe
+ 1106 063a A6000000 		.4byte	0xa6
+ 1107 063e 0E       		.uleb128 0xe
+ 1108 063f B1000000 		.4byte	0xb1
+ 1109 0643 14       		.uleb128 0x14
+ 1110 0644 1C       		.byte	0x1c
+ 1111 0645 0C       		.byte	0xc
+ 1112 0646 E104     		.2byte	0x4e1
+ 1113 0648 1D070000 		.4byte	0x71d
+ 1114 064c 0D       		.uleb128 0xd
+ 1115 064d 535200   		.ascii	"SR\000"
+ 1116 0650 0C       		.byte	0xc
+ 1117 0651 E304     		.2byte	0x4e3
+ 1118 0653 39060000 		.4byte	0x639
+ 1119 0657 02       		.byte	0x2
+ 1120 0658 23       		.byte	0x23
+ 1121 0659 00       		.uleb128 0
+ 1122 065a 15       		.uleb128 0x15
+ 1123 065b D5030000 		.4byte	.LASF83
+ 1124 065f 0C       		.byte	0xc
+ 1125 0660 E404     		.2byte	0x4e4
+ 1126 0662 A6000000 		.4byte	0xa6
+ 1127 0666 02       		.byte	0x2
+ 1128 0667 23       		.byte	0x23
+ 1129 0668 02       		.uleb128 0x2
+ 1130 0669 0D       		.uleb128 0xd
+ 1131 066a 445200   		.ascii	"DR\000"
+ 1132 066d 0C       		.byte	0xc
+ 1133 066e E504     		.2byte	0x4e5
+ 1134 0670 39060000 		.4byte	0x639
+ 1135 0674 02       		.byte	0x2
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 21
+
+
+ 1136 0675 23       		.byte	0x23
+ 1137 0676 04       		.uleb128 0x4
+ 1138 0677 15       		.uleb128 0x15
+ 1139 0678 DF030000 		.4byte	.LASF84
+ 1140 067c 0C       		.byte	0xc
+ 1141 067d E604     		.2byte	0x4e6
+ 1142 067f A6000000 		.4byte	0xa6
+ 1143 0683 02       		.byte	0x2
+ 1144 0684 23       		.byte	0x23
+ 1145 0685 06       		.uleb128 0x6
+ 1146 0686 0D       		.uleb128 0xd
+ 1147 0687 42525200 		.ascii	"BRR\000"
+ 1148 068b 0C       		.byte	0xc
+ 1149 068c E704     		.2byte	0x4e7
+ 1150 068e 39060000 		.4byte	0x639
+ 1151 0692 02       		.byte	0x2
+ 1152 0693 23       		.byte	0x23
+ 1153 0694 08       		.uleb128 0x8
+ 1154 0695 15       		.uleb128 0x15
+ 1155 0696 E9030000 		.4byte	.LASF85
+ 1156 069a 0C       		.byte	0xc
+ 1157 069b E804     		.2byte	0x4e8
+ 1158 069d A6000000 		.4byte	0xa6
+ 1159 06a1 02       		.byte	0x2
+ 1160 06a2 23       		.byte	0x23
+ 1161 06a3 0A       		.uleb128 0xa
+ 1162 06a4 0D       		.uleb128 0xd
+ 1163 06a5 43523100 		.ascii	"CR1\000"
+ 1164 06a9 0C       		.byte	0xc
+ 1165 06aa E904     		.2byte	0x4e9
+ 1166 06ac 39060000 		.4byte	0x639
+ 1167 06b0 02       		.byte	0x2
+ 1168 06b1 23       		.byte	0x23
+ 1169 06b2 0C       		.uleb128 0xc
+ 1170 06b3 15       		.uleb128 0x15
+ 1171 06b4 F4040000 		.4byte	.LASF86
+ 1172 06b8 0C       		.byte	0xc
+ 1173 06b9 EA04     		.2byte	0x4ea
+ 1174 06bb A6000000 		.4byte	0xa6
+ 1175 06bf 02       		.byte	0x2
+ 1176 06c0 23       		.byte	0x23
+ 1177 06c1 0E       		.uleb128 0xe
+ 1178 06c2 0D       		.uleb128 0xd
+ 1179 06c3 43523200 		.ascii	"CR2\000"
+ 1180 06c7 0C       		.byte	0xc
+ 1181 06c8 EB04     		.2byte	0x4eb
+ 1182 06ca 39060000 		.4byte	0x639
+ 1183 06ce 02       		.byte	0x2
+ 1184 06cf 23       		.byte	0x23
+ 1185 06d0 10       		.uleb128 0x10
+ 1186 06d1 15       		.uleb128 0x15
+ 1187 06d2 FD030000 		.4byte	.LASF87
+ 1188 06d6 0C       		.byte	0xc
+ 1189 06d7 EC04     		.2byte	0x4ec
+ 1190 06d9 A6000000 		.4byte	0xa6
+ 1191 06dd 02       		.byte	0x2
+ 1192 06de 23       		.byte	0x23
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 22
+
+
+ 1193 06df 12       		.uleb128 0x12
+ 1194 06e0 0D       		.uleb128 0xd
+ 1195 06e1 43523300 		.ascii	"CR3\000"
+ 1196 06e5 0C       		.byte	0xc
+ 1197 06e6 ED04     		.2byte	0x4ed
+ 1198 06e8 39060000 		.4byte	0x639
+ 1199 06ec 02       		.byte	0x2
+ 1200 06ed 23       		.byte	0x23
+ 1201 06ee 14       		.uleb128 0x14
+ 1202 06ef 15       		.uleb128 0x15
+ 1203 06f0 13050000 		.4byte	.LASF88
+ 1204 06f4 0C       		.byte	0xc
+ 1205 06f5 EE04     		.2byte	0x4ee
+ 1206 06f7 A6000000 		.4byte	0xa6
+ 1207 06fb 02       		.byte	0x2
+ 1208 06fc 23       		.byte	0x23
+ 1209 06fd 16       		.uleb128 0x16
+ 1210 06fe 15       		.uleb128 0x15
+ 1211 06ff 9C000000 		.4byte	.LASF89
+ 1212 0703 0C       		.byte	0xc
+ 1213 0704 EF04     		.2byte	0x4ef
+ 1214 0706 39060000 		.4byte	0x639
+ 1215 070a 02       		.byte	0x2
+ 1216 070b 23       		.byte	0x23
+ 1217 070c 18       		.uleb128 0x18
+ 1218 070d 15       		.uleb128 0x15
+ 1219 070e 0F040000 		.4byte	.LASF90
+ 1220 0712 0C       		.byte	0xc
+ 1221 0713 F004     		.2byte	0x4f0
+ 1222 0715 A6000000 		.4byte	0xa6
+ 1223 0719 02       		.byte	0x2
+ 1224 071a 23       		.byte	0x23
+ 1225 071b 1A       		.uleb128 0x1a
+ 1226 071c 00       		.byte	0
+ 1227 071d 16       		.uleb128 0x16
+ 1228 071e 5B040000 		.4byte	.LASF91
+ 1229 0722 0C       		.byte	0xc
+ 1230 0723 F104     		.2byte	0x4f1
+ 1231 0725 43060000 		.4byte	0x643
+ 1232 0729 11       		.uleb128 0x11
+ 1233 072a 01       		.byte	0x1
+ 1234 072b 10010000 		.4byte	0x110
+ 1235 072f 43070000 		.4byte	0x743
+ 1236 0733 12       		.uleb128 0x12
+ 1237 0734 6F000000 		.4byte	0x6f
+ 1238 0738 12       		.uleb128 0x12
+ 1239 0739 9B000000 		.4byte	0x9b
+ 1240 073d 12       		.uleb128 0x12
+ 1241 073e 31010000 		.4byte	0x131
+ 1242 0742 00       		.byte	0
+ 1243 0743 05       		.uleb128 0x5
+ 1244 0744 04       		.byte	0x4
+ 1245 0745 29070000 		.4byte	0x729
+ 1246 0749 11       		.uleb128 0x11
+ 1247 074a 01       		.byte	0x1
+ 1248 074b 10010000 		.4byte	0x110
+ 1249 074f 5E070000 		.4byte	0x75e
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 23
+
+
+ 1250 0753 12       		.uleb128 0x12
+ 1251 0754 6F000000 		.4byte	0x6f
+ 1252 0758 12       		.uleb128 0x12
+ 1253 0759 31010000 		.4byte	0x131
+ 1254 075d 00       		.byte	0
+ 1255 075e 05       		.uleb128 0x5
+ 1256 075f 04       		.byte	0x4
+ 1257 0760 49070000 		.4byte	0x749
+ 1258 0764 11       		.uleb128 0x11
+ 1259 0765 01       		.byte	0x1
+ 1260 0766 90000000 		.4byte	0x90
+ 1261 076a 83070000 		.4byte	0x783
+ 1262 076e 12       		.uleb128 0x12
+ 1263 076f 6F000000 		.4byte	0x6f
+ 1264 0773 12       		.uleb128 0x12
+ 1265 0774 C0050000 		.4byte	0x5c0
+ 1266 0778 12       		.uleb128 0x12
+ 1267 0779 90000000 		.4byte	0x90
+ 1268 077d 12       		.uleb128 0x12
+ 1269 077e 31010000 		.4byte	0x131
+ 1270 0782 00       		.byte	0
+ 1271 0783 05       		.uleb128 0x5
+ 1272 0784 04       		.byte	0x4
+ 1273 0785 64070000 		.4byte	0x764
+ 1274 0789 11       		.uleb128 0x11
+ 1275 078a 01       		.byte	0x1
+ 1276 078b 90000000 		.4byte	0x90
+ 1277 078f A8070000 		.4byte	0x7a8
+ 1278 0793 12       		.uleb128 0x12
+ 1279 0794 6F000000 		.4byte	0x6f
+ 1280 0798 12       		.uleb128 0x12
+ 1281 0799 45050000 		.4byte	0x545
+ 1282 079d 12       		.uleb128 0x12
+ 1283 079e 90000000 		.4byte	0x90
+ 1284 07a2 12       		.uleb128 0x12
+ 1285 07a3 31010000 		.4byte	0x131
+ 1286 07a7 00       		.byte	0
+ 1287 07a8 05       		.uleb128 0x5
+ 1288 07a9 04       		.byte	0x4
+ 1289 07aa 89070000 		.4byte	0x789
+ 1290 07ae 17       		.uleb128 0x17
+ 1291 07af 01       		.byte	0x1
+ 1292 07b0 0D       		.byte	0xd
+ 1293 07b1 64       		.byte	0x64
+ 1294 07b2 C9070000 		.4byte	0x7c9
+ 1295 07b6 18       		.uleb128 0x18
+ 1296 07b7 09050000 		.4byte	.LASF92
+ 1297 07bb 00       		.sleb128 0
+ 1298 07bc 18       		.uleb128 0x18
+ 1299 07bd 07040000 		.4byte	.LASF93
+ 1300 07c1 01       		.sleb128 1
+ 1301 07c2 18       		.uleb128 0x18
+ 1302 07c3 37060000 		.4byte	.LASF94
+ 1303 07c7 02       		.sleb128 2
+ 1304 07c8 00       		.byte	0
+ 1305 07c9 07       		.uleb128 0x7
+ 1306 07ca 26050000 		.4byte	.LASF95
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 24
+
+
+ 1307 07ce 0D       		.byte	0xd
+ 1308 07cf 68       		.byte	0x68
+ 1309 07d0 AE070000 		.4byte	0x7ae
+ 1310 07d4 07       		.uleb128 0x7
+ 1311 07d5 30050000 		.4byte	.LASF96
+ 1312 07d9 0D       		.byte	0xd
+ 1313 07da 6D       		.byte	0x6d
+ 1314 07db DF070000 		.4byte	0x7df
+ 1315 07df 08       		.uleb128 0x8
+ 1316 07e0 30050000 		.4byte	.LASF96
+ 1317 07e4 D8       		.byte	0xd8
+ 1318 07e5 0D       		.byte	0xd
+ 1319 07e6 87       		.byte	0x87
+ 1320 07e7 5C080000 		.4byte	0x85c
+ 1321 07eb 0A       		.uleb128 0xa
+ 1322 07ec 766D7400 		.ascii	"vmt\000"
+ 1323 07f0 0D       		.byte	0xd
+ 1324 07f1 89       		.byte	0x89
+ 1325 07f2 D9080000 		.4byte	0x8d9
+ 1326 07f6 02       		.byte	0x2
+ 1327 07f7 23       		.byte	0x23
+ 1328 07f8 00       		.uleb128 0
+ 1329 07f9 09       		.uleb128 0x9
+ 1330 07fa 11020000 		.4byte	.LASF97
+ 1331 07fe 0D       		.byte	0xd
+ 1332 07ff 8A       		.byte	0x8a
+ 1333 0800 3E040000 		.4byte	0x43e
+ 1334 0804 02       		.byte	0x2
+ 1335 0805 23       		.byte	0x23
+ 1336 0806 04       		.uleb128 0x4
+ 1337 0807 09       		.uleb128 0x9
+ 1338 0808 D4000000 		.4byte	.LASF98
+ 1339 080c 0D       		.byte	0xd
+ 1340 080d 8A       		.byte	0x8a
+ 1341 080e C9070000 		.4byte	0x7c9
+ 1342 0812 02       		.byte	0x2
+ 1343 0813 23       		.byte	0x23
+ 1344 0814 08       		.uleb128 0x8
+ 1345 0815 09       		.uleb128 0x9
+ 1346 0816 DE010000 		.4byte	.LASF99
+ 1347 081a 0D       		.byte	0xd
+ 1348 081b 8A       		.byte	0x8a
+ 1349 081c 4B050000 		.4byte	0x54b
+ 1350 0820 02       		.byte	0x2
+ 1351 0821 23       		.byte	0x23
+ 1352 0822 0C       		.uleb128 0xc
+ 1353 0823 09       		.uleb128 0x9
+ 1354 0824 7C020000 		.4byte	.LASF100
+ 1355 0828 0D       		.byte	0xd
+ 1356 0829 8A       		.byte	0x8a
+ 1357 082a 56050000 		.4byte	0x556
+ 1358 082e 02       		.byte	0x2
+ 1359 082f 23       		.byte	0x23
+ 1360 0830 30       		.uleb128 0x30
+ 1361 0831 0A       		.uleb128 0xa
+ 1362 0832 696200   		.ascii	"ib\000"
+ 1363 0835 0D       		.byte	0xd
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 25
+
+
+ 1364 0836 8A       		.byte	0x8a
+ 1365 0837 E4080000 		.4byte	0x8e4
+ 1366 083b 02       		.byte	0x2
+ 1367 083c 23       		.byte	0x23
+ 1368 083d 54       		.uleb128 0x54
+ 1369 083e 0A       		.uleb128 0xa
+ 1370 083f 6F6200   		.ascii	"ob\000"
+ 1371 0842 0D       		.byte	0xd
+ 1372 0843 8A       		.byte	0x8a
+ 1373 0844 E4080000 		.4byte	0x8e4
+ 1374 0848 03       		.byte	0x3
+ 1375 0849 23       		.byte	0x23
+ 1376 084a 9401     		.uleb128 0x94
+ 1377 084c 09       		.uleb128 0x9
+ 1378 084d A7010000 		.4byte	.LASF101
+ 1379 0851 0D       		.byte	0xd
+ 1380 0852 8A       		.byte	0x8a
+ 1381 0853 F4080000 		.4byte	0x8f4
+ 1382 0857 03       		.byte	0x3
+ 1383 0858 23       		.byte	0x23
+ 1384 0859 D401     		.uleb128 0xd4
+ 1385 085b 00       		.byte	0
+ 1386 085c 08       		.uleb128 0x8
+ 1387 085d C2010000 		.4byte	.LASF102
+ 1388 0861 20       		.byte	0x20
+ 1389 0862 0D       		.byte	0xd
+ 1390 0863 7C       		.byte	0x7c
+ 1391 0864 D9080000 		.4byte	0x8d9
+ 1392 0868 09       		.uleb128 0x9
+ 1393 0869 50030000 		.4byte	.LASF80
+ 1394 086d 0D       		.byte	0xd
+ 1395 086e 7D       		.byte	0x7d
+ 1396 086f CB050000 		.4byte	0x5cb
+ 1397 0873 02       		.byte	0x2
+ 1398 0874 23       		.byte	0x23
+ 1399 0875 00       		.uleb128 0
+ 1400 0876 09       		.uleb128 0x9
+ 1401 0877 AA060000 		.4byte	.LASF81
+ 1402 087b 0D       		.byte	0xd
+ 1403 087c 7D       		.byte	0x7d
+ 1404 087d EB050000 		.4byte	0x5eb
+ 1405 0881 02       		.byte	0x2
+ 1406 0882 23       		.byte	0x23
+ 1407 0883 04       		.uleb128 0x4
+ 1408 0884 0A       		.uleb128 0xa
+ 1409 0885 70757400 		.ascii	"put\000"
+ 1410 0889 0D       		.byte	0xd
+ 1411 088a 7D       		.byte	0x7d
+ 1412 088b 06060000 		.4byte	0x606
+ 1413 088f 02       		.byte	0x2
+ 1414 0890 23       		.byte	0x23
+ 1415 0891 08       		.uleb128 0x8
+ 1416 0892 0A       		.uleb128 0xa
+ 1417 0893 67657400 		.ascii	"get\000"
+ 1418 0897 0D       		.byte	0xd
+ 1419 0898 7D       		.byte	0x7d
+ 1420 0899 84040000 		.4byte	0x484
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 26
+
+
+ 1421 089d 02       		.byte	0x2
+ 1422 089e 23       		.byte	0x23
+ 1423 089f 0C       		.uleb128 0xc
+ 1424 08a0 09       		.uleb128 0x9
+ 1425 08a1 56030000 		.4byte	.LASF103
+ 1426 08a5 0D       		.byte	0xd
+ 1427 08a6 7D       		.byte	0x7d
+ 1428 08a7 43070000 		.4byte	0x743
+ 1429 08ab 02       		.byte	0x2
+ 1430 08ac 23       		.byte	0x23
+ 1431 08ad 10       		.uleb128 0x10
+ 1432 08ae 09       		.uleb128 0x9
+ 1433 08af 00020000 		.4byte	.LASF104
+ 1434 08b3 0D       		.byte	0xd
+ 1435 08b4 7D       		.byte	0x7d
+ 1436 08b5 5E070000 		.4byte	0x75e
+ 1437 08b9 02       		.byte	0x2
+ 1438 08ba 23       		.byte	0x23
+ 1439 08bb 14       		.uleb128 0x14
+ 1440 08bc 09       		.uleb128 0x9
+ 1441 08bd 49030000 		.4byte	.LASF105
+ 1442 08c1 0D       		.byte	0xd
+ 1443 08c2 7D       		.byte	0x7d
+ 1444 08c3 83070000 		.4byte	0x783
+ 1445 08c7 02       		.byte	0x2
+ 1446 08c8 23       		.byte	0x23
+ 1447 08c9 18       		.uleb128 0x18
+ 1448 08ca 09       		.uleb128 0x9
+ 1449 08cb 65000000 		.4byte	.LASF106
+ 1450 08cf 0D       		.byte	0xd
+ 1451 08d0 7D       		.byte	0x7d
+ 1452 08d1 A8070000 		.4byte	0x7a8
+ 1453 08d5 02       		.byte	0x2
+ 1454 08d6 23       		.byte	0x23
+ 1455 08d7 1C       		.uleb128 0x1c
+ 1456 08d8 00       		.byte	0
+ 1457 08d9 05       		.uleb128 0x5
+ 1458 08da 04       		.byte	0x4
+ 1459 08db DF080000 		.4byte	0x8df
+ 1460 08df 06       		.uleb128 0x6
+ 1461 08e0 5C080000 		.4byte	0x85c
+ 1462 08e4 19       		.uleb128 0x19
+ 1463 08e5 9B000000 		.4byte	0x9b
+ 1464 08e9 F4080000 		.4byte	0x8f4
+ 1465 08ed 1A       		.uleb128 0x1a
+ 1466 08ee 68000000 		.4byte	0x68
+ 1467 08f2 3F       		.byte	0x3f
+ 1468 08f3 00       		.byte	0
+ 1469 08f4 05       		.uleb128 0x5
+ 1470 08f5 04       		.byte	0x4
+ 1471 08f6 1D070000 		.4byte	0x71d
+ 1472 08fa 07       		.uleb128 0x7
+ 1473 08fb 26060000 		.4byte	.LASF107
+ 1474 08ff 0E       		.byte	0xe
+ 1475 0900 39       		.byte	0x39
+ 1476 0901 2E060000 		.4byte	0x62e
+ 1477 0905 17       		.uleb128 0x17
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 27
+
+
+ 1478 0906 01       		.byte	0x1
+ 1479 0907 0F       		.byte	0xf
+ 1480 0908 8D       		.byte	0x8d
+ 1481 0909 62090000 		.4byte	0x962
+ 1482 090d 18       		.uleb128 0x18
+ 1483 090e F7000000 		.4byte	.LASF108
+ 1484 0912 7F       		.sleb128 -1
+ 1485 0913 18       		.uleb128 0x18
+ 1486 0914 8B020000 		.4byte	.LASF109
+ 1487 0918 00       		.sleb128 0
+ 1488 0919 18       		.uleb128 0x18
+ 1489 091a 99020000 		.4byte	.LASF110
+ 1490 091e 01       		.sleb128 1
+ 1491 091f 18       		.uleb128 0x18
+ 1492 0920 A7020000 		.4byte	.LASF111
+ 1493 0924 02       		.sleb128 2
+ 1494 0925 18       		.uleb128 0x18
+ 1495 0926 B5020000 		.4byte	.LASF112
+ 1496 092a 03       		.sleb128 3
+ 1497 092b 18       		.uleb128 0x18
+ 1498 092c C3020000 		.4byte	.LASF113
+ 1499 0930 04       		.sleb128 4
+ 1500 0931 18       		.uleb128 0x18
+ 1501 0932 D1020000 		.4byte	.LASF114
+ 1502 0936 05       		.sleb128 5
+ 1503 0937 18       		.uleb128 0x18
+ 1504 0938 DF020000 		.4byte	.LASF115
+ 1505 093c 06       		.sleb128 6
+ 1506 093d 18       		.uleb128 0x18
+ 1507 093e ED020000 		.4byte	.LASF116
+ 1508 0942 07       		.sleb128 7
+ 1509 0943 18       		.uleb128 0x18
+ 1510 0944 FB020000 		.4byte	.LASF117
+ 1511 0948 08       		.sleb128 8
+ 1512 0949 18       		.uleb128 0x18
+ 1513 094a 49010000 		.4byte	.LASF118
+ 1514 094e 09       		.sleb128 9
+ 1515 094f 18       		.uleb128 0x18
+ 1516 0950 DD050000 		.4byte	.LASF119
+ 1517 0954 0A       		.sleb128 10
+ 1518 0955 18       		.uleb128 0x18
+ 1519 0956 3D050000 		.4byte	.LASF120
+ 1520 095a 0B       		.sleb128 11
+ 1521 095b 18       		.uleb128 0x18
+ 1522 095c 41000000 		.4byte	.LASF121
+ 1523 0960 0C       		.sleb128 12
+ 1524 0961 00       		.byte	0
+ 1525 0962 17       		.uleb128 0x17
+ 1526 0963 01       		.byte	0x1
+ 1527 0964 0F       		.byte	0xf
+ 1528 0965 A2       		.byte	0xa2
+ 1529 0966 77090000 		.4byte	0x977
+ 1530 096a 18       		.uleb128 0x18
+ 1531 096b 05070000 		.4byte	.LASF122
+ 1532 096f 00       		.sleb128 0
+ 1533 0970 18       		.uleb128 0x18
+ 1534 0971 22000000 		.4byte	.LASF123
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 28
+
+
+ 1535 0975 01       		.sleb128 1
+ 1536 0976 00       		.byte	0
+ 1537 0977 17       		.uleb128 0x17
+ 1538 0978 01       		.byte	0x1
+ 1539 0979 10       		.byte	0x10
+ 1540 097a 46       		.byte	0x46
+ 1541 097b BD090000 		.4byte	0x9bd
+ 1542 097f 18       		.uleb128 0x18
+ 1543 0980 63050000 		.4byte	.LASF124
+ 1544 0984 00       		.sleb128 0
+ 1545 0985 18       		.uleb128 0x18
+ 1546 0986 71050000 		.4byte	.LASF125
+ 1547 098a 01       		.sleb128 1
+ 1548 098b 18       		.uleb128 0x18
+ 1549 098c 7F050000 		.4byte	.LASF126
+ 1550 0990 02       		.sleb128 2
+ 1551 0991 18       		.uleb128 0x18
+ 1552 0992 8D050000 		.4byte	.LASF127
+ 1553 0996 03       		.sleb128 3
+ 1554 0997 18       		.uleb128 0x18
+ 1555 0998 9B050000 		.4byte	.LASF128
+ 1556 099c 04       		.sleb128 4
+ 1557 099d 18       		.uleb128 0x18
+ 1558 099e A9050000 		.4byte	.LASF129
+ 1559 09a2 05       		.sleb128 5
+ 1560 09a3 18       		.uleb128 0x18
+ 1561 09a4 B7050000 		.4byte	.LASF130
+ 1562 09a8 06       		.sleb128 6
+ 1563 09a9 18       		.uleb128 0x18
+ 1564 09aa C5050000 		.4byte	.LASF131
+ 1565 09ae 07       		.sleb128 7
+ 1566 09af 18       		.uleb128 0x18
+ 1567 09b0 74010000 		.4byte	.LASF132
+ 1568 09b4 08       		.sleb128 8
+ 1569 09b5 18       		.uleb128 0x18
+ 1570 09b6 7E040000 		.4byte	.LASF133
+ 1571 09ba E300     		.sleb128 99
+ 1572 09bc 00       		.byte	0
+ 1573 09bd 05       		.uleb128 0x5
+ 1574 09be 04       		.byte	0x4
+ 1575 09bf FA080000 		.4byte	0x8fa
+ 1576 09c3 07       		.uleb128 0x7
+ 1577 09c4 75030000 		.4byte	.LASF134
+ 1578 09c8 11       		.byte	0x11
+ 1579 09c9 5E       		.byte	0x5e
+ 1580 09ca CE090000 		.4byte	0x9ce
+ 1581 09ce 05       		.uleb128 0x5
+ 1582 09cf 04       		.byte	0x4
+ 1583 09d0 D4090000 		.4byte	0x9d4
+ 1584 09d4 13       		.uleb128 0x13
+ 1585 09d5 01       		.byte	0x1
+ 1586 09d6 EA090000 		.4byte	0x9ea
+ 1587 09da 12       		.uleb128 0x12
+ 1588 09db BD090000 		.4byte	0x9bd
+ 1589 09df 12       		.uleb128 0x12
+ 1590 09e0 45000000 		.4byte	0x45
+ 1591 09e4 12       		.uleb128 0x12
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 29
+
+
+ 1592 09e5 EA090000 		.4byte	0x9ea
+ 1593 09e9 00       		.byte	0
+ 1594 09ea 05       		.uleb128 0x5
+ 1595 09eb 04       		.byte	0x4
+ 1596 09ec 78000000 		.4byte	0x78
+ 1597 09f0 0B       		.uleb128 0xb
+ 1598 09f1 08       		.byte	0x8
+ 1599 09f2 11       		.byte	0x11
+ 1600 09f3 63       		.byte	0x63
+ 1601 09f4 150A0000 		.4byte	0xa15
+ 1602 09f8 09       		.uleb128 0x9
+ 1603 09f9 7E010000 		.4byte	.LASF135
+ 1604 09fd 11       		.byte	0x11
+ 1605 09fe 64       		.byte	0x64
+ 1606 09ff 85000000 		.4byte	0x85
+ 1607 0a03 02       		.byte	0x2
+ 1608 0a04 23       		.byte	0x23
+ 1609 0a05 00       		.uleb128 0
+ 1610 0a06 09       		.uleb128 0x9
+ 1611 0a07 85060000 		.4byte	.LASF136
+ 1612 0a0b 11       		.byte	0x11
+ 1613 0a0c 65       		.byte	0x65
+ 1614 0a0d C3090000 		.4byte	0x9c3
+ 1615 0a11 02       		.byte	0x2
+ 1616 0a12 23       		.byte	0x23
+ 1617 0a13 04       		.uleb128 0x4
+ 1618 0a14 00       		.byte	0
+ 1619 0a15 07       		.uleb128 0x7
+ 1620 0a16 E3000000 		.4byte	.LASF137
+ 1621 0a1a 11       		.byte	0x11
+ 1622 0a1b 66       		.byte	0x66
+ 1623 0a1c F0090000 		.4byte	0x9f0
+ 1624 0a20 0B       		.uleb128 0xb
+ 1625 0a21 08       		.byte	0x8
+ 1626 0a22 11       		.byte	0x11
+ 1627 0a23 6B       		.byte	0x6b
+ 1628 0a24 450A0000 		.4byte	0xa45
+ 1629 0a28 09       		.uleb128 0x9
+ 1630 0a29 B8000000 		.4byte	.LASF138
+ 1631 0a2d 11       		.byte	0x11
+ 1632 0a2e 6C       		.byte	0x6c
+ 1633 0a2f BD090000 		.4byte	0x9bd
+ 1634 0a33 02       		.byte	0x2
+ 1635 0a34 23       		.byte	0x23
+ 1636 0a35 00       		.uleb128 0
+ 1637 0a36 09       		.uleb128 0x9
+ 1638 0a37 D2010000 		.4byte	.LASF139
+ 1639 0a3b 11       		.byte	0x11
+ 1640 0a3c 6E       		.byte	0x6e
+ 1641 0a3d 450A0000 		.4byte	0xa45
+ 1642 0a41 02       		.byte	0x2
+ 1643 0a42 23       		.byte	0x23
+ 1644 0a43 04       		.uleb128 0x4
+ 1645 0a44 00       		.byte	0
+ 1646 0a45 05       		.uleb128 0x5
+ 1647 0a46 04       		.byte	0x4
+ 1648 0a47 4B0A0000 		.4byte	0xa4b
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 30
+
+
+ 1649 0a4b 06       		.uleb128 0x6
+ 1650 0a4c 150A0000 		.4byte	0xa15
+ 1651 0a50 07       		.uleb128 0x7
+ 1652 0a51 13060000 		.4byte	.LASF140
+ 1653 0a55 11       		.byte	0x11
+ 1654 0a56 70       		.byte	0x70
+ 1655 0a57 200A0000 		.4byte	0xa20
+ 1656 0a5b 02       		.uleb128 0x2
+ 1657 0a5c 04       		.byte	0x4
+ 1658 0a5d 04       		.byte	0x4
+ 1659 0a5e C7030000 		.4byte	.LASF141
+ 1660 0a62 1B       		.uleb128 0x1b
+ 1661 0a63 EC050000 		.4byte	.LASF144
+ 1662 0a67 01       		.byte	0x1
+ 1663 0a68 3B       		.byte	0x3b
+ 1664 0a69 01       		.byte	0x1
+ 1665 0a6a 00000000 		.4byte	.LFB64
+ 1666 0a6e 1E000000 		.4byte	.LFE64
+ 1667 0a72 00000000 		.4byte	.LLST0
+ 1668 0a76 01       		.byte	0x1
+ 1669 0a77 C50A0000 		.4byte	0xac5
+ 1670 0a7b 1C       		.uleb128 0x1c
+ 1671 0a7c 63687000 		.ascii	"chp\000"
+ 1672 0a80 01       		.byte	0x1
+ 1673 0a81 3B       		.byte	0x3b
+ 1674 0a82 BD090000 		.4byte	0x9bd
+ 1675 0a86 20000000 		.4byte	.LLST1
+ 1676 0a8a 1D       		.uleb128 0x1d
+ 1677 0a8b C5060000 		.4byte	.LASF142
+ 1678 0a8f 01       		.byte	0x1
+ 1679 0a90 3B       		.byte	0x3b
+ 1680 0a91 45000000 		.4byte	0x45
+ 1681 0a95 3E000000 		.4byte	.LLST2
+ 1682 0a99 1D       		.uleb128 0x1d
+ 1683 0a9a 4C060000 		.4byte	.LASF143
+ 1684 0a9e 01       		.byte	0x1
+ 1685 0a9f 3B       		.byte	0x3b
+ 1686 0aa0 EA090000 		.4byte	0x9ea
+ 1687 0aa4 5F000000 		.4byte	.LLST3
+ 1688 0aa8 1E       		.uleb128 0x1e
+ 1689 0aa9 08000000 		.4byte	.LVL1
+ 1690 0aad 3C0C0000 		.4byte	0xc3c
+ 1691 0ab1 1E       		.uleb128 0x1e
+ 1692 0ab2 10000000 		.4byte	.LVL2
+ 1693 0ab6 460C0000 		.4byte	0xc46
+ 1694 0aba 1F       		.uleb128 0x1f
+ 1695 0abb 1E000000 		.4byte	.LVL3
+ 1696 0abf 01       		.byte	0x1
+ 1697 0ac0 500C0000 		.4byte	0xc50
+ 1698 0ac4 00       		.byte	0
+ 1699 0ac5 20       		.uleb128 0x20
+ 1700 0ac6 F0000000 		.4byte	.LASF145
+ 1701 0aca 01       		.byte	0x1
+ 1702 0acb 4D       		.byte	0x4d
+ 1703 0acc 01       		.byte	0x1
+ 1704 0acd 00000000 		.4byte	.LFB65
+ 1705 0ad1 04000000 		.4byte	.LFE65
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 31
+
+
+ 1706 0ad5 02       		.byte	0x2
+ 1707 0ad6 7D       		.byte	0x7d
+ 1708 0ad7 00       		.sleb128 0
+ 1709 0ad8 01       		.byte	0x1
+ 1710 0ad9 150B0000 		.4byte	0xb15
+ 1711 0add 1C       		.uleb128 0x1c
+ 1712 0ade 63687000 		.ascii	"chp\000"
+ 1713 0ae2 01       		.byte	0x1
+ 1714 0ae3 4D       		.byte	0x4d
+ 1715 0ae4 BD090000 		.4byte	0x9bd
+ 1716 0ae8 80000000 		.4byte	.LLST4
+ 1717 0aec 1D       		.uleb128 0x1d
+ 1718 0aed C5060000 		.4byte	.LASF142
+ 1719 0af1 01       		.byte	0x1
+ 1720 0af2 4D       		.byte	0x4d
+ 1721 0af3 45000000 		.4byte	0x45
+ 1722 0af7 A1000000 		.4byte	.LLST5
+ 1723 0afb 1D       		.uleb128 0x1d
+ 1724 0afc 4C060000 		.4byte	.LASF143
+ 1725 0b00 01       		.byte	0x1
+ 1726 0b01 4D       		.byte	0x4d
+ 1727 0b02 EA090000 		.4byte	0x9ea
+ 1728 0b06 C2000000 		.4byte	.LLST6
+ 1729 0b0a 1F       		.uleb128 0x1f
+ 1730 0b0b 04000000 		.4byte	.LVL5
+ 1731 0b0f 01       		.byte	0x1
+ 1732 0b10 5A0C0000 		.4byte	0xc5a
+ 1733 0b14 00       		.byte	0
+ 1734 0b15 21       		.uleb128 0x21
+ 1735 0b16 01       		.byte	0x1
+ 1736 0b17 80030000 		.4byte	.LASF163
+ 1737 0b1b 01       		.byte	0x1
+ 1738 0b1c 71       		.byte	0x71
+ 1739 0b1d 01       		.byte	0x1
+ 1740 0b1e 45000000 		.4byte	0x45
+ 1741 0b22 00000000 		.4byte	.LFB66
+ 1742 0b26 60000000 		.4byte	.LFE66
+ 1743 0b2a E3000000 		.4byte	.LLST7
+ 1744 0b2e 01       		.byte	0x1
+ 1745 0b2f E40B0000 		.4byte	0xbe4
+ 1746 0b33 22       		.uleb128 0x22
+ 1747 0b34 BA010000 		.4byte	.LASF146
+ 1748 0b38 01       		.byte	0x1
+ 1749 0b39 73       		.byte	0x73
+ 1750 0b3a 91020000 		.4byte	0x291
+ 1751 0b3e 03010000 		.4byte	.LLST8
+ 1752 0b42 22       		.uleb128 0x22
+ 1753 0b43 F8010000 		.4byte	.LASF147
+ 1754 0b47 01       		.byte	0x1
+ 1755 0b48 74       		.byte	0x74
+ 1756 0b49 37000000 		.4byte	0x37
+ 1757 0b4d 44010000 		.4byte	.LLST9
+ 1758 0b51 1E       		.uleb128 0x1e
+ 1759 0b52 06000000 		.4byte	.LVL7
+ 1760 0b56 650C0000 		.4byte	0xc65
+ 1761 0b5a 1E       		.uleb128 0x1e
+ 1762 0b5b 0C000000 		.4byte	.LVL8
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 32
+
+
+ 1763 0b5f 6F0C0000 		.4byte	0xc6f
+ 1764 0b63 1E       		.uleb128 0x1e
+ 1765 0b64 10000000 		.4byte	.LVL9
+ 1766 0b68 790C0000 		.4byte	0xc79
+ 1767 0b6c 1E       		.uleb128 0x1e
+ 1768 0b6d 14000000 		.4byte	.LVL10
+ 1769 0b71 830C0000 		.4byte	0xc83
+ 1770 0b75 23       		.uleb128 0x23
+ 1771 0b76 20000000 		.4byte	.LVL12
+ 1772 0b7a 8D0C0000 		.4byte	0xc8d
+ 1773 0b7e 890B0000 		.4byte	0xb89
+ 1774 0b82 24       		.uleb128 0x24
+ 1775 0b83 01       		.byte	0x1
+ 1776 0b84 50       		.byte	0x50
+ 1777 0b85 02       		.byte	0x2
+ 1778 0b86 08       		.byte	0x8
+ 1779 0b87 64       		.byte	0x64
+ 1780 0b88 00       		.byte	0
+ 1781 0b89 1E       		.uleb128 0x1e
+ 1782 0b8a 26000000 		.4byte	.LVL13
+ 1783 0b8e A20C0000 		.4byte	0xca2
+ 1784 0b92 1E       		.uleb128 0x1e
+ 1785 0b93 30000000 		.4byte	.LVL14
+ 1786 0b97 B00C0000 		.4byte	0xcb0
+ 1787 0b9b 23       		.uleb128 0x23
+ 1788 0b9c 3E000000 		.4byte	.LVL16
+ 1789 0ba0 8D0C0000 		.4byte	0xc8d
+ 1790 0ba4 AF0B0000 		.4byte	0xbaf
+ 1791 0ba8 24       		.uleb128 0x24
+ 1792 0ba9 01       		.byte	0x1
+ 1793 0baa 50       		.byte	0x50
+ 1794 0bab 02       		.byte	0x2
+ 1795 0bac 08       		.byte	0x8
+ 1796 0bad 32       		.byte	0x32
+ 1797 0bae 00       		.byte	0
+ 1798 0baf 23       		.uleb128 0x23
+ 1799 0bb0 4E000000 		.4byte	.LVL17
+ 1800 0bb4 BA0C0000 		.4byte	0xcba
+ 1801 0bb8 D30B0000 		.4byte	0xbd3
+ 1802 0bbc 24       		.uleb128 0x24
+ 1803 0bbd 01       		.byte	0x1
+ 1804 0bbe 52       		.byte	0x52
+ 1805 0bbf 02       		.byte	0x2
+ 1806 0bc0 08       		.byte	0x8
+ 1807 0bc1 40       		.byte	0x40
+ 1808 0bc2 24       		.uleb128 0x24
+ 1809 0bc3 01       		.byte	0x1
+ 1810 0bc4 51       		.byte	0x51
+ 1811 0bc5 03       		.byte	0x3
+ 1812 0bc6 0A       		.byte	0xa
+ 1813 0bc7 B008     		.2byte	0x8b0
+ 1814 0bc9 24       		.uleb128 0x24
+ 1815 0bca 01       		.byte	0x1
+ 1816 0bcb 50       		.byte	0x50
+ 1817 0bcc 05       		.byte	0x5
+ 1818 0bcd 03       		.byte	0x3
+ 1819 0bce 00000000 		.4byte	.LANCHOR0
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 33
+
+
+ 1820 0bd2 00       		.byte	0
+ 1821 0bd3 25       		.uleb128 0x25
+ 1822 0bd4 58000000 		.4byte	.LVL20
+ 1823 0bd8 E20C0000 		.4byte	0xce2
+ 1824 0bdc 24       		.uleb128 0x24
+ 1825 0bdd 01       		.byte	0x1
+ 1826 0bde 50       		.byte	0x50
+ 1827 0bdf 02       		.byte	0x2
+ 1828 0be0 74       		.byte	0x74
+ 1829 0be1 00       		.sleb128 0
+ 1830 0be2 00       		.byte	0
+ 1831 0be3 00       		.byte	0
+ 1832 0be4 19       		.uleb128 0x19
+ 1833 0be5 150A0000 		.4byte	0xa15
+ 1834 0be9 F40B0000 		.4byte	0xbf4
+ 1835 0bed 1A       		.uleb128 0x1a
+ 1836 0bee 68000000 		.4byte	0x68
+ 1837 0bf2 0A       		.byte	0xa
+ 1838 0bf3 00       		.byte	0
+ 1839 0bf4 26       		.uleb128 0x26
+ 1840 0bf5 BE030000 		.4byte	.LASF148
+ 1841 0bf9 01       		.byte	0x1
+ 1842 0bfa 59       		.byte	0x59
+ 1843 0bfb 050C0000 		.4byte	0xc05
+ 1844 0bff 05       		.byte	0x5
+ 1845 0c00 03       		.byte	0x3
+ 1846 0c01 00000000 		.4byte	commands
+ 1847 0c05 06       		.uleb128 0x6
+ 1848 0c06 E40B0000 		.4byte	0xbe4
+ 1849 0c0a 26       		.uleb128 0x26
+ 1850 0c0b 91060000 		.4byte	.LASF149
+ 1851 0c0f 01       		.byte	0x1
+ 1852 0c10 68       		.byte	0x68
+ 1853 0c11 1B0C0000 		.4byte	0xc1b
+ 1854 0c15 05       		.byte	0x5
+ 1855 0c16 03       		.byte	0x3
+ 1856 0c17 00000000 		.4byte	shell_cfg1
+ 1857 0c1b 06       		.uleb128 0x6
+ 1858 0c1c 500A0000 		.4byte	0xa50
+ 1859 0c20 27       		.uleb128 0x27
+ 1860 0c21 51000000 		.4byte	.LASF150
+ 1861 0c25 17       		.byte	0x17
+ 1862 0c26 0706     		.2byte	0x607
+ 1863 0c28 3E060000 		.4byte	0x63e
+ 1864 0c2c 01       		.byte	0x1
+ 1865 0c2d 01       		.byte	0x1
+ 1866 0c2e 28       		.uleb128 0x28
+ 1867 0c2f 53443100 		.ascii	"SD1\000"
+ 1868 0c33 18       		.byte	0x18
+ 1869 0c34 0F01     		.2byte	0x10f
+ 1870 0c36 D4070000 		.4byte	0x7d4
+ 1871 0c3a 01       		.byte	0x1
+ 1872 0c3b 01       		.byte	0x1
+ 1873 0c3c 29       		.uleb128 0x29
+ 1874 0c3d 01       		.byte	0x1
+ 1875 0c3e 8D030000 		.4byte	.LASF151
+ 1876 0c42 12       		.byte	0x12
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 34
+
+
+ 1877 0c43 70       		.byte	0x70
+ 1878 0c44 01       		.byte	0x1
+ 1879 0c45 01       		.byte	0x1
+ 1880 0c46 29       		.uleb128 0x29
+ 1881 0c47 01       		.byte	0x1
+ 1882 0c48 E0060000 		.4byte	.LASF152
+ 1883 0c4c 12       		.byte	0x12
+ 1884 0c4d 79       		.byte	0x79
+ 1885 0c4e 01       		.byte	0x1
+ 1886 0c4f 01       		.byte	0x1
+ 1887 0c50 29       		.uleb128 0x29
+ 1888 0c51 01       		.byte	0x1
+ 1889 0c52 8F000000 		.4byte	.LASF153
+ 1890 0c56 12       		.byte	0x12
+ 1891 0c57 71       		.byte	0x71
+ 1892 0c58 01       		.byte	0x1
+ 1893 0c59 01       		.byte	0x1
+ 1894 0c5a 2A       		.uleb128 0x2a
+ 1895 0c5b 01       		.byte	0x1
+ 1896 0c5c 29040000 		.4byte	.LASF154
+ 1897 0c60 13       		.byte	0x13
+ 1898 0c61 4601     		.2byte	0x146
+ 1899 0c63 01       		.byte	0x1
+ 1900 0c64 01       		.byte	0x1
+ 1901 0c65 29       		.uleb128 0x29
+ 1902 0c66 01       		.byte	0x1
+ 1903 0c67 F0010000 		.4byte	.LASF155
+ 1904 0c6b 14       		.byte	0x14
+ 1905 0c6c D0       		.byte	0xd0
+ 1906 0c6d 01       		.byte	0x1
+ 1907 0c6e 01       		.byte	0x1
+ 1908 0c6f 29       		.uleb128 0x29
+ 1909 0c70 01       		.byte	0x1
+ 1910 0c71 6A010000 		.4byte	.LASF156
+ 1911 0c75 15       		.byte	0x15
+ 1912 0c76 F6       		.byte	0xf6
+ 1913 0c77 01       		.byte	0x1
+ 1914 0c78 01       		.byte	0x1
+ 1915 0c79 29       		.uleb128 0x29
+ 1916 0c7a 01       		.byte	0x1
+ 1917 0c7b 76060000 		.4byte	.LASF157
+ 1918 0c7f 16       		.byte	0x16
+ 1919 0c80 9D       		.byte	0x9d
+ 1920 0c81 01       		.byte	0x1
+ 1921 0c82 01       		.byte	0x1
+ 1922 0c83 29       		.uleb128 0x29
+ 1923 0c84 01       		.byte	0x1
+ 1924 0c85 68020000 		.4byte	.LASF158
+ 1925 0c89 16       		.byte	0x16
+ 1926 0c8a 9C       		.byte	0x9c
+ 1927 0c8b 01       		.byte	0x1
+ 1928 0c8c 01       		.byte	0x1
+ 1929 0c8d 2B       		.uleb128 0x2b
+ 1930 0c8e 01       		.byte	0x1
+ 1931 0c8f B3030000 		.4byte	.LASF164
+ 1932 0c93 06       		.byte	0x6
+ 1933 0c94 7501     		.2byte	0x175
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 35
+
+
+ 1934 0c96 01       		.byte	0x1
+ 1935 0c97 01       		.byte	0x1
+ 1936 0c98 A20C0000 		.4byte	0xca2
+ 1937 0c9c 12       		.uleb128 0x12
+ 1938 0c9d 31010000 		.4byte	0x131
+ 1939 0ca1 00       		.byte	0
+ 1940 0ca2 2C       		.uleb128 0x2c
+ 1941 0ca3 01       		.byte	0x1
+ 1942 0ca4 AF060000 		.4byte	.LASF165
+ 1943 0ca8 19       		.byte	0x19
+ 1944 0ca9 AB       		.byte	0xab
+ 1945 0caa 01       		.byte	0x1
+ 1946 0cab 37000000 		.4byte	0x37
+ 1947 0caf 01       		.byte	0x1
+ 1948 0cb0 29       		.uleb128 0x29
+ 1949 0cb1 01       		.byte	0x1
+ 1950 0cb2 D3050000 		.4byte	.LASF159
+ 1951 0cb6 11       		.byte	0x11
+ 1952 0cb7 7A       		.byte	0x7a
+ 1953 0cb8 01       		.byte	0x1
+ 1954 0cb9 01       		.byte	0x1
+ 1955 0cba 2D       		.uleb128 0x2d
+ 1956 0cbb 01       		.byte	0x1
+ 1957 0cbc 05020000 		.4byte	.LASF166
+ 1958 0cc0 11       		.byte	0x11
+ 1959 0cc1 7B       		.byte	0x7b
+ 1960 0cc2 01       		.byte	0x1
+ 1961 0cc3 91020000 		.4byte	0x291
+ 1962 0cc7 01       		.byte	0x1
+ 1963 0cc8 DC0C0000 		.4byte	0xcdc
+ 1964 0ccc 12       		.uleb128 0x12
+ 1965 0ccd DC0C0000 		.4byte	0xcdc
+ 1966 0cd1 12       		.uleb128 0x12
+ 1967 0cd2 90000000 		.4byte	0x90
+ 1968 0cd6 12       		.uleb128 0x12
+ 1969 0cd7 05010000 		.4byte	0x105
+ 1970 0cdb 00       		.byte	0
+ 1971 0cdc 05       		.uleb128 0x5
+ 1972 0cdd 04       		.byte	0x4
+ 1973 0cde 1B0C0000 		.4byte	0xc1b
+ 1974 0ce2 2E       		.uleb128 0x2e
+ 1975 0ce3 01       		.byte	0x1
+ 1976 0ce4 E0040000 		.4byte	.LASF167
+ 1977 0ce8 1A       		.byte	0x1a
+ 1978 0ce9 3A       		.byte	0x3a
+ 1979 0cea 01       		.byte	0x1
+ 1980 0ceb 01       		.byte	0x1
+ 1981 0cec 12       		.uleb128 0x12
+ 1982 0ced 91020000 		.4byte	0x291
+ 1983 0cf1 00       		.byte	0
+ 1984 0cf2 00       		.byte	0
+ 1985              		.section	.debug_abbrev,"",%progbits
+ 1986              	.Ldebug_abbrev0:
+ 1987 0000 01       		.uleb128 0x1
+ 1988 0001 11       		.uleb128 0x11
+ 1989 0002 01       		.byte	0x1
+ 1990 0003 25       		.uleb128 0x25
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 36
+
+
+ 1991 0004 0E       		.uleb128 0xe
+ 1992 0005 13       		.uleb128 0x13
+ 1993 0006 0B       		.uleb128 0xb
+ 1994 0007 03       		.uleb128 0x3
+ 1995 0008 0E       		.uleb128 0xe
+ 1996 0009 1B       		.uleb128 0x1b
+ 1997 000a 0E       		.uleb128 0xe
+ 1998 000b 55       		.uleb128 0x55
+ 1999 000c 06       		.uleb128 0x6
+ 2000 000d 11       		.uleb128 0x11
+ 2001 000e 01       		.uleb128 0x1
+ 2002 000f 52       		.uleb128 0x52
+ 2003 0010 01       		.uleb128 0x1
+ 2004 0011 10       		.uleb128 0x10
+ 2005 0012 06       		.uleb128 0x6
+ 2006 0013 00       		.byte	0
+ 2007 0014 00       		.byte	0
+ 2008 0015 02       		.uleb128 0x2
+ 2009 0016 24       		.uleb128 0x24
+ 2010 0017 00       		.byte	0
+ 2011 0018 0B       		.uleb128 0xb
+ 2012 0019 0B       		.uleb128 0xb
+ 2013 001a 3E       		.uleb128 0x3e
+ 2014 001b 0B       		.uleb128 0xb
+ 2015 001c 03       		.uleb128 0x3
+ 2016 001d 0E       		.uleb128 0xe
+ 2017 001e 00       		.byte	0
+ 2018 001f 00       		.byte	0
+ 2019 0020 03       		.uleb128 0x3
+ 2020 0021 24       		.uleb128 0x24
+ 2021 0022 00       		.byte	0
+ 2022 0023 0B       		.uleb128 0xb
+ 2023 0024 0B       		.uleb128 0xb
+ 2024 0025 3E       		.uleb128 0x3e
+ 2025 0026 0B       		.uleb128 0xb
+ 2026 0027 03       		.uleb128 0x3
+ 2027 0028 08       		.uleb128 0x8
+ 2028 0029 00       		.byte	0
+ 2029 002a 00       		.byte	0
+ 2030 002b 04       		.uleb128 0x4
+ 2031 002c 0F       		.uleb128 0xf
+ 2032 002d 00       		.byte	0
+ 2033 002e 0B       		.uleb128 0xb
+ 2034 002f 0B       		.uleb128 0xb
+ 2035 0030 00       		.byte	0
+ 2036 0031 00       		.byte	0
+ 2037 0032 05       		.uleb128 0x5
+ 2038 0033 0F       		.uleb128 0xf
+ 2039 0034 00       		.byte	0
+ 2040 0035 0B       		.uleb128 0xb
+ 2041 0036 0B       		.uleb128 0xb
+ 2042 0037 49       		.uleb128 0x49
+ 2043 0038 13       		.uleb128 0x13
+ 2044 0039 00       		.byte	0
+ 2045 003a 00       		.byte	0
+ 2046 003b 06       		.uleb128 0x6
+ 2047 003c 26       		.uleb128 0x26
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 37
+
+
+ 2048 003d 00       		.byte	0
+ 2049 003e 49       		.uleb128 0x49
+ 2050 003f 13       		.uleb128 0x13
+ 2051 0040 00       		.byte	0
+ 2052 0041 00       		.byte	0
+ 2053 0042 07       		.uleb128 0x7
+ 2054 0043 16       		.uleb128 0x16
+ 2055 0044 00       		.byte	0
+ 2056 0045 03       		.uleb128 0x3
+ 2057 0046 0E       		.uleb128 0xe
+ 2058 0047 3A       		.uleb128 0x3a
+ 2059 0048 0B       		.uleb128 0xb
+ 2060 0049 3B       		.uleb128 0x3b
+ 2061 004a 0B       		.uleb128 0xb
+ 2062 004b 49       		.uleb128 0x49
+ 2063 004c 13       		.uleb128 0x13
+ 2064 004d 00       		.byte	0
+ 2065 004e 00       		.byte	0
+ 2066 004f 08       		.uleb128 0x8
+ 2067 0050 13       		.uleb128 0x13
+ 2068 0051 01       		.byte	0x1
+ 2069 0052 03       		.uleb128 0x3
+ 2070 0053 0E       		.uleb128 0xe
+ 2071 0054 0B       		.uleb128 0xb
+ 2072 0055 0B       		.uleb128 0xb
+ 2073 0056 3A       		.uleb128 0x3a
+ 2074 0057 0B       		.uleb128 0xb
+ 2075 0058 3B       		.uleb128 0x3b
+ 2076 0059 0B       		.uleb128 0xb
+ 2077 005a 01       		.uleb128 0x1
+ 2078 005b 13       		.uleb128 0x13
+ 2079 005c 00       		.byte	0
+ 2080 005d 00       		.byte	0
+ 2081 005e 09       		.uleb128 0x9
+ 2082 005f 0D       		.uleb128 0xd
+ 2083 0060 00       		.byte	0
+ 2084 0061 03       		.uleb128 0x3
+ 2085 0062 0E       		.uleb128 0xe
+ 2086 0063 3A       		.uleb128 0x3a
+ 2087 0064 0B       		.uleb128 0xb
+ 2088 0065 3B       		.uleb128 0x3b
+ 2089 0066 0B       		.uleb128 0xb
+ 2090 0067 49       		.uleb128 0x49
+ 2091 0068 13       		.uleb128 0x13
+ 2092 0069 38       		.uleb128 0x38
+ 2093 006a 0A       		.uleb128 0xa
+ 2094 006b 00       		.byte	0
+ 2095 006c 00       		.byte	0
+ 2096 006d 0A       		.uleb128 0xa
+ 2097 006e 0D       		.uleb128 0xd
+ 2098 006f 00       		.byte	0
+ 2099 0070 03       		.uleb128 0x3
+ 2100 0071 08       		.uleb128 0x8
+ 2101 0072 3A       		.uleb128 0x3a
+ 2102 0073 0B       		.uleb128 0xb
+ 2103 0074 3B       		.uleb128 0x3b
+ 2104 0075 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 38
+
+
+ 2105 0076 49       		.uleb128 0x49
+ 2106 0077 13       		.uleb128 0x13
+ 2107 0078 38       		.uleb128 0x38
+ 2108 0079 0A       		.uleb128 0xa
+ 2109 007a 00       		.byte	0
+ 2110 007b 00       		.byte	0
+ 2111 007c 0B       		.uleb128 0xb
+ 2112 007d 13       		.uleb128 0x13
+ 2113 007e 01       		.byte	0x1
+ 2114 007f 0B       		.uleb128 0xb
+ 2115 0080 0B       		.uleb128 0xb
+ 2116 0081 3A       		.uleb128 0x3a
+ 2117 0082 0B       		.uleb128 0xb
+ 2118 0083 3B       		.uleb128 0x3b
+ 2119 0084 0B       		.uleb128 0xb
+ 2120 0085 01       		.uleb128 0x1
+ 2121 0086 13       		.uleb128 0x13
+ 2122 0087 00       		.byte	0
+ 2123 0088 00       		.byte	0
+ 2124 0089 0C       		.uleb128 0xc
+ 2125 008a 13       		.uleb128 0x13
+ 2126 008b 01       		.byte	0x1
+ 2127 008c 03       		.uleb128 0x3
+ 2128 008d 0E       		.uleb128 0xe
+ 2129 008e 0B       		.uleb128 0xb
+ 2130 008f 0B       		.uleb128 0xb
+ 2131 0090 3A       		.uleb128 0x3a
+ 2132 0091 0B       		.uleb128 0xb
+ 2133 0092 3B       		.uleb128 0x3b
+ 2134 0093 05       		.uleb128 0x5
+ 2135 0094 01       		.uleb128 0x1
+ 2136 0095 13       		.uleb128 0x13
+ 2137 0096 00       		.byte	0
+ 2138 0097 00       		.byte	0
+ 2139 0098 0D       		.uleb128 0xd
+ 2140 0099 0D       		.uleb128 0xd
+ 2141 009a 00       		.byte	0
+ 2142 009b 03       		.uleb128 0x3
+ 2143 009c 08       		.uleb128 0x8
+ 2144 009d 3A       		.uleb128 0x3a
+ 2145 009e 0B       		.uleb128 0xb
+ 2146 009f 3B       		.uleb128 0x3b
+ 2147 00a0 05       		.uleb128 0x5
+ 2148 00a1 49       		.uleb128 0x49
+ 2149 00a2 13       		.uleb128 0x13
+ 2150 00a3 38       		.uleb128 0x38
+ 2151 00a4 0A       		.uleb128 0xa
+ 2152 00a5 00       		.byte	0
+ 2153 00a6 00       		.byte	0
+ 2154 00a7 0E       		.uleb128 0xe
+ 2155 00a8 35       		.uleb128 0x35
+ 2156 00a9 00       		.byte	0
+ 2157 00aa 49       		.uleb128 0x49
+ 2158 00ab 13       		.uleb128 0x13
+ 2159 00ac 00       		.byte	0
+ 2160 00ad 00       		.byte	0
+ 2161 00ae 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 39
+
+
+ 2162 00af 17       		.uleb128 0x17
+ 2163 00b0 01       		.byte	0x1
+ 2164 00b1 0B       		.uleb128 0xb
+ 2165 00b2 0B       		.uleb128 0xb
+ 2166 00b3 3A       		.uleb128 0x3a
+ 2167 00b4 0B       		.uleb128 0xb
+ 2168 00b5 3B       		.uleb128 0x3b
+ 2169 00b6 0B       		.uleb128 0xb
+ 2170 00b7 01       		.uleb128 0x1
+ 2171 00b8 13       		.uleb128 0x13
+ 2172 00b9 00       		.byte	0
+ 2173 00ba 00       		.byte	0
+ 2174 00bb 10       		.uleb128 0x10
+ 2175 00bc 0D       		.uleb128 0xd
+ 2176 00bd 00       		.byte	0
+ 2177 00be 03       		.uleb128 0x3
+ 2178 00bf 0E       		.uleb128 0xe
+ 2179 00c0 3A       		.uleb128 0x3a
+ 2180 00c1 0B       		.uleb128 0xb
+ 2181 00c2 3B       		.uleb128 0x3b
+ 2182 00c3 0B       		.uleb128 0xb
+ 2183 00c4 49       		.uleb128 0x49
+ 2184 00c5 13       		.uleb128 0x13
+ 2185 00c6 00       		.byte	0
+ 2186 00c7 00       		.byte	0
+ 2187 00c8 11       		.uleb128 0x11
+ 2188 00c9 15       		.uleb128 0x15
+ 2189 00ca 01       		.byte	0x1
+ 2190 00cb 27       		.uleb128 0x27
+ 2191 00cc 0C       		.uleb128 0xc
+ 2192 00cd 49       		.uleb128 0x49
+ 2193 00ce 13       		.uleb128 0x13
+ 2194 00cf 01       		.uleb128 0x1
+ 2195 00d0 13       		.uleb128 0x13
+ 2196 00d1 00       		.byte	0
+ 2197 00d2 00       		.byte	0
+ 2198 00d3 12       		.uleb128 0x12
+ 2199 00d4 05       		.uleb128 0x5
+ 2200 00d5 00       		.byte	0
+ 2201 00d6 49       		.uleb128 0x49
+ 2202 00d7 13       		.uleb128 0x13
+ 2203 00d8 00       		.byte	0
+ 2204 00d9 00       		.byte	0
+ 2205 00da 13       		.uleb128 0x13
+ 2206 00db 15       		.uleb128 0x15
+ 2207 00dc 01       		.byte	0x1
+ 2208 00dd 27       		.uleb128 0x27
+ 2209 00de 0C       		.uleb128 0xc
+ 2210 00df 01       		.uleb128 0x1
+ 2211 00e0 13       		.uleb128 0x13
+ 2212 00e1 00       		.byte	0
+ 2213 00e2 00       		.byte	0
+ 2214 00e3 14       		.uleb128 0x14
+ 2215 00e4 13       		.uleb128 0x13
+ 2216 00e5 01       		.byte	0x1
+ 2217 00e6 0B       		.uleb128 0xb
+ 2218 00e7 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 40
+
+
+ 2219 00e8 3A       		.uleb128 0x3a
+ 2220 00e9 0B       		.uleb128 0xb
+ 2221 00ea 3B       		.uleb128 0x3b
+ 2222 00eb 05       		.uleb128 0x5
+ 2223 00ec 01       		.uleb128 0x1
+ 2224 00ed 13       		.uleb128 0x13
+ 2225 00ee 00       		.byte	0
+ 2226 00ef 00       		.byte	0
+ 2227 00f0 15       		.uleb128 0x15
+ 2228 00f1 0D       		.uleb128 0xd
+ 2229 00f2 00       		.byte	0
+ 2230 00f3 03       		.uleb128 0x3
+ 2231 00f4 0E       		.uleb128 0xe
+ 2232 00f5 3A       		.uleb128 0x3a
+ 2233 00f6 0B       		.uleb128 0xb
+ 2234 00f7 3B       		.uleb128 0x3b
+ 2235 00f8 05       		.uleb128 0x5
+ 2236 00f9 49       		.uleb128 0x49
+ 2237 00fa 13       		.uleb128 0x13
+ 2238 00fb 38       		.uleb128 0x38
+ 2239 00fc 0A       		.uleb128 0xa
+ 2240 00fd 00       		.byte	0
+ 2241 00fe 00       		.byte	0
+ 2242 00ff 16       		.uleb128 0x16
+ 2243 0100 16       		.uleb128 0x16
+ 2244 0101 00       		.byte	0
+ 2245 0102 03       		.uleb128 0x3
+ 2246 0103 0E       		.uleb128 0xe
+ 2247 0104 3A       		.uleb128 0x3a
+ 2248 0105 0B       		.uleb128 0xb
+ 2249 0106 3B       		.uleb128 0x3b
+ 2250 0107 05       		.uleb128 0x5
+ 2251 0108 49       		.uleb128 0x49
+ 2252 0109 13       		.uleb128 0x13
+ 2253 010a 00       		.byte	0
+ 2254 010b 00       		.byte	0
+ 2255 010c 17       		.uleb128 0x17
+ 2256 010d 04       		.uleb128 0x4
+ 2257 010e 01       		.byte	0x1
+ 2258 010f 0B       		.uleb128 0xb
+ 2259 0110 0B       		.uleb128 0xb
+ 2260 0111 3A       		.uleb128 0x3a
+ 2261 0112 0B       		.uleb128 0xb
+ 2262 0113 3B       		.uleb128 0x3b
+ 2263 0114 0B       		.uleb128 0xb
+ 2264 0115 01       		.uleb128 0x1
+ 2265 0116 13       		.uleb128 0x13
+ 2266 0117 00       		.byte	0
+ 2267 0118 00       		.byte	0
+ 2268 0119 18       		.uleb128 0x18
+ 2269 011a 28       		.uleb128 0x28
+ 2270 011b 00       		.byte	0
+ 2271 011c 03       		.uleb128 0x3
+ 2272 011d 0E       		.uleb128 0xe
+ 2273 011e 1C       		.uleb128 0x1c
+ 2274 011f 0D       		.uleb128 0xd
+ 2275 0120 00       		.byte	0
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 41
+
+
+ 2276 0121 00       		.byte	0
+ 2277 0122 19       		.uleb128 0x19
+ 2278 0123 01       		.uleb128 0x1
+ 2279 0124 01       		.byte	0x1
+ 2280 0125 49       		.uleb128 0x49
+ 2281 0126 13       		.uleb128 0x13
+ 2282 0127 01       		.uleb128 0x1
+ 2283 0128 13       		.uleb128 0x13
+ 2284 0129 00       		.byte	0
+ 2285 012a 00       		.byte	0
+ 2286 012b 1A       		.uleb128 0x1a
+ 2287 012c 21       		.uleb128 0x21
+ 2288 012d 00       		.byte	0
+ 2289 012e 49       		.uleb128 0x49
+ 2290 012f 13       		.uleb128 0x13
+ 2291 0130 2F       		.uleb128 0x2f
+ 2292 0131 0B       		.uleb128 0xb
+ 2293 0132 00       		.byte	0
+ 2294 0133 00       		.byte	0
+ 2295 0134 1B       		.uleb128 0x1b
+ 2296 0135 2E       		.uleb128 0x2e
+ 2297 0136 01       		.byte	0x1
+ 2298 0137 03       		.uleb128 0x3
+ 2299 0138 0E       		.uleb128 0xe
+ 2300 0139 3A       		.uleb128 0x3a
+ 2301 013a 0B       		.uleb128 0xb
+ 2302 013b 3B       		.uleb128 0x3b
+ 2303 013c 0B       		.uleb128 0xb
+ 2304 013d 27       		.uleb128 0x27
+ 2305 013e 0C       		.uleb128 0xc
+ 2306 013f 11       		.uleb128 0x11
+ 2307 0140 01       		.uleb128 0x1
+ 2308 0141 12       		.uleb128 0x12
+ 2309 0142 01       		.uleb128 0x1
+ 2310 0143 40       		.uleb128 0x40
+ 2311 0144 06       		.uleb128 0x6
+ 2312 0145 9742     		.uleb128 0x2117
+ 2313 0147 0C       		.uleb128 0xc
+ 2314 0148 01       		.uleb128 0x1
+ 2315 0149 13       		.uleb128 0x13
+ 2316 014a 00       		.byte	0
+ 2317 014b 00       		.byte	0
+ 2318 014c 1C       		.uleb128 0x1c
+ 2319 014d 05       		.uleb128 0x5
+ 2320 014e 00       		.byte	0
+ 2321 014f 03       		.uleb128 0x3
+ 2322 0150 08       		.uleb128 0x8
+ 2323 0151 3A       		.uleb128 0x3a
+ 2324 0152 0B       		.uleb128 0xb
+ 2325 0153 3B       		.uleb128 0x3b
+ 2326 0154 0B       		.uleb128 0xb
+ 2327 0155 49       		.uleb128 0x49
+ 2328 0156 13       		.uleb128 0x13
+ 2329 0157 02       		.uleb128 0x2
+ 2330 0158 06       		.uleb128 0x6
+ 2331 0159 00       		.byte	0
+ 2332 015a 00       		.byte	0
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 42
+
+
+ 2333 015b 1D       		.uleb128 0x1d
+ 2334 015c 05       		.uleb128 0x5
+ 2335 015d 00       		.byte	0
+ 2336 015e 03       		.uleb128 0x3
+ 2337 015f 0E       		.uleb128 0xe
+ 2338 0160 3A       		.uleb128 0x3a
+ 2339 0161 0B       		.uleb128 0xb
+ 2340 0162 3B       		.uleb128 0x3b
+ 2341 0163 0B       		.uleb128 0xb
+ 2342 0164 49       		.uleb128 0x49
+ 2343 0165 13       		.uleb128 0x13
+ 2344 0166 02       		.uleb128 0x2
+ 2345 0167 06       		.uleb128 0x6
+ 2346 0168 00       		.byte	0
+ 2347 0169 00       		.byte	0
+ 2348 016a 1E       		.uleb128 0x1e
+ 2349 016b 898201   		.uleb128 0x4109
+ 2350 016e 00       		.byte	0
+ 2351 016f 11       		.uleb128 0x11
+ 2352 0170 01       		.uleb128 0x1
+ 2353 0171 31       		.uleb128 0x31
+ 2354 0172 13       		.uleb128 0x13
+ 2355 0173 00       		.byte	0
+ 2356 0174 00       		.byte	0
+ 2357 0175 1F       		.uleb128 0x1f
+ 2358 0176 898201   		.uleb128 0x4109
+ 2359 0179 00       		.byte	0
+ 2360 017a 11       		.uleb128 0x11
+ 2361 017b 01       		.uleb128 0x1
+ 2362 017c 9542     		.uleb128 0x2115
+ 2363 017e 0C       		.uleb128 0xc
+ 2364 017f 31       		.uleb128 0x31
+ 2365 0180 13       		.uleb128 0x13
+ 2366 0181 00       		.byte	0
+ 2367 0182 00       		.byte	0
+ 2368 0183 20       		.uleb128 0x20
+ 2369 0184 2E       		.uleb128 0x2e
+ 2370 0185 01       		.byte	0x1
+ 2371 0186 03       		.uleb128 0x3
+ 2372 0187 0E       		.uleb128 0xe
+ 2373 0188 3A       		.uleb128 0x3a
+ 2374 0189 0B       		.uleb128 0xb
+ 2375 018a 3B       		.uleb128 0x3b
+ 2376 018b 0B       		.uleb128 0xb
+ 2377 018c 27       		.uleb128 0x27
+ 2378 018d 0C       		.uleb128 0xc
+ 2379 018e 11       		.uleb128 0x11
+ 2380 018f 01       		.uleb128 0x1
+ 2381 0190 12       		.uleb128 0x12
+ 2382 0191 01       		.uleb128 0x1
+ 2383 0192 40       		.uleb128 0x40
+ 2384 0193 0A       		.uleb128 0xa
+ 2385 0194 9742     		.uleb128 0x2117
+ 2386 0196 0C       		.uleb128 0xc
+ 2387 0197 01       		.uleb128 0x1
+ 2388 0198 13       		.uleb128 0x13
+ 2389 0199 00       		.byte	0
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 43
+
+
+ 2390 019a 00       		.byte	0
+ 2391 019b 21       		.uleb128 0x21
+ 2392 019c 2E       		.uleb128 0x2e
+ 2393 019d 01       		.byte	0x1
+ 2394 019e 3F       		.uleb128 0x3f
+ 2395 019f 0C       		.uleb128 0xc
+ 2396 01a0 03       		.uleb128 0x3
+ 2397 01a1 0E       		.uleb128 0xe
+ 2398 01a2 3A       		.uleb128 0x3a
+ 2399 01a3 0B       		.uleb128 0xb
+ 2400 01a4 3B       		.uleb128 0x3b
+ 2401 01a5 0B       		.uleb128 0xb
+ 2402 01a6 27       		.uleb128 0x27
+ 2403 01a7 0C       		.uleb128 0xc
+ 2404 01a8 49       		.uleb128 0x49
+ 2405 01a9 13       		.uleb128 0x13
+ 2406 01aa 11       		.uleb128 0x11
+ 2407 01ab 01       		.uleb128 0x1
+ 2408 01ac 12       		.uleb128 0x12
+ 2409 01ad 01       		.uleb128 0x1
+ 2410 01ae 40       		.uleb128 0x40
+ 2411 01af 06       		.uleb128 0x6
+ 2412 01b0 9742     		.uleb128 0x2117
+ 2413 01b2 0C       		.uleb128 0xc
+ 2414 01b3 01       		.uleb128 0x1
+ 2415 01b4 13       		.uleb128 0x13
+ 2416 01b5 00       		.byte	0
+ 2417 01b6 00       		.byte	0
+ 2418 01b7 22       		.uleb128 0x22
+ 2419 01b8 34       		.uleb128 0x34
+ 2420 01b9 00       		.byte	0
+ 2421 01ba 03       		.uleb128 0x3
+ 2422 01bb 0E       		.uleb128 0xe
+ 2423 01bc 3A       		.uleb128 0x3a
+ 2424 01bd 0B       		.uleb128 0xb
+ 2425 01be 3B       		.uleb128 0x3b
+ 2426 01bf 0B       		.uleb128 0xb
+ 2427 01c0 49       		.uleb128 0x49
+ 2428 01c1 13       		.uleb128 0x13
+ 2429 01c2 02       		.uleb128 0x2
+ 2430 01c3 06       		.uleb128 0x6
+ 2431 01c4 00       		.byte	0
+ 2432 01c5 00       		.byte	0
+ 2433 01c6 23       		.uleb128 0x23
+ 2434 01c7 898201   		.uleb128 0x4109
+ 2435 01ca 01       		.byte	0x1
+ 2436 01cb 11       		.uleb128 0x11
+ 2437 01cc 01       		.uleb128 0x1
+ 2438 01cd 31       		.uleb128 0x31
+ 2439 01ce 13       		.uleb128 0x13
+ 2440 01cf 01       		.uleb128 0x1
+ 2441 01d0 13       		.uleb128 0x13
+ 2442 01d1 00       		.byte	0
+ 2443 01d2 00       		.byte	0
+ 2444 01d3 24       		.uleb128 0x24
+ 2445 01d4 8A8201   		.uleb128 0x410a
+ 2446 01d7 00       		.byte	0
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 44
+
+
+ 2447 01d8 02       		.uleb128 0x2
+ 2448 01d9 0A       		.uleb128 0xa
+ 2449 01da 9142     		.uleb128 0x2111
+ 2450 01dc 0A       		.uleb128 0xa
+ 2451 01dd 00       		.byte	0
+ 2452 01de 00       		.byte	0
+ 2453 01df 25       		.uleb128 0x25
+ 2454 01e0 898201   		.uleb128 0x4109
+ 2455 01e3 01       		.byte	0x1
+ 2456 01e4 11       		.uleb128 0x11
+ 2457 01e5 01       		.uleb128 0x1
+ 2458 01e6 31       		.uleb128 0x31
+ 2459 01e7 13       		.uleb128 0x13
+ 2460 01e8 00       		.byte	0
+ 2461 01e9 00       		.byte	0
+ 2462 01ea 26       		.uleb128 0x26
+ 2463 01eb 34       		.uleb128 0x34
+ 2464 01ec 00       		.byte	0
+ 2465 01ed 03       		.uleb128 0x3
+ 2466 01ee 0E       		.uleb128 0xe
+ 2467 01ef 3A       		.uleb128 0x3a
+ 2468 01f0 0B       		.uleb128 0xb
+ 2469 01f1 3B       		.uleb128 0x3b
+ 2470 01f2 0B       		.uleb128 0xb
+ 2471 01f3 49       		.uleb128 0x49
+ 2472 01f4 13       		.uleb128 0x13
+ 2473 01f5 02       		.uleb128 0x2
+ 2474 01f6 0A       		.uleb128 0xa
+ 2475 01f7 00       		.byte	0
+ 2476 01f8 00       		.byte	0
+ 2477 01f9 27       		.uleb128 0x27
+ 2478 01fa 34       		.uleb128 0x34
+ 2479 01fb 00       		.byte	0
+ 2480 01fc 03       		.uleb128 0x3
+ 2481 01fd 0E       		.uleb128 0xe
+ 2482 01fe 3A       		.uleb128 0x3a
+ 2483 01ff 0B       		.uleb128 0xb
+ 2484 0200 3B       		.uleb128 0x3b
+ 2485 0201 05       		.uleb128 0x5
+ 2486 0202 49       		.uleb128 0x49
+ 2487 0203 13       		.uleb128 0x13
+ 2488 0204 3F       		.uleb128 0x3f
+ 2489 0205 0C       		.uleb128 0xc
+ 2490 0206 3C       		.uleb128 0x3c
+ 2491 0207 0C       		.uleb128 0xc
+ 2492 0208 00       		.byte	0
+ 2493 0209 00       		.byte	0
+ 2494 020a 28       		.uleb128 0x28
+ 2495 020b 34       		.uleb128 0x34
+ 2496 020c 00       		.byte	0
+ 2497 020d 03       		.uleb128 0x3
+ 2498 020e 08       		.uleb128 0x8
+ 2499 020f 3A       		.uleb128 0x3a
+ 2500 0210 0B       		.uleb128 0xb
+ 2501 0211 3B       		.uleb128 0x3b
+ 2502 0212 05       		.uleb128 0x5
+ 2503 0213 49       		.uleb128 0x49
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 45
+
+
+ 2504 0214 13       		.uleb128 0x13
+ 2505 0215 3F       		.uleb128 0x3f
+ 2506 0216 0C       		.uleb128 0xc
+ 2507 0217 3C       		.uleb128 0x3c
+ 2508 0218 0C       		.uleb128 0xc
+ 2509 0219 00       		.byte	0
+ 2510 021a 00       		.byte	0
+ 2511 021b 29       		.uleb128 0x29
+ 2512 021c 2E       		.uleb128 0x2e
+ 2513 021d 00       		.byte	0
+ 2514 021e 3F       		.uleb128 0x3f
+ 2515 021f 0C       		.uleb128 0xc
+ 2516 0220 03       		.uleb128 0x3
+ 2517 0221 0E       		.uleb128 0xe
+ 2518 0222 3A       		.uleb128 0x3a
+ 2519 0223 0B       		.uleb128 0xb
+ 2520 0224 3B       		.uleb128 0x3b
+ 2521 0225 0B       		.uleb128 0xb
+ 2522 0226 27       		.uleb128 0x27
+ 2523 0227 0C       		.uleb128 0xc
+ 2524 0228 3C       		.uleb128 0x3c
+ 2525 0229 0C       		.uleb128 0xc
+ 2526 022a 00       		.byte	0
+ 2527 022b 00       		.byte	0
+ 2528 022c 2A       		.uleb128 0x2a
+ 2529 022d 2E       		.uleb128 0x2e
+ 2530 022e 00       		.byte	0
+ 2531 022f 3F       		.uleb128 0x3f
+ 2532 0230 0C       		.uleb128 0xc
+ 2533 0231 03       		.uleb128 0x3
+ 2534 0232 0E       		.uleb128 0xe
+ 2535 0233 3A       		.uleb128 0x3a
+ 2536 0234 0B       		.uleb128 0xb
+ 2537 0235 3B       		.uleb128 0x3b
+ 2538 0236 05       		.uleb128 0x5
+ 2539 0237 27       		.uleb128 0x27
+ 2540 0238 0C       		.uleb128 0xc
+ 2541 0239 3C       		.uleb128 0x3c
+ 2542 023a 0C       		.uleb128 0xc
+ 2543 023b 00       		.byte	0
+ 2544 023c 00       		.byte	0
+ 2545 023d 2B       		.uleb128 0x2b
+ 2546 023e 2E       		.uleb128 0x2e
+ 2547 023f 01       		.byte	0x1
+ 2548 0240 3F       		.uleb128 0x3f
+ 2549 0241 0C       		.uleb128 0xc
+ 2550 0242 03       		.uleb128 0x3
+ 2551 0243 0E       		.uleb128 0xe
+ 2552 0244 3A       		.uleb128 0x3a
+ 2553 0245 0B       		.uleb128 0xb
+ 2554 0246 3B       		.uleb128 0x3b
+ 2555 0247 05       		.uleb128 0x5
+ 2556 0248 27       		.uleb128 0x27
+ 2557 0249 0C       		.uleb128 0xc
+ 2558 024a 3C       		.uleb128 0x3c
+ 2559 024b 0C       		.uleb128 0xc
+ 2560 024c 01       		.uleb128 0x1
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 46
+
+
+ 2561 024d 13       		.uleb128 0x13
+ 2562 024e 00       		.byte	0
+ 2563 024f 00       		.byte	0
+ 2564 0250 2C       		.uleb128 0x2c
+ 2565 0251 2E       		.uleb128 0x2e
+ 2566 0252 00       		.byte	0
+ 2567 0253 3F       		.uleb128 0x3f
+ 2568 0254 0C       		.uleb128 0xc
+ 2569 0255 03       		.uleb128 0x3
+ 2570 0256 0E       		.uleb128 0xe
+ 2571 0257 3A       		.uleb128 0x3a
+ 2572 0258 0B       		.uleb128 0xb
+ 2573 0259 3B       		.uleb128 0x3b
+ 2574 025a 0B       		.uleb128 0xb
+ 2575 025b 27       		.uleb128 0x27
+ 2576 025c 0C       		.uleb128 0xc
+ 2577 025d 49       		.uleb128 0x49
+ 2578 025e 13       		.uleb128 0x13
+ 2579 025f 3C       		.uleb128 0x3c
+ 2580 0260 0C       		.uleb128 0xc
+ 2581 0261 00       		.byte	0
+ 2582 0262 00       		.byte	0
+ 2583 0263 2D       		.uleb128 0x2d
+ 2584 0264 2E       		.uleb128 0x2e
+ 2585 0265 01       		.byte	0x1
+ 2586 0266 3F       		.uleb128 0x3f
+ 2587 0267 0C       		.uleb128 0xc
+ 2588 0268 03       		.uleb128 0x3
+ 2589 0269 0E       		.uleb128 0xe
+ 2590 026a 3A       		.uleb128 0x3a
+ 2591 026b 0B       		.uleb128 0xb
+ 2592 026c 3B       		.uleb128 0x3b
+ 2593 026d 0B       		.uleb128 0xb
+ 2594 026e 27       		.uleb128 0x27
+ 2595 026f 0C       		.uleb128 0xc
+ 2596 0270 49       		.uleb128 0x49
+ 2597 0271 13       		.uleb128 0x13
+ 2598 0272 3C       		.uleb128 0x3c
+ 2599 0273 0C       		.uleb128 0xc
+ 2600 0274 01       		.uleb128 0x1
+ 2601 0275 13       		.uleb128 0x13
+ 2602 0276 00       		.byte	0
+ 2603 0277 00       		.byte	0
+ 2604 0278 2E       		.uleb128 0x2e
+ 2605 0279 2E       		.uleb128 0x2e
+ 2606 027a 01       		.byte	0x1
+ 2607 027b 3F       		.uleb128 0x3f
+ 2608 027c 0C       		.uleb128 0xc
+ 2609 027d 03       		.uleb128 0x3
+ 2610 027e 0E       		.uleb128 0xe
+ 2611 027f 3A       		.uleb128 0x3a
+ 2612 0280 0B       		.uleb128 0xb
+ 2613 0281 3B       		.uleb128 0x3b
+ 2614 0282 0B       		.uleb128 0xb
+ 2615 0283 27       		.uleb128 0x27
+ 2616 0284 0C       		.uleb128 0xc
+ 2617 0285 3C       		.uleb128 0x3c
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 47
+
+
+ 2618 0286 0C       		.uleb128 0xc
+ 2619 0287 00       		.byte	0
+ 2620 0288 00       		.byte	0
+ 2621 0289 00       		.byte	0
+ 2622              		.section	.debug_loc,"",%progbits
+ 2623              	.Ldebug_loc0:
+ 2624              	.LLST0:
+ 2625 0000 00000000 		.4byte	.LFB64
+ 2626 0004 02000000 		.4byte	.LCFI0
+ 2627 0008 0200     		.2byte	0x2
+ 2628 000a 7D       		.byte	0x7d
+ 2629 000b 00       		.sleb128 0
+ 2630 000c 02000000 		.4byte	.LCFI0
+ 2631 0010 1E000000 		.4byte	.LFE64
+ 2632 0014 0200     		.2byte	0x2
+ 2633 0016 7D       		.byte	0x7d
+ 2634 0017 08       		.sleb128 8
+ 2635 0018 00000000 		.4byte	0
+ 2636 001c 00000000 		.4byte	0
+ 2637              	.LLST1:
+ 2638 0020 00000000 		.4byte	.LVL0
+ 2639 0024 07000000 		.4byte	.LVL1-1
+ 2640 0028 0100     		.2byte	0x1
+ 2641 002a 50       		.byte	0x50
+ 2642 002b 07000000 		.4byte	.LVL1-1
+ 2643 002f 1E000000 		.4byte	.LFE64
+ 2644 0033 0100     		.2byte	0x1
+ 2645 0035 54       		.byte	0x54
+ 2646 0036 00000000 		.4byte	0
+ 2647 003a 00000000 		.4byte	0
+ 2648              	.LLST2:
+ 2649 003e 00000000 		.4byte	.LVL0
+ 2650 0042 07000000 		.4byte	.LVL1-1
+ 2651 0046 0100     		.2byte	0x1
+ 2652 0048 51       		.byte	0x51
+ 2653 0049 07000000 		.4byte	.LVL1-1
+ 2654 004d 1E000000 		.4byte	.LFE64
+ 2655 0051 0400     		.2byte	0x4
+ 2656 0053 F3       		.byte	0xf3
+ 2657 0054 01       		.uleb128 0x1
+ 2658 0055 51       		.byte	0x51
+ 2659 0056 9F       		.byte	0x9f
+ 2660 0057 00000000 		.4byte	0
+ 2661 005b 00000000 		.4byte	0
+ 2662              	.LLST3:
+ 2663 005f 00000000 		.4byte	.LVL0
+ 2664 0063 07000000 		.4byte	.LVL1-1
+ 2665 0067 0100     		.2byte	0x1
+ 2666 0069 52       		.byte	0x52
+ 2667 006a 07000000 		.4byte	.LVL1-1
+ 2668 006e 1E000000 		.4byte	.LFE64
+ 2669 0072 0400     		.2byte	0x4
+ 2670 0074 F3       		.byte	0xf3
+ 2671 0075 01       		.uleb128 0x1
+ 2672 0076 52       		.byte	0x52
+ 2673 0077 9F       		.byte	0x9f
+ 2674 0078 00000000 		.4byte	0
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 48
+
+
+ 2675 007c 00000000 		.4byte	0
+ 2676              	.LLST4:
+ 2677 0080 00000000 		.4byte	.LVL4
+ 2678 0084 03000000 		.4byte	.LVL5-1
+ 2679 0088 0100     		.2byte	0x1
+ 2680 008a 50       		.byte	0x50
+ 2681 008b 03000000 		.4byte	.LVL5-1
+ 2682 008f 04000000 		.4byte	.LFE65
+ 2683 0093 0400     		.2byte	0x4
+ 2684 0095 F3       		.byte	0xf3
+ 2685 0096 01       		.uleb128 0x1
+ 2686 0097 50       		.byte	0x50
+ 2687 0098 9F       		.byte	0x9f
+ 2688 0099 00000000 		.4byte	0
+ 2689 009d 00000000 		.4byte	0
+ 2690              	.LLST5:
+ 2691 00a1 00000000 		.4byte	.LVL4
+ 2692 00a5 03000000 		.4byte	.LVL5-1
+ 2693 00a9 0100     		.2byte	0x1
+ 2694 00ab 51       		.byte	0x51
+ 2695 00ac 03000000 		.4byte	.LVL5-1
+ 2696 00b0 04000000 		.4byte	.LFE65
+ 2697 00b4 0400     		.2byte	0x4
+ 2698 00b6 F3       		.byte	0xf3
+ 2699 00b7 01       		.uleb128 0x1
+ 2700 00b8 51       		.byte	0x51
+ 2701 00b9 9F       		.byte	0x9f
+ 2702 00ba 00000000 		.4byte	0
+ 2703 00be 00000000 		.4byte	0
+ 2704              	.LLST6:
+ 2705 00c2 00000000 		.4byte	.LVL4
+ 2706 00c6 03000000 		.4byte	.LVL5-1
+ 2707 00ca 0100     		.2byte	0x1
+ 2708 00cc 52       		.byte	0x52
+ 2709 00cd 03000000 		.4byte	.LVL5-1
+ 2710 00d1 04000000 		.4byte	.LFE65
+ 2711 00d5 0400     		.2byte	0x4
+ 2712 00d7 F3       		.byte	0xf3
+ 2713 00d8 01       		.uleb128 0x1
+ 2714 00d9 52       		.byte	0x52
+ 2715 00da 9F       		.byte	0x9f
+ 2716 00db 00000000 		.4byte	0
+ 2717 00df 00000000 		.4byte	0
+ 2718              	.LLST7:
+ 2719 00e3 00000000 		.4byte	.LFB66
+ 2720 00e7 02000000 		.4byte	.LCFI1
+ 2721 00eb 0200     		.2byte	0x2
+ 2722 00ed 7D       		.byte	0x7d
+ 2723 00ee 00       		.sleb128 0
+ 2724 00ef 02000000 		.4byte	.LCFI1
+ 2725 00f3 60000000 		.4byte	.LFE66
+ 2726 00f7 0200     		.2byte	0x2
+ 2727 00f9 7D       		.byte	0x7d
+ 2728 00fa 08       		.sleb128 8
+ 2729 00fb 00000000 		.4byte	0
+ 2730 00ff 00000000 		.4byte	0
+ 2731              	.LLST8:
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 49
+
+
+ 2732 0103 00000000 		.4byte	.LVL6
+ 2733 0107 30000000 		.4byte	.LVL14
+ 2734 010b 0200     		.2byte	0x2
+ 2735 010d 30       		.byte	0x30
+ 2736 010e 9F       		.byte	0x9f
+ 2737 010f 30000000 		.4byte	.LVL14
+ 2738 0113 50000000 		.4byte	.LVL18
+ 2739 0117 0100     		.2byte	0x1
+ 2740 0119 54       		.byte	0x54
+ 2741 011a 50000000 		.4byte	.LVL18
+ 2742 011e 52000000 		.4byte	.LVL19
+ 2743 0122 0100     		.2byte	0x1
+ 2744 0124 50       		.byte	0x50
+ 2745 0125 52000000 		.4byte	.LVL19
+ 2746 0129 58000000 		.4byte	.LVL20
+ 2747 012d 0100     		.2byte	0x1
+ 2748 012f 54       		.byte	0x54
+ 2749 0130 58000000 		.4byte	.LVL20
+ 2750 0134 60000000 		.4byte	.LFE66
+ 2751 0138 0200     		.2byte	0x2
+ 2752 013a 30       		.byte	0x30
+ 2753 013b 9F       		.byte	0x9f
+ 2754 013c 00000000 		.4byte	0
+ 2755 0140 00000000 		.4byte	0
+ 2756              	.LLST9:
+ 2757 0144 00000000 		.4byte	.LVL6
+ 2758 0148 16000000 		.4byte	.LVL11
+ 2759 014c 0200     		.2byte	0x2
+ 2760 014e 30       		.byte	0x30
+ 2761 014f 9F       		.byte	0x9f
+ 2762 0150 00000000 		.4byte	0
+ 2763 0154 00000000 		.4byte	0
+ 2764              		.section	.debug_aranges,"",%progbits
+ 2765 0000 2C000000 		.4byte	0x2c
+ 2766 0004 0200     		.2byte	0x2
+ 2767 0006 00000000 		.4byte	.Ldebug_info0
+ 2768 000a 04       		.byte	0x4
+ 2769 000b 00       		.byte	0
+ 2770 000c 0000     		.2byte	0
+ 2771 000e 0000     		.2byte	0
+ 2772 0010 00000000 		.4byte	.LFB64
+ 2773 0014 1E000000 		.4byte	.LFE64-.LFB64
+ 2774 0018 00000000 		.4byte	.LFB65
+ 2775 001c 04000000 		.4byte	.LFE65-.LFB65
+ 2776 0020 00000000 		.4byte	.LFB66
+ 2777 0024 60000000 		.4byte	.LFE66-.LFB66
+ 2778 0028 00000000 		.4byte	0
+ 2779 002c 00000000 		.4byte	0
+ 2780              		.section	.debug_ranges,"",%progbits
+ 2781              	.Ldebug_ranges0:
+ 2782 0000 00000000 		.4byte	.LFB64
+ 2783 0004 1E000000 		.4byte	.LFE64
+ 2784 0008 00000000 		.4byte	.LFB65
+ 2785 000c 04000000 		.4byte	.LFE65
+ 2786 0010 00000000 		.4byte	.LFB66
+ 2787 0014 60000000 		.4byte	.LFE66
+ 2788 0018 00000000 		.4byte	0
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 50
+
+
+ 2789 001c 00000000 		.4byte	0
+ 2790              		.section	.debug_line,"",%progbits
+ 2791              	.Ldebug_line0:
+ 2792 0000 88030000 		.section	.debug_str,"MS",%progbits,1
+ 2792      02002803 
+ 2792      00000201 
+ 2792      FB0E0D00 
+ 2792      01010101 
+ 2793              	.LASF11:
+ 2794 0000 73697A65 		.ascii	"size_t\000"
+ 2794      5F7400
+ 2795              	.LASF63:
+ 2796 0007 7264796D 		.ascii	"rdymsg\000"
+ 2796      736700
+ 2797              	.LASF78:
+ 2798 000e 4F757470 		.ascii	"OutputQueue\000"
+ 2798      75745175 
+ 2798      65756500 
+ 2799              	.LASF51:
+ 2800 001a 636F6E74 		.ascii	"context\000"
+ 2800      65787400 
+ 2801              	.LASF123:
+ 2802 0022 6B566578 		.ascii	"kVexDigitalOutput\000"
+ 2802      44696769 
+ 2802      74616C4F 
+ 2802      75747075 
+ 2802      7400
+ 2803              	.LASF47:
+ 2804 0034 54687265 		.ascii	"ThreadsQueue\000"
+ 2804      61647351 
+ 2804      75657565 
+ 2804      00
+ 2805              	.LASF121:
+ 2806 0041 6B566578 		.ascii	"kVexDigital_Num\000"
+ 2806      44696769 
+ 2806      74616C5F 
+ 2806      4E756D00 
+ 2807              	.LASF150:
+ 2808 0051 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2808      52784275 
+ 2808      66666572 
+ 2808      00
+ 2809              	.LASF30:
+ 2810 005e 705F7072 		.ascii	"p_prio\000"
+ 2810      696F00
+ 2811              	.LASF106:
+ 2812 0065 72656164 		.ascii	"readt\000"
+ 2812      7400
+ 2813              	.LASF68:
+ 2814 006b 715F7761 		.ascii	"q_waiting\000"
+ 2814      6974696E 
+ 2814      6700
+ 2815              	.LASF5:
+ 2816 0075 6C6F6E67 		.ascii	"long long int\000"
+ 2816      206C6F6E 
+ 2816      6720696E 
+ 2816      7400
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 51
+
+
+ 2817              	.LASF0:
+ 2818 0083 7369676E 		.ascii	"signed char\000"
+ 2818      65642063 
+ 2818      68617200 
+ 2819              	.LASF153:
+ 2820 008f 61706F6C 		.ascii	"apolloDeinit\000"
+ 2820      6C6F4465 
+ 2820      696E6974 
+ 2820      00
+ 2821              	.LASF89:
+ 2822 009c 47545052 		.ascii	"GTPR\000"
+ 2822      00
+ 2823              	.LASF46:
+ 2824 00a1 705F6D70 		.ascii	"p_mpool\000"
+ 2824      6F6F6C00 
+ 2825              	.LASF16:
+ 2826 00a9 626F6F6C 		.ascii	"bool_t\000"
+ 2826      5F7400
+ 2827              	.LASF53:
+ 2828 00b0 6D5F7175 		.ascii	"m_queue\000"
+ 2828      65756500 
+ 2829              	.LASF138:
+ 2830 00b8 73635F63 		.ascii	"sc_channel\000"
+ 2830      68616E6E 
+ 2830      656C00
+ 2831              	.LASF65:
+ 2832 00c3 77746F62 		.ascii	"wtobjp\000"
+ 2832      6A7000
+ 2833              	.LASF21:
+ 2834 00ca 74736C69 		.ascii	"tslices_t\000"
+ 2834      6365735F 
+ 2834      7400
+ 2835              	.LASF98:
+ 2836 00d4 73746174 		.ascii	"state\000"
+ 2836      6500
+ 2837              	.LASF7:
+ 2838 00da 6C6F6E67 		.ascii	"long int\000"
+ 2838      20696E74 
+ 2838      00
+ 2839              	.LASF137:
+ 2840 00e3 5368656C 		.ascii	"ShellCommand\000"
+ 2840      6C436F6D 
+ 2840      6D616E64 
+ 2840      00
+ 2841              	.LASF145:
+ 2842 00f0 636D645F 		.ascii	"cmd_sm\000"
+ 2842      736D00
+ 2843              	.LASF108:
+ 2844 00f7 6B566578 		.ascii	"kVexDigital_None\000"
+ 2844      44696769 
+ 2844      74616C5F 
+ 2844      4E6F6E65 
+ 2844      00
+ 2845              	.LASF70:
+ 2846 0108 715F6275 		.ascii	"q_buffer\000"
+ 2846      66666572 
+ 2846      00
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 52
+
+
+ 2847              	.LASF13:
+ 2848 0111 75696E74 		.ascii	"uint16_t\000"
+ 2848      31365F74 
+ 2848      00
+ 2849              	.LASF75:
+ 2850 011a 715F6C69 		.ascii	"q_link\000"
+ 2850      6E6B00
+ 2851              	.LASF6:
+ 2852 0121 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2852      206C6F6E 
+ 2852      6720756E 
+ 2852      7369676E 
+ 2852      65642069 
+ 2853              	.LASF19:
+ 2854 0138 74737461 		.ascii	"tstate_t\000"
+ 2854      74655F74 
+ 2854      00
+ 2855              	.LASF32:
+ 2856 0141 705F6E65 		.ascii	"p_newer\000"
+ 2856      77657200 
+ 2857              	.LASF118:
+ 2858 0149 6B566578 		.ascii	"kVexDigital_10\000"
+ 2858      44696769 
+ 2858      74616C5F 
+ 2858      313000
+ 2859              	.LASF64:
+ 2860 0158 65786974 		.ascii	"exitcode\000"
+ 2860      636F6465 
+ 2860      00
+ 2861              	.LASF49:
+ 2862 0161 72656761 		.ascii	"regarm_t\000"
+ 2862      726D5F74 
+ 2862      00
+ 2863              	.LASF156:
+ 2864 016a 63685379 		.ascii	"chSysInit\000"
+ 2864      73496E69 
+ 2864      7400
+ 2865              	.LASF132:
+ 2866 0174 6B496D65 		.ascii	"kImeTotal\000"
+ 2866      546F7461 
+ 2866      6C00
+ 2867              	.LASF135:
+ 2868 017e 73635F6E 		.ascii	"sc_name\000"
+ 2868      616D6500 
+ 2869              	.LASF61:
+ 2870 0186 4576656E 		.ascii	"EventSource\000"
+ 2870      74536F75 
+ 2870      72636500 
+ 2871              	.LASF82:
+ 2872 0192 42617365 		.ascii	"BaseSequentialStream\000"
+ 2872      53657175 
+ 2872      656E7469 
+ 2872      616C5374 
+ 2872      7265616D 
+ 2873              	.LASF101:
+ 2874 01a7 75736172 		.ascii	"usart\000"
+ 2874      7400
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 53
+
+
+ 2875              	.LASF4:
+ 2876 01ad 756E7369 		.ascii	"unsigned int\000"
+ 2876      676E6564 
+ 2876      20696E74 
+ 2876      00
+ 2877              	.LASF146:
+ 2878 01ba 7368656C 		.ascii	"shelltp\000"
+ 2878      6C747000 
+ 2879              	.LASF102:
+ 2880 01c2 53657269 		.ascii	"SerialDriverVMT\000"
+ 2880      616C4472 
+ 2880      69766572 
+ 2880      564D5400 
+ 2881              	.LASF139:
+ 2882 01d2 73635F63 		.ascii	"sc_commands\000"
+ 2882      6F6D6D61 
+ 2882      6E647300 
+ 2883              	.LASF99:
+ 2884 01de 69717565 		.ascii	"iqueue\000"
+ 2884      756500
+ 2885              	.LASF41:
+ 2886 01e5 705F6D73 		.ascii	"p_msgqueue\000"
+ 2886      67717565 
+ 2886      756500
+ 2887              	.LASF155:
+ 2888 01f0 68616C49 		.ascii	"halInit\000"
+ 2888      6E697400 
+ 2889              	.LASF147:
+ 2890 01f8 74696D65 		.ascii	"timeout\000"
+ 2890      6F757400 
+ 2891              	.LASF104:
+ 2892 0200 67657474 		.ascii	"gett\000"
+ 2892      00
+ 2893              	.LASF166:
+ 2894 0205 7368656C 		.ascii	"shellCreate\000"
+ 2894      6C437265 
+ 2894      61746500 
+ 2895              	.LASF97:
+ 2896 0211 6576656E 		.ascii	"event\000"
+ 2896      7400
+ 2897              	.LASF162:
+ 2898 0217 433A5C55 		.ascii	"C:\\Users\\Jeff\\pros\\convex\\cortex\\projects\\Te"
+ 2898      73657273 
+ 2898      5C4A6566 
+ 2898      665C7072 
+ 2898      6F735C63 
+ 2899 0243 73745072 		.ascii	"stProject-Default\000"
+ 2899      6F6A6563 
+ 2899      742D4465 
+ 2899      6661756C 
+ 2899      7400
+ 2900              	.LASF3:
+ 2901 0255 73686F72 		.ascii	"short unsigned int\000"
+ 2901      7420756E 
+ 2901      7369676E 
+ 2901      65642069 
+ 2901      6E7400
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 54
+
+
+ 2902              	.LASF158:
+ 2903 0268 76657843 		.ascii	"vexCortexInit\000"
+ 2903      6F727465 
+ 2903      78496E69 
+ 2903      7400
+ 2904              	.LASF23:
+ 2905 0276 6D73675F 		.ascii	"msg_t\000"
+ 2905      7400
+ 2906              	.LASF100:
+ 2907 027c 6F717565 		.ascii	"oqueue\000"
+ 2907      756500
+ 2908              	.LASF57:
+ 2909 0283 656C5F6E 		.ascii	"el_next\000"
+ 2909      65787400 
+ 2910              	.LASF109:
+ 2911 028b 6B566578 		.ascii	"kVexDigital_1\000"
+ 2911      44696769 
+ 2911      74616C5F 
+ 2911      3100
+ 2912              	.LASF110:
+ 2913 0299 6B566578 		.ascii	"kVexDigital_2\000"
+ 2913      44696769 
+ 2913      74616C5F 
+ 2913      3200
+ 2914              	.LASF111:
+ 2915 02a7 6B566578 		.ascii	"kVexDigital_3\000"
+ 2915      44696769 
+ 2915      74616C5F 
+ 2915      3300
+ 2916              	.LASF112:
+ 2917 02b5 6B566578 		.ascii	"kVexDigital_4\000"
+ 2917      44696769 
+ 2917      74616C5F 
+ 2917      3400
+ 2918              	.LASF113:
+ 2919 02c3 6B566578 		.ascii	"kVexDigital_5\000"
+ 2919      44696769 
+ 2919      74616C5F 
+ 2919      3500
+ 2920              	.LASF114:
+ 2921 02d1 6B566578 		.ascii	"kVexDigital_6\000"
+ 2921      44696769 
+ 2921      74616C5F 
+ 2921      3600
+ 2922              	.LASF115:
+ 2923 02df 6B566578 		.ascii	"kVexDigital_7\000"
+ 2923      44696769 
+ 2923      74616C5F 
+ 2923      3700
+ 2924              	.LASF116:
+ 2925 02ed 6B566578 		.ascii	"kVexDigital_8\000"
+ 2925      44696769 
+ 2925      74616C5F 
+ 2925      3800
+ 2926              	.LASF117:
+ 2927 02fb 6B566578 		.ascii	"kVexDigital_9\000"
+ 2927      44696769 
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 55
+
+
+ 2927      74616C5F 
+ 2927      3900
+ 2928              	.LASF48:
+ 2929 0309 54687265 		.ascii	"ThreadsList\000"
+ 2929      6164734C 
+ 2929      69737400 
+ 2930              	.LASF44:
+ 2931 0315 705F6D74 		.ascii	"p_mtxlist\000"
+ 2931      786C6973 
+ 2931      7400
+ 2932              	.LASF24:
+ 2933 031f 6576656E 		.ascii	"eventmask_t\000"
+ 2933      746D6173 
+ 2933      6B5F7400 
+ 2934              	.LASF77:
+ 2935 032b 496E7075 		.ascii	"InputQueue\000"
+ 2935      74517565 
+ 2935      756500
+ 2936              	.LASF52:
+ 2937 0336 4D757465 		.ascii	"Mutex\000"
+ 2937      7800
+ 2938              	.LASF67:
+ 2939 033c 47656E65 		.ascii	"GenericQueue\000"
+ 2939      72696351 
+ 2939      75657565 
+ 2939      00
+ 2940              	.LASF105:
+ 2941 0349 77726974 		.ascii	"writet\000"
+ 2941      657400
+ 2942              	.LASF80:
+ 2943 0350 77726974 		.ascii	"write\000"
+ 2943      6500
+ 2944              	.LASF103:
+ 2945 0356 70757474 		.ascii	"putt\000"
+ 2945      00
+ 2946              	.LASF29:
+ 2947 035b 705F7072 		.ascii	"p_prev\000"
+ 2947      657600
+ 2948              	.LASF8:
+ 2949 0362 73697A65 		.ascii	"sizetype\000"
+ 2949      74797065 
+ 2949      00
+ 2950              	.LASF69:
+ 2951 036b 715F636F 		.ascii	"q_counter\000"
+ 2951      756E7465 
+ 2951      7200
+ 2952              	.LASF134:
+ 2953 0375 7368656C 		.ascii	"shellcmd_t\000"
+ 2953      6C636D64 
+ 2953      5F7400
+ 2954              	.LASF163:
+ 2955 0380 6D61696E 		.ascii	"main\000"
+ 2955      00
+ 2956              	.LASF33:
+ 2957 0385 705F6F6C 		.ascii	"p_older\000"
+ 2957      64657200 
+ 2958              	.LASF151:
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 56
+
+
+ 2959 038d 61706F6C 		.ascii	"apolloInit\000"
+ 2959      6C6F496E 
+ 2959      697400
+ 2960              	.LASF160:
+ 2961 0398 474E5520 		.ascii	"GNU C 4.7.2\000"
+ 2961      4320342E 
+ 2961      372E3200 
+ 2962              	.LASF161:
+ 2963 03a4 6D61696E 		.ascii	"main.c\000"
+ 2963      2E6300
+ 2964              	.LASF59:
+ 2965 03ab 656C5F6D 		.ascii	"el_mask\000"
+ 2965      61736B00 
+ 2966              	.LASF164:
+ 2967 03b3 63685468 		.ascii	"chThdSleep\000"
+ 2967      64536C65 
+ 2967      657000
+ 2968              	.LASF148:
+ 2969 03be 636F6D6D 		.ascii	"commands\000"
+ 2969      616E6473 
+ 2969      00
+ 2970              	.LASF141:
+ 2971 03c7 666C6F61 		.ascii	"float\000"
+ 2971      7400
+ 2972              	.LASF20:
+ 2973 03cd 74726566 		.ascii	"trefs_t\000"
+ 2973      735F7400 
+ 2974              	.LASF83:
+ 2975 03d5 52455345 		.ascii	"RESERVED0\000"
+ 2975      52564544 
+ 2975      3000
+ 2976              	.LASF84:
+ 2977 03df 52455345 		.ascii	"RESERVED1\000"
+ 2977      52564544 
+ 2977      3100
+ 2978              	.LASF85:
+ 2979 03e9 52455345 		.ascii	"RESERVED2\000"
+ 2979      52564544 
+ 2979      3200
+ 2980              	.LASF76:
+ 2981 03f3 716E6F74 		.ascii	"qnotify_t\000"
+ 2981      6966795F 
+ 2981      7400
+ 2982              	.LASF87:
+ 2983 03fd 52455345 		.ascii	"RESERVED4\000"
+ 2983      52564544 
+ 2983      3400
+ 2984              	.LASF93:
+ 2985 0407 53445F53 		.ascii	"SD_STOP\000"
+ 2985      544F5000 
+ 2986              	.LASF90:
+ 2987 040f 52455345 		.ascii	"RESERVED6\000"
+ 2987      52564544 
+ 2987      3600
+ 2988              	.LASF22:
+ 2989 0419 74707269 		.ascii	"tprio_t\000"
+ 2989      6F5F7400 
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 57
+
+
+ 2990              	.LASF73:
+ 2991 0421 715F7264 		.ascii	"q_rdptr\000"
+ 2991      70747200 
+ 2992              	.LASF154:
+ 2993 0429 536D6172 		.ascii	"SmartMotorDebugStatus\000"
+ 2993      744D6F74 
+ 2993      6F724465 
+ 2993      62756753 
+ 2993      74617475 
+ 2994              	.LASF17:
+ 2995 043f 5F426F6F 		.ascii	"_Bool\000"
+ 2995      6C00
+ 2996              	.LASF14:
+ 2997 0445 696E7433 		.ascii	"int32_t\000"
+ 2997      325F7400 
+ 2998              	.LASF1:
+ 2999 044d 756E7369 		.ascii	"unsigned char\000"
+ 2999      676E6564 
+ 2999      20636861 
+ 2999      7200
+ 3000              	.LASF91:
+ 3001 045b 55534152 		.ascii	"USART_TypeDef\000"
+ 3001      545F5479 
+ 3001      70654465 
+ 3001      6600
+ 3002              	.LASF58:
+ 3003 0469 656C5F6C 		.ascii	"el_listener\000"
+ 3003      69737465 
+ 3003      6E657200 
+ 3004              	.LASF60:
+ 3005 0475 656C5F66 		.ascii	"el_flags\000"
+ 3005      6C616773 
+ 3005      00
+ 3006              	.LASF133:
+ 3007 047e 6B496D65 		.ascii	"kImeChannelNone\000"
+ 3007      4368616E 
+ 3007      6E656C4E 
+ 3007      6F6E6500 
+ 3008              	.LASF2:
+ 3009 048e 73686F72 		.ascii	"short int\000"
+ 3009      7420696E 
+ 3009      7400
+ 3010              	.LASF35:
+ 3011 0498 705F7374 		.ascii	"p_state\000"
+ 3011      61746500 
+ 3012              	.LASF38:
+ 3013 04a0 705F7072 		.ascii	"p_preempt\000"
+ 3013      65656D70 
+ 3013      7400
+ 3014              	.LASF66:
+ 3015 04aa 65776D61 		.ascii	"ewmask\000"
+ 3015      736B00
+ 3016              	.LASF28:
+ 3017 04b1 705F6E65 		.ascii	"p_next\000"
+ 3017      787400
+ 3018              	.LASF79:
+ 3019 04b8 42617365 		.ascii	"BaseSequentialStreamVMT\000"
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 58
+
+
+ 3019      53657175 
+ 3019      656E7469 
+ 3019      616C5374 
+ 3019      7265616D 
+ 3020              	.LASF36:
+ 3021 04d0 705F666C 		.ascii	"p_flags\000"
+ 3021      61677300 
+ 3022              	.LASF72:
+ 3023 04d8 715F7772 		.ascii	"q_wrptr\000"
+ 3023      70747200 
+ 3024              	.LASF167:
+ 3025 04e0 63685468 		.ascii	"chThdRelease\000"
+ 3025      6452656C 
+ 3025      65617365 
+ 3025      00
+ 3026              	.LASF27:
+ 3027 04ed 54687265 		.ascii	"Thread\000"
+ 3027      616400
+ 3028              	.LASF86:
+ 3029 04f4 52455345 		.ascii	"RESERVED3\000"
+ 3029      52564544 
+ 3029      3300
+ 3030              	.LASF43:
+ 3031 04fe 705F6570 		.ascii	"p_epending\000"
+ 3031      656E6469 
+ 3031      6E6700
+ 3032              	.LASF92:
+ 3033 0509 53445F55 		.ascii	"SD_UNINIT\000"
+ 3033      4E494E49 
+ 3033      5400
+ 3034              	.LASF88:
+ 3035 0513 52455345 		.ascii	"RESERVED5\000"
+ 3035      52564544 
+ 3035      3500
+ 3036              	.LASF15:
+ 3037 051d 75696E74 		.ascii	"uint32_t\000"
+ 3037      33325F74 
+ 3037      00
+ 3038              	.LASF95:
+ 3039 0526 73647374 		.ascii	"sdstate_t\000"
+ 3039      6174655F 
+ 3039      7400
+ 3040              	.LASF96:
+ 3041 0530 53657269 		.ascii	"SerialDriver\000"
+ 3041      616C4472 
+ 3041      69766572 
+ 3041      00
+ 3042              	.LASF120:
+ 3043 053d 6B566578 		.ascii	"kVexDigital_12\000"
+ 3043      44696769 
+ 3043      74616C5F 
+ 3043      313200
+ 3044              	.LASF9:
+ 3045 054c 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3045      20756E73 
+ 3045      69676E65 
+ 3045      6420696E 
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 59
+
+
+ 3045      7400
+ 3046              	.LASF10:
+ 3047 055e 63686172 		.ascii	"char\000"
+ 3047      00
+ 3048              	.LASF124:
+ 3049 0563 6B496D65 		.ascii	"kImeChannel_1\000"
+ 3049      4368616E 
+ 3049      6E656C5F 
+ 3049      3100
+ 3050              	.LASF125:
+ 3051 0571 6B496D65 		.ascii	"kImeChannel_2\000"
+ 3051      4368616E 
+ 3051      6E656C5F 
+ 3051      3200
+ 3052              	.LASF126:
+ 3053 057f 6B496D65 		.ascii	"kImeChannel_3\000"
+ 3053      4368616E 
+ 3053      6E656C5F 
+ 3053      3300
+ 3054              	.LASF127:
+ 3055 058d 6B496D65 		.ascii	"kImeChannel_4\000"
+ 3055      4368616E 
+ 3055      6E656C5F 
+ 3055      3400
+ 3056              	.LASF128:
+ 3057 059b 6B496D65 		.ascii	"kImeChannel_5\000"
+ 3057      4368616E 
+ 3057      6E656C5F 
+ 3057      3500
+ 3058              	.LASF129:
+ 3059 05a9 6B496D65 		.ascii	"kImeChannel_6\000"
+ 3059      4368616E 
+ 3059      6E656C5F 
+ 3059      3600
+ 3060              	.LASF130:
+ 3061 05b7 6B496D65 		.ascii	"kImeChannel_7\000"
+ 3061      4368616E 
+ 3061      6E656C5F 
+ 3061      3700
+ 3062              	.LASF131:
+ 3063 05c5 6B496D65 		.ascii	"kImeChannel_8\000"
+ 3063      4368616E 
+ 3063      6E656C5F 
+ 3063      3800
+ 3064              	.LASF159:
+ 3065 05d3 7368656C 		.ascii	"shellInit\000"
+ 3065      6C496E69 
+ 3065      7400
+ 3066              	.LASF119:
+ 3067 05dd 6B566578 		.ascii	"kVexDigital_11\000"
+ 3067      44696769 
+ 3067      74616C5F 
+ 3067      313100
+ 3068              	.LASF144:
+ 3069 05ec 636D645F 		.ascii	"cmd_apollo\000"
+ 3069      61706F6C 
+ 3069      6C6F00
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 60
+
+
+ 3070              	.LASF55:
+ 3071 05f7 6D5F6E65 		.ascii	"m_next\000"
+ 3071      787400
+ 3072              	.LASF26:
+ 3073 05fe 73797374 		.ascii	"systime_t\000"
+ 3073      696D655F 
+ 3073      7400
+ 3074              	.LASF45:
+ 3075 0608 705F7265 		.ascii	"p_realprio\000"
+ 3075      616C7072 
+ 3075      696F00
+ 3076              	.LASF140:
+ 3077 0613 5368656C 		.ascii	"ShellConfig\000"
+ 3077      6C436F6E 
+ 3077      66696700 
+ 3078              	.LASF39:
+ 3079 061f 705F7469 		.ascii	"p_time\000"
+ 3079      6D6500
+ 3080              	.LASF107:
+ 3081 0626 76657853 		.ascii	"vexStream\000"
+ 3081      74726561 
+ 3081      6D00
+ 3082              	.LASF50:
+ 3083 0630 696E7463 		.ascii	"intctx\000"
+ 3083      747800
+ 3084              	.LASF94:
+ 3085 0637 53445F52 		.ascii	"SD_READY\000"
+ 3085      45414459 
+ 3085      00
+ 3086              	.LASF25:
+ 3087 0640 666C6167 		.ascii	"flagsmask_t\000"
+ 3087      736D6173 
+ 3087      6B5F7400 
+ 3088              	.LASF143:
+ 3089 064c 61726776 		.ascii	"argv\000"
+ 3089      00
+ 3090              	.LASF71:
+ 3091 0651 715F746F 		.ascii	"q_top\000"
+ 3091      7000
+ 3092              	.LASF34:
+ 3093 0657 705F6E61 		.ascii	"p_name\000"
+ 3093      6D6500
+ 3094              	.LASF37:
+ 3095 065e 705F7265 		.ascii	"p_refs\000"
+ 3095      667300
+ 3096              	.LASF74:
+ 3097 0665 715F6E6F 		.ascii	"q_notify\000"
+ 3097      74696679 
+ 3097      00
+ 3098              	.LASF12:
+ 3099 066e 75696E74 		.ascii	"uint8_t\000"
+ 3099      385F7400 
+ 3100              	.LASF157:
+ 3101 0676 76657843 		.ascii	"vexConsoleInit\000"
+ 3101      6F6E736F 
+ 3101      6C65496E 
+ 3101      697400
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 61
+
+
+ 3102              	.LASF136:
+ 3103 0685 73635F66 		.ascii	"sc_function\000"
+ 3103      756E6374 
+ 3103      696F6E00 
+ 3104              	.LASF149:
+ 3105 0691 7368656C 		.ascii	"shell_cfg1\000"
+ 3105      6C5F6366 
+ 3105      673100
+ 3106              	.LASF56:
+ 3107 069c 4576656E 		.ascii	"EventListener\000"
+ 3107      744C6973 
+ 3107      74656E65 
+ 3107      7200
+ 3108              	.LASF81:
+ 3109 06aa 72656164 		.ascii	"read\000"
+ 3109      00
+ 3110              	.LASF165:
+ 3111 06af 76657853 		.ascii	"vexSpiGetOnlineStatus\000"
+ 3111      70694765 
+ 3111      744F6E6C 
+ 3111      696E6553 
+ 3111      74617475 
+ 3112              	.LASF142:
+ 3113 06c5 61726763 		.ascii	"argc\000"
+ 3113      00
+ 3114              	.LASF62:
+ 3115 06ca 65735F6E 		.ascii	"es_next\000"
+ 3115      65787400 
+ 3116              	.LASF18:
+ 3117 06d2 746D6F64 		.ascii	"tmode_t\000"
+ 3117      655F7400 
+ 3118              	.LASF42:
+ 3119 06da 705F6D73 		.ascii	"p_msg\000"
+ 3119      6700
+ 3120              	.LASF152:
+ 3121 06e0 61706F6C 		.ascii	"apolloUpdate\000"
+ 3121      6C6F5570 
+ 3121      64617465 
+ 3121      00
+ 3122              	.LASF54:
+ 3123 06ed 6D5F6F77 		.ascii	"m_owner\000"
+ 3123      6E657200 
+ 3124              	.LASF31:
+ 3125 06f5 705F6374 		.ascii	"p_ctx\000"
+ 3125      7800
+ 3126              	.LASF40:
+ 3127 06fb 705F7761 		.ascii	"p_waiting\000"
+ 3127      6974696E 
+ 3127      6700
+ 3128              	.LASF122:
+ 3129 0705 6B566578 		.ascii	"kVexDigitalInput\000"
+ 3129      44696769 
+ 3129      74616C49 
+ 3129      6E707574 
+ 3129      00
+ 3130              		.ident	"GCC: (GNU) 4.7.2"
+ARM GAS  C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s 			page 62
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s:19     .text.cmd_apollo:00000000 $t
+C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s:24     .text.cmd_apollo:00000000 cmd_apollo
+C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s:63     .text.cmd_sm:00000000 $t
+C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s:68     .text.cmd_sm:00000000 cmd_sm
+C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s:84     .text.startup.main:00000000 $t
+C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s:90     .text.startup.main:00000000 main
+C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s:178    .text.startup.main:0000005c $d
+C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s:183    .rodata.commands:00000000 $d
+C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s:186    .rodata.commands:00000000 commands
+C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s:210    .rodata.shell_cfg1:00000000 $d
+C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s:214    .rodata.shell_cfg1:00000000 shell_cfg1
+C:\Users\Jeff\AppData\Local\Temp\cc0kIRCe.s:218    .rodata.str1.4:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+apolloInit
+apolloUpdate
+apolloDeinit
+SmartMotorDebugStatus
+halInit
+chSysInit
+vexConsoleInit
+vexCortexInit
+chThdSleep
+vexSpiGetOnlineStatus
+shellInit
+shellCreate
+chThdRelease
+vexAdcDebug
+vexSpiDebug
+vexMotorDebug
+vexLcdDebug
+vexEncoderDebug
+vexSonarDebug
+vexIMEDebug
+vexTestDebug
+SD1
